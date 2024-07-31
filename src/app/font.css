@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Primed';
+  src: url('/fonts/Primed.woff2') format('woff2'),
+       url('/fonts/Primed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
