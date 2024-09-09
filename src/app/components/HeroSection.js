@@ -3,6 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { Space_Mono } from "next/font/google";
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import { ExternalLink } from 'react-feather';
 
 const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -59,19 +60,27 @@ export default function HeroSection({ spaceMono }) {
                   cursor={false}
                 />
                 <div ref={contentRef} className="mt-6">
-                  <p className="text-lg leading-8 text-gray-600 font-mono">
-                    A product studio by <a href="https://humayunk.com" className="underline" target="_blank" rel="noopener noreferrer">Humayun K.</a> that helps early-stage startups and Fortune 500 companies level up their digital product design.
+                  <p className="text-xl leading-8 text-gray-900 font-mono">
+                    A product studio by <a href="https://humayunk.com" className="underline hover:text-indigo-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Humayun Khan</a>
                   </p>
-                  <div className="mt-8 flex items-center">
-                    <a
-                      href="https://savvycal.com/khanhumayun/12a708c5"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full text-xl font-mono font-light bg-yellow-300 border-2 border-black px-8 py-4 text-black shadow-sm transition-all duration-300 ease-in-out hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Schedule a call
+                  <p className="text-xl leading-8 text-gray-900 font-mono mt-8">
+                    <a href="https://www.querycat.co" className="underline inline-flex items-center hover:text-indigo-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                      QueryCat
+                      <ExternalLink size={18} className="ml-1" />
                     </a>
-                  </div>
+                  </p>
+                  <p className="text-xl leading-8 text-gray-900 font-mono mt-2">
+                    <a href="https://www.authorwebsites.co" className="underline inline-flex items-center hover:text-indigo-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                      Author Websites
+                      <ExternalLink size={18} className="ml-1" />
+                    </a>
+                  </p>
+                  <p className="text-xl leading-8 text-gray-900 font-mono mt-2">
+                    <a href="https://www.learnfingo.co" className="underline inline-flex items-center hover:text-indigo-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                      Fingo
+                      <ExternalLink size={18} className="ml-1" />
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
