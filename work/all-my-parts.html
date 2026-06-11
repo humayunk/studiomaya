@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All My Parts — Case study · Studio Maya</title>
+  <meta name="description" content="Designing and building an AI journaling app for people in Internal Family Systems therapy." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: {
+          ink: '#0a0908',
+          paper: '#e8e8e6',
+          muted: '#8c8a84',
+          faint: '#5e5c57',
+          accent: '#d4a574',
+          line: 'rgba(232,232,230,0.09)',
+        },
+        fontFamily: {
+          serif: ['Newsreader', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        },
+        maxWidth: { measure: '46rem' },
+      } },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    ::selection { background:#d4a574; color:#0a0908; }
+    .display { font-feature-settings:"liga" 1,"kern" 1; letter-spacing:-0.018em; }
+    .lede { text-wrap: pretty; }
+    .eyebrow {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .link {
+      color: #d4a574;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-size: 0% 1px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      transition: background-size .35s cubic-bezier(.2,.7,.2,1);
+    }
+    .link:hover { background-size: 100% 1px; }
+    .placeholder {
+      position: relative;
+      width: 100%;
+      border: 1px solid rgba(232,232,230,0.09);
+      background-color: #100f0d;
+      background-image: repeating-linear-gradient(135deg, rgba(232,232,230,0.045) 0 1px, transparent 1px 12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+    .placeholder-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5e5c57;
+    }
+    #nav { transition: border-color .4s ease, background-color .4s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="bg-ink text-paper font-sans antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header id="nav" class="sticky top-0 z-50 border-b border-transparent bg-ink/95">
+    <nav class="mx-auto flex max-w-measure items-center justify-between px-6 py-5">
+      <a href="../index.html" class="font-serif text-[1.05rem] font-medium tracking-tight text-paper transition-colors hover:text-accent">Studio&nbsp;Maya</a>
+      <div class="flex items-center gap-5 text-[0.85rem] text-muted sm:gap-7 sm:text-[0.92rem]">
+        <a href="../index.html#products" class="transition-colors hover:text-paper">Products</a>
+        <a href="../index.html#engagements" class="transition-colors hover:text-paper">Engagements</a>
+        <a href="../index.html#about" class="transition-colors hover:text-paper">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-measure px-6">
+
+    <!-- ============ BACK ============ -->
+    <div class="pt-10">
+      <a href="../index.html#products" class="font-mono text-[0.8rem] text-faint transition-colors hover:text-paper">&larr; Back</a>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="pt-10 pb-12">
+      <p class="eyebrow text-faint">Mental health · AI · 2025–present</p>
+      <h1 class="display mt-5 font-serif text-[2.4rem] font-light leading-[1.1] text-balance text-paper sm:text-[3.2rem]">
+        All My Parts
+      </h1>
+      <p class="mt-6 lede text-[1.18rem] leading-[1.5] text-muted max-w-[34rem]">
+        An AI journaling app for people in Internal Family Systems therapy. Track parts between sessions, surface patterns across entries.
+      </p>
+
+      <div class="mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-3 text-[0.92rem]">
+        <div>
+          <p class="eyebrow text-faint">Role</p>
+          <p class="mt-2 text-paper">Founder, designer, builder</p>
+        </div>
+        <div>
+          <p class="eyebrow text-faint">Stack</p>
+          <p class="mt-2 text-paper">Rails · OpenAI API · Stripe · Google Auth</p>
+        </div>
+        <div>
+          <p class="eyebrow text-faint">Status</p>
+          <p class="mt-2 text-paper">Paid beta</p>
+        </div>
+      </div>
+
+      <div class="mt-10 placeholder" style="aspect-ratio: 16/9;">
+        <span class="placeholder-label">hero shot — all-my-parts</span>
+      </div>
+    </section>
+
+    <hr class="border-line" />
+
+    <!-- ============ BODY ============ -->
+    <article class="space-y-20 py-16">
+
+      <!-- Overview -->
+      <section>
+        <p class="eyebrow text-faint">Overview</p>
+        <div class="mt-6 max-w-[38rem] space-y-5 text-[1.1rem] leading-[1.7] text-paper/90">
+          <p class="lede">
+            Internal Family Systems (IFS) is a fast-growing therapy modality that treats the mind as a system of distinct parts — managers, firefighters, exiles — each with its own role and protection logic.
+          </p>
+          <p class="lede text-muted">
+            All My Parts is a journaling app shaped around IFS. Each entry tags which parts showed up. An AI summary layer reads across entries to surface themes a person might otherwise miss — which parts are most active, what triggers them, where Self-energy is breaking through.
+          </p>
+        </div>
+      </section>
+
+      <!-- The problem -->
+      <section>
+        <p class="eyebrow text-faint">The problem</p>
+        <div class="mt-6 max-w-[38rem] space-y-5 text-[1.05rem] leading-[1.7] text-muted">
+          <p class="lede">
+            Therapists routinely ask IFS clients to track parts between sessions. Most clients do it on paper or in a Notes app. Both work, but neither makes patterns visible across weeks of entries.
+          </p>
+          <p class="lede">
+            Existing journaling apps assume a single self journaling alone. IFS's central premise — that the mind is plural — breaks that assumption. The data model needs to know about parts.
+          </p>
+        </div>
+        <div class="mt-10 placeholder" style="aspect-ratio: 16/10;">
+          <span class="placeholder-label">research artifact — IFS workflow today</span>
+        </div>
+      </section>
+
+      <!-- What I built -->
+      <section>
+        <p class="eyebrow text-faint">What I built</p>
+        <div class="mt-6 max-w-[38rem] space-y-5 text-[1.05rem] leading-[1.7] text-muted">
+          <p class="lede">
+            A web app where each journal entry can be tagged with the parts that showed up — manager, firefighter, exile — and the Self-energy felt in the moment. Over time, the parts library becomes the user's personal map.
+          </p>
+          <p class="lede">
+            An AI summary layer reads across recent entries and surfaces themes weekly: which parts are most active, what triggers them, where Self-energy is showing up. The goal isn't to replace the therapist — it's to give the client a clearer hand-off into the next session.
+          </p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+          <div class="placeholder" style="aspect-ratio: 4/5;">
+            <span class="placeholder-label">screen — entry editor</span>
+          </div>
+          <div class="placeholder" style="aspect-ratio: 4/5;">
+            <span class="placeholder-label">screen — parts map</span>
+          </div>
+        </div>
+        <div class="mt-4 placeholder" style="aspect-ratio: 16/10;">
+          <span class="placeholder-label">screen — weekly AI summary</span>
+        </div>
+      </section>
+
+      <!-- Stack & approach -->
+      <section>
+        <p class="eyebrow text-faint">Stack & approach</p>
+        <div class="mt-6 max-w-[38rem] space-y-5 text-[1.05rem] leading-[1.7] text-muted">
+          <p class="lede">
+            Rails on the backend with the OpenAI API for the summary layer. Stripe for billing, Google Auth for SSO. The hard work wasn't the AI — it was the data model and the language. Calling a "manager" a "manager" and a "firefighter" a "firefighter" without sounding clinical took several rewrites.
+          </p>
+          <p class="lede">
+            Built solo over a few months using Cursor, on Rails — chosen because the LLM-meets-CRUD shape of the app maps cleanly to convention-over-configuration.
+          </p>
+        </div>
+      </section>
+
+      <!-- Where it is now -->
+      <section>
+        <p class="eyebrow text-faint">Where it is now</p>
+        <div class="mt-6 max-w-[38rem] space-y-5 text-[1.05rem] leading-[1.7] text-muted">
+          <p class="lede">
+            In paid beta at <a href="https://allmyparts.me" target="_blank" rel="noopener" class="link">allmyparts.me</a> — $12.99/month or $99/year. Early users skew toward people already in IFS therapy who use it between sessions, plus IFS-curious people building a self-practice.
+          </p>
+          <p class="lede">
+            Next: build the credibility scaffolding (therapist endorsements, a small Reddit and substack presence) before pushing on paid acquisition. Reddit-organic + cold-email to IFS therapists have both been tried and failed; the path forward needs a credibility-first approach.
+          </p>
+        </div>
+      </section>
+
+    </article>
+
+    <hr class="border-line" />
+
+    <!-- ============ CTA ============ -->
+    <section class="py-20">
+      <h2 class="display font-serif text-[1.8rem] font-light leading-[1.15] text-paper sm:text-[2.3rem]">
+        Building something worth shipping?
+      </h2>
+      <p class="mt-4 text-[1.08rem] leading-relaxed text-muted">
+        I'm available for one new engagement starting July&nbsp;2026.
+      </p>
+      <div class="mt-7">
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[1rem] font-medium text-ink transition-all duration-300 hover:brightness-110">
+          <span>Book a call</span>
+          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-measure px-6 py-14">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="space-y-1.5 text-[0.92rem] text-muted">
+          <p>Studio Maya Inc. · Montreal</p>
+        </div>
+        <p class="eyebrow text-faint">MAYA — Most Advanced Yet Acceptable</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('border-line');
+          nav.classList.remove('border-transparent');
+        } else {
+          nav.classList.remove('border-line');
+          nav.classList.add('border-transparent');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+</body>
+</html>
