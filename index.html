@@ -3,476 +3,581 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Maya — Design & build for healthcare AI</title>
-  <meta name="description" content="Studio Maya is a design-and-build studio of one. I design and build products with founders in healthcare AI — and I make my own." />
+  <title>Studio Maya — A designer who's been the founder</title>
+  <meta name="description" content="I build the version that gets your users, your board, and your investors to say yes — because I've had to earn those yeses for my own products too." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            ink: '#0a0908',
-            paper: '#e8e8e6',
-            muted: '#8c8a84',
-            faint: '#5e5c57',
-            accent: '#d4a574',
-            line: 'rgba(232,232,230,0.09)',
-          },
-          fontFamily: {
-            serif: ['Newsreader', 'Georgia', 'serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-          },
-          maxWidth: {
-            measure: '46rem',
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,200..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --ink: #0a0908;
+      --surface: #15130f;
+      --paper: #e8e8e6;
+      --paper-soft: #d6d4cf;
+      --muted: #a09e98;
+      --faint: #5e5c57;
+      --ghost: #3a3833;
+      --accent: #d4a574;
+      --hairline: rgba(232,232,230,0.09);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    ::selection { background: #d4a574; color: #0a0908; }
-
-    /* Editorial serif refinements */
-    .display { font-feature-settings: "liga" 1, "kern" 1; letter-spacing: -0.018em; }
-    .lede { text-wrap: pretty; }
-
-    /* Small mono label */
-    .eyebrow {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
+    ::selection { background: var(--accent); color: var(--ink); }
 
-    /* Links inside prose */
-    .link {
-      color: #d4a574;
-      text-decoration: none;
-      background-image: linear-gradient(currentColor, currentColor);
-      background-size: 0% 1px;
-      background-repeat: no-repeat;
-      background-position: 0 100%;
-      transition: background-size .35s cubic-bezier(.2,.7,.2,1);
-    }
-    .link:hover { background-size: 100% 1px; }
-
-    /* Availability dot pulse */
-    .pulse {
-      position: relative;
-    }
-    .pulse::after {
+    /* ---------- Film grain ---------- */
+    body::after {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: 0;
-      border-radius: 9999px;
-      box-shadow: 0 0 0 0 rgba(212,165,116,0.55);
-      animation: pulse 2.6s ease-out infinite;
+      z-index: 9000;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(212,165,116,0.5); }
-      70%  { box-shadow: 0 0 0 7px rgba(212,165,116,0); }
-      100% { box-shadow: 0 0 0 0 rgba(212,165,116,0); }
+
+    /* ---------- Type scale ---------- */
+    .h1-hero { font-family:'Newsreader',serif; font-weight:250; font-size:clamp(50px,8vw,116px); line-height:1.02; letter-spacing:-0.035em; text-wrap:balance; }
+    .h2-sec  { font-family:'Newsreader',serif; font-weight:280; font-size:clamp(36px,4.2vw,60px); line-height:1.08; letter-spacing:-0.03em; text-wrap:balance; }
+    .pullquote { font-family:'Newsreader',serif; font-weight:300; font-style:italic; font-size:clamp(25px,3.1vw,41px); line-height:1.42; letter-spacing:-0.01em; text-wrap:balance; }
+    .card-title { font-family:'Newsreader',serif; font-weight:400; font-size:clamp(23px,2vw,27px); letter-spacing:-0.015em; }
+    .lede { font-family:'Inter',sans-serif; font-weight:400; font-size:clamp(16.5px,1.4vw,19px); line-height:1.7; color:var(--muted); text-wrap:pretty; }
+    .body { font-family:'Inter',sans-serif; font-weight:400; font-size:16px; line-height:1.72; color:var(--muted); text-wrap:pretty; }
+    .accent-i { font-style:italic; color:var(--accent); }
+
+    .eyebrow { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint); }
+    .eyebrow .num { color:var(--accent); }
+    .meta-label { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); }
+
+    /* ---------- Layout ---------- */
+    .container { max-width:1200px; margin:0 auto; padding:0 clamp(20px,4vw,40px); }
+    section { border-top:1px solid var(--hairline); padding:clamp(90px,12vh,140px) 0; }
+    section.light { padding:clamp(72px,9vh,110px) 0; }
+    .band { background:var(--surface); }
+
+    /* ---------- Nav ---------- */
+    nav.bar {
+      position:sticky; top:0; z-index:100; height:64px;
+      background:rgba(10,9,8,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--hairline);
+      display:flex; align-items:center;
     }
+    nav.bar .container { display:flex; align-items:center; justify-content:space-between; width:100%; }
+    .wordmark { font-family:'Newsreader',serif; font-weight:500; font-size:21px; color:var(--paper); text-decoration:none; letter-spacing:-0.01em; }
+    .wordmark span { color:var(--accent); }
+    .navlinks { display:flex; align-items:center; gap:clamp(16px,2vw,30px); }
+    .navlinks a { font-family:'Inter',sans-serif; font-size:13.5px; color:var(--muted); text-decoration:none; transition:color .25s ease; }
+    .navlinks a:hover { color:var(--paper); }
+    .navlinks a.hide-sm { display:none; }
+    @media (min-width:720px){ .navlinks a.hide-sm { display:inline; } }
+
+    /* ---------- Buttons ---------- */
+    .btn { display:inline-block; font-family:'Inter',sans-serif; font-weight:500; font-size:15px; text-decoration:none; border-radius:4px; transition:all .25s ease; cursor:pointer; }
+    .btn-primary { background:var(--paper); color:var(--ink); padding:15px 30px; }
+    .btn-primary:hover { background:#fff; transform:translateY(-1px); }
+    .btn-primary.sm { padding:9px 18px; font-size:13.5px; }
+    .btn-secondary { border:1px solid rgba(232,232,230,0.22); color:var(--paper); padding:14px 28px; }
+    .btn-secondary:hover { border-color:var(--accent); color:var(--accent); }
+    .tlink { font-family:'Inter',sans-serif; color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(212,165,116,0.35); transition:border-color .25s ease; }
+    .tlink:hover { border-bottom-color:var(--accent); }
+
+    /* ---------- TODO chip ---------- */
+    .todo { display:inline-block; font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); border:1px dashed rgba(212,165,116,0.45); border-radius:3px; padding:3px 8px; }
+    .todo.gray { color:var(--faint); border-color:rgba(160,158,152,0.35); }
+
+    /* ---------- Availability ---------- */
+    .avail { display:inline-flex; align-items:center; gap:9px; }
+    .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulseDot 2.6s ease-in-out infinite; }
+    @keyframes pulseDot {
+      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(212,165,116,0.45); }
+      50% { opacity:0.7; box-shadow:0 0 0 5px rgba(212,165,116,0); }
+    }
+
+    /* ---------- Glow ---------- */
+    .glow { position:absolute; pointer-events:none; z-index:0; width:min(900px,90vw); height:min(900px,90vw); border-radius:50%;
+      background:radial-gradient(circle at center, rgba(212,165,116,0.10), rgba(212,165,116,0) 68%);
+      animation:glowDrift 18s ease-in-out infinite alternate; }
+    @keyframes glowDrift { from{ transform:translate3d(0,0,0) scale(1);} to{ transform:translate3d(4%,3%,0) scale(1.08);} }
+
+    /* ---------- Hero ---------- */
+    .hero { position:relative; overflow:hidden; border-top:none; padding-top:clamp(70px,12vh,120px); padding-bottom:clamp(90px,12vh,140px); }
+    .hero .glow { top:-22%; left:-12%; }
+    .hero-inner { position:relative; z-index:1; max-width:50rem; }
+    .hero h1 { margin:26px 0; }
+    .hero .lede { max-width:38em; }
+    .hero-cta { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:38px; }
+    .pickbrain-cap { font-family:'Inter',sans-serif; font-size:13px; color:var(--faint); margin-top:12px; }
+    .id-chip { display:inline-flex; align-items:center; gap:12px; margin-top:46px; }
+    .id-portrait { width:52px; height:52px; border-radius:50%; background:var(--surface); border:1px solid var(--hairline); display:grid; place-items:center; font-family:'Newsreader',serif; font-size:22px; color:var(--faint); }
+    .id-name { font-family:'Inter',sans-serif; font-size:14px; color:var(--paper); line-height:1.3; }
+    .id-name span { display:block; font-size:12px; color:var(--faint); margin-top:2px; }
+
+    /* ---------- Generic section header ---------- */
+    .sec-head { margin-bottom:clamp(40px,6vh,68px); }
+    .sec-head .eyebrow { display:block; margin-bottom:18px; }
+    .two-col { display:grid; gap:clamp(28px,5vw,72px); grid-template-columns:1fr; }
+    @media (min-width:860px){ .two-col { grid-template-columns:0.85fr 1.15fr; } }
+
+    /* ---------- Logo band ---------- */
+    .logos { display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); }
+    .logo-cell { padding:26px 4px; }
+    .logo-name { font-family:'Newsreader',serif; font-weight:450; font-size:23px; color:rgba(232,232,230,0.55); transition:color .3s ease; }
+    .logo-cell:hover .logo-name, .logo-cell:focus-within .logo-name { color:rgba(232,232,230,0.95); }
+    .logo-out { font-size:13px; line-height:1.5; color:var(--muted); margin-top:10px; opacity:0; transition:opacity .45s ease; max-width:32ch; }
+    .logo-cell:hover .logo-out, .logo-cell:focus-within .logo-out { opacity:1; }
+    @media (hover:none){ .logo-out { opacity:1; } }
+
+    /* ---------- Wedge ---------- */
+    .wedge-body { display:flex; flex-direction:column; gap:20px; }
+    .pullquote-wrap { margin:clamp(44px,7vh,80px) 0 0 auto; max-width:54rem; padding:clamp(28px,4vh,40px) 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
+
+    /* ---------- Cards grid ---------- */
+    .cards { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); }
+    .card { background:var(--surface); border:1px solid var(--hairline); border-radius:6px; padding:clamp(28px,3vw,36px); display:flex; flex-direction:column; }
+    .band .card { background:var(--ink); }
+
+    /* Offer card */
+    .offer-top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:22px; }
+    .offer-num { font-family:'Newsreader',serif; font-weight:200; font-size:46px; color:var(--accent); line-height:1; }
+    .offer-mode { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); text-align:right; line-height:1.5; }
+    .offer-body { margin:14px 0 26px; }
+    .bestfor { margin-top:auto; padding-top:20px; border-top:1px solid var(--hairline); }
+    .bestfor .meta-label { display:block; margin-bottom:8px; }
+    .bestfor q { font-family:'Newsreader',serif; font-style:italic; font-weight:300; font-size:18px; line-height:1.4; color:var(--paper-soft); quotes:none; }
+
+    /* Work card */
+    .work-card { background:var(--surface); border:1px solid var(--hairline); border-radius:6px; overflow:hidden; display:grid; grid-template-columns:1fr; }
+    @media (min-width:780px){ .work-card { grid-template-columns:1.1fr 0.9fr; } }
+    .work-content { padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; }
+    .work-eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); }
+    .work-summary { font-family:'Newsreader',serif; font-weight:400; font-size:clamp(21px,2vw,26px); line-height:1.2; letter-spacing:-0.015em; margin:14px 0 24px; color:var(--paper); }
+    .work-metric { font-family:'Newsreader',serif; font-weight:200; font-size:clamp(32px,3.2vw,52px); line-height:1.06; letter-spacing:-0.03em; color:var(--paper); }
+    .work-metric .mk { color:var(--accent); }
+    .work-sub { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-top:10px; }
+    .work-meta { margin-top:26px; padding-top:22px; border-top:1px solid var(--hairline); display:flex; flex-direction:column; gap:14px; }
+    .meta-row { display:grid; grid-template-columns:86px 1fr; gap:14px; align-items:start; }
+    .meta-row .v { font-size:13.5px; line-height:1.5; color:var(--muted); }
+    .work-link { margin-top:26px; }
+    .work-media { min-height:clamp(220px,28vw,100%); }
+
+    /* image slot */
+    .img-slot { background:var(--surface); border:1px solid var(--hairline); display:grid; place-items:center; color:var(--faint); position:relative; }
+    .band .img-slot { background:var(--ink); }
+    .img-slot .meta-label { color:var(--ghost); }
+    .work-media.img-slot { border:none; border-top:1px solid var(--hairline); border-radius:0; }
+    @media (min-width:780px){ .work-media.img-slot { border-top:none; border-left:1px solid var(--hairline); } }
+
+    /* Testimonial */
+    .quote-card { background:var(--surface); border:1px solid var(--hairline); border-radius:6px; padding:clamp(28px,3vw,38px); display:flex; flex-direction:column; }
+    .quote-mark { font-family:'Newsreader',serif; font-size:64px; line-height:0.6; color:rgba(212,165,116,0.55); height:34px; }
+    .skel { display:flex; flex-direction:column; gap:12px; margin:24px 0; }
+    .skel span { height:12px; border-radius:3px; background:rgba(232,232,230,0.07); display:block; }
+    .qfoot { margin-top:auto; padding-top:22px; display:flex; align-items:center; gap:12px; }
+    .qface { width:44px; height:44px; border-radius:50%; background:rgba(232,232,230,0.06); border:1px solid var(--hairline); flex:none; }
+    .qname { font-size:13.5px; color:var(--faint); line-height:1.4; }
+    .qname b { display:block; color:var(--muted); font-weight:500; }
+
+    /* Products */
+    .prod-card .card-title { color:var(--paper); }
+    .prod-foot { font-family:'Newsreader',serif; font-style:italic; font-weight:300; font-size:clamp(19px,1.8vw,24px); color:var(--paper-soft); margin-top:clamp(32px,4vh,48px); }
+
+    /* Writing list */
+    .wlist { display:flex; flex-direction:column; }
+    .wrow { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-top:1px solid var(--hairline); transition:opacity .25s ease; }
+    .wrow:hover { opacity:0.78; }
+    .wrow-left { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .wkind { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); }
+    .wtitle { font-family:'Newsreader',serif; font-size:clamp(19px,1.8vw,23px); color:var(--paper); }
+    .wdate { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.1em; color:var(--faint); white-space:nowrap; }
+
+    /* About */
+    .about-grid { display:grid; gap:clamp(28px,5vw,60px); grid-template-columns:1fr; align-items:start; }
+    @media (min-width:760px){ .about-grid { grid-template-columns:340px 1fr; } }
+    .about-portrait { aspect-ratio:400/480; border-radius:10px; }
+    .maya { font-family:ui-monospace,Menlo,monospace; font-size:0.9em; letter-spacing:0.04em; color:var(--accent); }
+
+    /* Final CTA */
+    .final { position:relative; overflow:hidden; text-align:center; }
+    .final .glow { bottom:-30%; left:50%; margin-left:calc(min(900px,90vw) / -2); }
+    .final-inner { position:relative; z-index:1; max-width:40rem; margin:0 auto; }
+    .final .body { margin:22px auto 34px; max-width:30em; }
+    .final-cta { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:18px; }
+    .final-mail { font-family:'Inter',sans-serif; font-size:14px; color:var(--muted); text-decoration:none; }
+    .final-mail:hover { color:var(--paper); }
+
+    /* Footer */
+    footer { border-top:1px solid var(--hairline); padding:clamp(40px,6vh,64px) 0; }
+    footer .container { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; }
+    .foot-links { display:flex; gap:22px; flex-wrap:wrap; }
+    .foot-links a { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); text-decoration:none; transition:color .25s ease; }
+    .foot-links a:hover { color:var(--muted); }
+    .foot-cap { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; color:var(--ghost); }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:none; }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .pulse::after { animation: none; }
+      * { animation:none !important; transition:none !important; }
+      html { scroll-behavior:auto; }
+      .reveal { opacity:1; transform:none; }
     }
-
-    /* Work row hover */
-    .work-row { transition: color .3s ease; }
-    .work-row .arrow {
-      opacity: 0;
-      transform: translateX(-6px);
-      transition: opacity .3s ease, transform .3s ease, color .3s ease;
-    }
-    .work-row:hover .arrow { opacity: 1; transform: translateX(0); }
-    .work-row:hover .work-title { color: #d4a574; }
-
-    /* Nav scroll border */
-    #nav { transition: border-color .4s ease, background-color .4s ease; }
   </style>
 </head>
-
-<body class="bg-ink text-paper font-sans antialiased">
+<body>
 
   <!-- ============ NAV ============ -->
-  <header id="nav" class="sticky top-0 z-50 border-b border-transparent bg-ink/95">
-    <nav class="mx-auto flex max-w-measure items-center justify-between px-6 py-5">
-      <a href="#top" class="font-serif text-[1.05rem] font-medium tracking-tight text-paper transition-colors hover:text-accent">Studio&nbsp;Maya</a>
-      <div class="flex items-center gap-5 text-[0.85rem] text-muted sm:gap-7 sm:text-[0.92rem]">
-        <a href="#products" class="transition-colors hover:text-paper">Products</a>
-        <a href="#engagements" class="transition-colors hover:text-paper">Engagements</a>
-        <a href="#about" class="transition-colors hover:text-paper">About</a>
+  <nav class="bar">
+    <div class="container">
+      <a href="#top" class="wordmark">Studio Maya<span>.</span></a>
+      <div class="navlinks">
+        <a href="#work" class="hide-sm">Work</a>
+        <a href="#engagements" class="hide-sm">Engagements</a>
+        <a href="#products" class="hide-sm">Products</a>
+        <a href="#about" class="hide-sm">About</a>
+        <a href="https://cal.com/humayunkhan" class="btn btn-primary sm">Book a call</a>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="glow"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <p class="avail eyebrow"><span class="dot"></span>Available for one new engagement — <span style="color:var(--accent)">July 2026</span></p>
+        <h1 class="h1-hero">A designer who's been the <span class="accent-i">founder.</span></h1>
+        <p class="lede">I build the version that gets your users, your board, and your investors to say yes — because I've had to earn those yeses for my own products too.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" class="btn btn-primary">Book a call</a>
+          <a href="https://cal.com/humayunkhan" class="btn btn-secondary">Pick my brain</a>
+        </div>
+        <p class="pickbrain-cap">A paid 1-hour advisory call for founders not ready to hire.</p>
+        <div class="id-chip">
+          <div class="id-portrait" aria-hidden="true">H</div>
+          <div class="id-name">Humayun Khan<span>Founder, Studio Maya · Montreal</span></div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main id="top" class="mx-auto max-w-measure px-6">
-
-    <!-- ============ HERO ============ -->
-    <section class="pt-24 pb-20 sm:pt-32 sm:pb-28">
-      <h1 class="display font-serif text-[2.1rem] font-light leading-[1.12] text-balance text-paper sm:text-[3.6rem] sm:leading-[1.08]">
-        I build products.
-        <span class="block text-muted">Some are mine. Some are for&nbsp;founders.</span>
-      </h1>
-
-      <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
-        <span class="inline-flex items-center gap-2.5 text-[0.9rem] text-muted">
-          <span class="pulse inline-block h-2 w-2 shrink-0 rounded-full bg-accent"></span>
-          Available for one new engagement starting July&nbsp;2026
-        </span>
+  <!-- ============ 01 LOGO BAND ============ -->
+  <section id="proof" class="light">
+    <div class="container">
+      <p class="eyebrow reveal" style="margin-bottom:34px;"><span class="num">01</span> &mdash; Trusted by teams at</p>
+      <div class="logos reveal">
+        <div class="logo-cell">
+          <div class="logo-name">Shopify</div>
+          <div class="logo-out"><span class="todo">TODO · outcome line</span></div>
+        </div>
+        <div class="logo-cell" tabindex="0">
+          <div class="logo-name">ClassDojo</div>
+          <div class="logo-out">Sole Android designer through the React Native migration. 50M+ users.</div>
+        </div>
+        <div class="logo-cell" tabindex="0">
+          <div class="logo-name">Reputable Health</div>
+          <div class="logo-out">Built the AI marketing tool that took clinical study launches from 6 hours to 30 minutes.</div>
+        </div>
+        <div class="logo-cell" tabindex="0">
+          <div class="logo-name">Practice with Joy</div>
+          <div class="logo-out">Built Sitebuilder and Joyful Marketing — two AI tools that run the whole clinic-onboarding pipeline.</div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-9">
-        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[1rem] font-medium text-ink transition-all duration-300 hover:brightness-110">
-          <span>Book a call</span>
-          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-        </a>
+  <!-- ============ 02 WEDGE ============ -->
+  <section id="wedge" class="band">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0;">
+          <span class="eyebrow"><span class="num">02</span> &mdash; The shift</span>
+          <h2 class="h2-sec" style="margin-top:18px;">The build got cheap. The <span class="accent-i">yes</span> didn't.</h2>
+        </div>
+        <div class="wedge-body reveal">
+          <p class="body">Anyone can ship a prototype now. The hard part was never the code — it's making something people actually get excited about, fund, and come back to. That's a design problem, and it's the one that decides whether your idea becomes a company.</p>
+          <p class="body">Most people you'd hire for this are career designers. I'm a designer who's also shipped and run my own products — priced them, watched the signup graph stay flat, killed the features nobody used, felt every consequence of getting the experience wrong.</p>
+          <p class="body">So I don't hand you a beautiful Figma file and walk away. I design for the outcome you actually need — board sign-off, the investment commitment, a user who comes back — because I've had to earn those exact yeses with my own money on the line.</p>
+        </div>
       </div>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ WHAT I DO ============ -->
-    <section class="py-20 sm:py-24">
-      <p class="eyebrow text-faint">What I do</p>
-      <div class="mt-12 grid gap-12 sm:grid-cols-1">
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">What I do</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            I build products. Some I keep and run myself; some I build for founders. Either way I cover the whole stack — research, design, prototyping, and shipping production code with AI tooling (Claude, Cursor).
-          </p>
-        </div>
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">How fractional works</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            When I take client work, I embed with one founder at a time — usually three to six months at 20–40 hrs/week. Strong preference for engagements that ship an actual product, not just a deliverable.
-          </p>
-        </div>
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Who I work with</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            Technical founders building in complex, regulated spaces — healthcare especially, plus fintech, edtech, enterprise. Pre-seed to Series A. People who want an embedded product partner, not a logo.
-          </p>
-        </div>
-
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">Engineers come at it from the backend. PMs come at it from the spec. I come at it from the experience — the part that gets people to say yes. The backend gets rebuilt anyway.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr class="border-line" />
+  <!-- ============ 03 ENGAGEMENTS ============ -->
+  <section id="engagements">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">03</span> &mdash; Engagements</span>
+        <h2 class="h2-sec">Three ways to work together. <span class="accent-i">Start small.</span></h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="offer-top"><span class="offer-num">01</span><span class="offer-mode">Fixed scope<br>· fixed price</span></div>
+          <h3 class="card-title">Prototype Sprint</h3>
+          <p class="body offer-body">One to two weeks. I take your idea or rough build and turn it into a prototype that gets a yes — something you can put in front of your board, your users, or your next investor. Low risk, fast, yours to keep.</p>
+          <div class="bestfor"><span class="meta-label">Best for</span><q>"I need to show this to someone next month."</q></div>
+        </article>
+        <article class="card reveal">
+          <div class="offer-top"><span class="offer-num">02</span><span class="offer-mode">Monthly</span></div>
+          <h3 class="card-title">Embedded Partner</h3>
+          <p class="body offer-body">I embed with one founder at a time — design, prototype, and ship production code alongside your team. Usually 3–6 months at 20–40 hrs/week. One client at a time, so you get a partner, not a vendor.</p>
+          <div class="bestfor"><span class="meta-label">Best for</span><q>"We need senior design moving now, but a full-time hire is too slow or too heavy."</q></div>
+        </article>
+        <article class="card reveal">
+          <div class="offer-top"><span class="offer-num">03</span><span class="offer-mode">Custom</span></div>
+          <h3 class="card-title">Zero-to-One Build</h3>
+          <p class="body offer-body">End-to-end. From the first conversation to a shipped, on-brand product in users' hands. For founders who want one person owning the whole arc from idea to launch.</p>
+          <div class="bestfor"><span class="meta-label">Best for</span><q>"I have the idea and the conviction. I need someone to make it real."</q></div>
+        </article>
+      </div>
+      <p class="reveal" style="margin-top:34px;"><span class="body" style="color:var(--faint)">Not sure which?</span> <a href="https://cal.com/humayunkhan" class="tlink">Book a 20-minute call &rarr;</a></p>
+    </div>
+  </section>
 
-    <!-- ============ PRODUCTS ============ -->
-    <section id="products" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">Products</p>
+  <!-- ============ 04 SELECTED WORK ============ -->
+  <section id="work" class="band">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">04</span> &mdash; Selected work</span>
+        <h2 class="h2-sec">Work that earned a <span class="accent-i">yes.</span></h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
 
-      <div class="mt-12 grid gap-12">
+        <article class="work-card reveal">
+          <div class="work-content">
+            <span class="work-eyebrow">Reputable Health</span>
+            <p class="work-summary">Clinical-trial study launches, automated.</p>
+            <p class="work-metric">6 hrs <span class="mk">&rarr;</span> 30 min</p>
+            <p class="work-sub">per launch</p>
+            <div class="work-meta">
+              <div class="meta-row"><span class="meta-label">Role</span><span class="v">Designer &amp; builder · Built the AI marketing automation tool</span></div>
+              <div class="meta-row"><span class="meta-label">Skills</span><span class="v">Product design, prototyping, AI tooling (Claude, Cursor)</span></div>
+            </div>
+            <p class="work-link"><a href="work/reputable-health.html" class="tlink">See the full story &rarr;</a></p>
+          </div>
+          <div class="work-media img-slot"><span class="meta-label">Image — Reputable hero</span></div>
+        </article>
 
-        <!-- All My Parts -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">All My Parts</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–present</span>
+        <article class="work-card reveal">
+          <div class="work-content">
+            <span class="work-eyebrow">ClassDojo</span>
+            <p class="work-summary">Android, unified onto React Native.</p>
+            <p class="work-metric">50M<span class="mk">+</span> users</p>
+            <p class="work-sub">on the platform</p>
+            <div class="work-meta">
+              <div class="meta-row"><span class="meta-label">Role</span><span class="v">Sole Android product designer through the React Native migration</span></div>
+              <div class="meta-row"><span class="meta-label">Skills</span><span class="v">Product design, design systems, cross-platform</span></div>
+            </div>
+            <p class="work-link"><a href="work/classdojo.html" class="tlink">See the full story &rarr;</a></p>
           </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              An AI journaling app inspired by Internal Family Systems therapy. For people in IFS work who want to track their parts between sessions.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://allmyparts.me" target="_blank" rel="noopener" class="link text-[0.85rem]">allmyparts.me &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
+          <div class="work-media img-slot"><span class="meta-label">Image — ClassDojo hero</span></div>
+        </article>
 
-        <!-- Cortex -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Cortex</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–present</span>
+        <article class="work-card reveal">
+          <div class="work-content">
+            <span class="work-eyebrow">Practice with Joy</span>
+            <p class="work-summary">The whole clinic-onboarding pipeline, run by two AI tools.</p>
+            <p class="work-metric">Sitebuilder <span class="mk">+</span> Joyful Marketing</p>
+            <p class="work-sub">built &amp; shipped</p>
+            <div class="work-meta">
+              <div class="meta-row"><span class="meta-label">Role</span><span class="v">Designer &amp; builder</span></div>
+              <div class="meta-row"><span class="meta-label">Skills</span><span class="v">Product design, prototyping, AI tooling</span></div>
+            </div>
+            <p class="work-link"><a href="work/practice-with-joy.html" class="tlink">See the full story &rarr;</a></p>
           </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A spaced-repetition learning app for product designers. Hand-curated, illustrated card decks to build design vocabulary.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://learnwithcortex.com" target="_blank" rel="noopener" class="link text-[0.85rem]">learnwithcortex.com &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Joyful Marketing -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Joyful Marketing</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–2026</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A NotebookLM-style platform that generates a clinic's blog posts, social calendar, and brand-on-brand creative from a single context upload. Replaces hours of per-clinic setup with minutes.
-            </p>
-            <p class="mt-3 font-mono text-[0.8rem] text-faint">
-              For Practice with Joy
-            </p>
-          </div>
-        </div>
-
-        <!-- Reputable Studies -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Reputable Studies</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              An AI tool that turns clinical study protocols into participant-ready landing pages and ad copy. Campaign launch time: 6 hours to 30 minutes.
-            </p>
-            <p class="mt-3 font-mono text-[0.8rem] text-faint">
-              For Reputable Health
-            </p>
-          </div>
-        </div>
-
-        <!-- QueryCat -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">QueryCat</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2023–2024</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A marketplace connecting aspiring authors with literary agents. Reached 1,000+ users and $300 MRR before sunsetting.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://querycat.co" target="_blank" rel="noopener" class="link text-[0.85rem]">querycat.co &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
+          <div class="work-media img-slot"><span class="meta-label">Image — Joy hero</span></div>
+        </article>
 
       </div>
-      <p class="mt-12 text-[0.92rem] text-faint">Case studies coming soon.</p>
-    </section>
+    </div>
+  </section>
 
-    <hr class="border-line" />
-
-    <!-- ============ ENGAGEMENTS ============ -->
-    <section id="engagements" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">Engagements</p>
-
-      <div class="mt-12 grid gap-12">
-
-        <!-- Practice with Joy -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Practice with Joy</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–2026</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed and built across the platform — clinic websites, marketing automation, patient intake, HIPAA-compliant documentation. NP-focused telehealth.
-            </p>
-            <p class="mt-3"><a href="https://www.practicewithjoy.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">practicewithjoy.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Reputable Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Reputable Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Sr. Product Designer, AI. Designed marketing automation (Reputable Studies), prototyped Heartbeats — a token-based engagement system, and led PM for an offshore dev team.
-            </p>
-            <p class="mt-3"><a href="https://www.reputable.health" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">reputable.health &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- NIA Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">NIA Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Redesigned onboarding and dashboard for a seed-stage preventative health platform ($8.25M raised).
-            </p>
-            <p class="mt-3"><a href="https://niahealth.co" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">niahealth.co &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- RxFood -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">RxFood</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2024</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Led product design and a design sprint on an early-stage AI nutrition therapy platform.
-            </p>
-            <p class="mt-3"><a href="https://rxfood.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">rxfood.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- ClassDojo -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">ClassDojo</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2022–2023</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Sole Android designer through the React Native migration, 50M+ users.
-            </p>
-            <p class="mt-3"><a href="https://classdojo.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">classdojo.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Ruth Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Ruth Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2022</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed a YC-backed maternal telehealth platform from the ground up.
-            </p>
-            <p class="mt-3"><a href="https://www.ycombinator.com/companies/ruth-health" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">ycombinator.com/companies/ruth-health &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Agoro Carbon Alliance -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Agoro Carbon Alliance</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2021</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Researched and prototyped a platform incentivizing farmers to adopt carbon-neutral practices through credits. A Yara International subsidiary.
-            </p>
-            <p class="mt-3"><a href="https://agorocarbon.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">agorocarbon.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Applied Materials -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Applied Materials</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2020–2021</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed an automated pricing platform and ERP solution for the Fortune 500 semiconductor manufacturer (NASDAQ: AMAT).
-            </p>
-            <p class="mt-3"><a href="https://appliedmaterials.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">appliedmaterials.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Ambry Genetics -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Ambry Genetics</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2020</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed a COVID-19 assessment platform for safe return-to-work. A Konica Minolta subsidiary.
-            </p>
-            <p class="mt-3"><a href="https://www.ambrygen.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">ambrygen.com &rarr;</a></p>
-          </div>
-        </div>
-
+  <!-- ============ 05 TESTIMONIALS ============ -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">05</span> &mdash; What founders say</span>
+        <h2 class="h2-sec">What founders say.</h2>
       </div>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">About</p>
-
-      <div class="mt-10 max-w-[38rem] space-y-7 text-[1.12rem] leading-[1.75] text-paper/90">
-        <p class="lede">
-          I'm Humayun. I've spent the last decade designing products in complex, regulated spaces — at Shopify (pre-IPO), ClassDojo (50M+ users), Roadmunk (acq. Tempo), and Tiny Hearts (acq. Shopify), before going independent in 2020.
-        </p>
-        <p class="lede text-muted">
-          Studio Maya takes its name from the MAYA principle — "Most Advanced Yet Acceptable" — coined by industrial designer Raymond Loewy. Every product I build aims for that line: as advanced as the user can absorb, no further.
-        </p>
-        <p class="lede text-muted">
-          Based in Montreal. Work remote, anywhere.
-        </p>
+      <div class="cards">
+        <article class="quote-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="skel"><span style="width:96%"></span><span style="width:88%"></span><span style="width:72%"></span></div>
+          <span class="todo gray">Real testimonial — to be supplied, none fabricated</span>
+          <div class="qfoot"><div class="qface"></div><div class="qname"><b>[Name]</b>[Role, Company]</div></div>
+        </article>
+        <article class="quote-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="skel"><span style="width:90%"></span><span style="width:94%"></span><span style="width:64%"></span></div>
+          <span class="todo gray">Real testimonial — to be supplied, none fabricated</span>
+          <div class="qfoot"><div class="qface"></div><div class="qname"><b>[Name]</b>[Role, Company]</div></div>
+        </article>
+        <article class="quote-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="skel"><span style="width:84%"></span><span style="width:92%"></span><span style="width:78%"></span></div>
+          <span class="todo gray">Real testimonial — to be supplied, none fabricated</span>
+          <div class="qfoot"><div class="qface"></div><div class="qname"><b>[Name]</b>[Role, Company]</div></div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr class="border-line" />
-
-    <!-- ============ CTA ============ -->
-    <section class="py-24 sm:py-32">
-      <h2 class="display font-serif text-[2rem] font-light leading-[1.15] text-paper sm:text-[2.6rem]">
-        Building something worth shipping?
-      </h2>
-      <p class="mt-5 text-[1.12rem] leading-relaxed text-muted">
-        I'm available for one new engagement starting July&nbsp;2026.
-      </p>
-      <div class="mt-9">
-        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[1rem] font-medium text-ink transition-all duration-300 hover:brightness-110">
-          <span>Book a call</span>
-          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-        </a>
+  <!-- ============ 06 PRODUCTS ============ -->
+  <section id="products" class="band">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0;">
+          <span class="eyebrow"><span class="num">06</span> &mdash; Products</span>
+          <h2 class="h2-sec" style="margin-top:18px;">I ship my own products, too.</h2>
+        </div>
+        <div class="reveal">
+          <p class="body" style="margin-bottom:30px;">Not as a side hustle — as a way to stay honest. Running my own products means I'm not theorizing about what founders face. I'm living it this week: the pricing call, the distribution grind, the question of whether anyone will actually use the thing.</p>
+          <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));">
+            <article class="card prod-card">
+              <h3 class="card-title">All My Parts</h3>
+              <p class="body" style="margin-top:12px;">An AI journaling app inspired by Internal Family Systems therapy.</p>
+            </article>
+            <article class="card prod-card">
+              <h3 class="card-title">Cortex</h3>
+              <p class="body" style="margin-top:12px;">A spaced-repetition learning app for product designers.</p>
+            </article>
+          </div>
+        </div>
       </div>
-    </section>
+      <p class="prod-foot reveal">Every lesson from these goes straight into your product.</p>
+    </div>
+  </section>
 
-  </main>
+  <!-- ============ 07 WRITING ============ -->
+  <section id="writing" class="light">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0;">
+          <span class="eyebrow"><span class="num">07</span> &mdash; Writing</span>
+          <h2 class="h2-sec" style="margin-top:18px;">I write about this, too.</h2>
+        </div>
+        <div class="reveal">
+          <p class="lede" style="margin-bottom:14px;">Notes on design, building, and what it actually takes to move a founder from idea to traction. <span class="todo gray">Real essays — to be supplied</span></p>
+          <div class="wlist">
+            <a class="wrow" href="#" style="text-decoration:none;">
+              <span class="wrow-left"><span class="wkind">Essay</span><span class="wtitle">[Essay title]</span></span>
+              <span class="wdate">TODO</span>
+            </a>
+            <a class="wrow" href="#" style="text-decoration:none;">
+              <span class="wrow-left"><span class="wkind">Essay</span><span class="wtitle">[Essay title]</span></span>
+              <span class="wdate">TODO</span>
+            </a>
+            <a class="wrow" href="#" style="text-decoration:none;">
+              <span class="wrow-left"><span class="wkind">Talk</span><span class="wtitle">[Talk or podcast]</span></span>
+              <span class="wdate">TODO</span>
+            </a>
+            <a class="wrow" href="https://humayun.xyz" style="text-decoration:none;">
+              <span class="wrow-left"><span class="wkind">Elsewhere</span><span class="wtitle">Personal essays &amp; fiction</span></span>
+              <span class="wdate">humayun.xyz &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <span class="eyebrow reveal" style="display:block; margin-bottom:34px;"><span class="num">08</span> &mdash; About</span>
+      <div class="about-grid">
+        <div class="about-portrait img-slot reveal"><span class="meta-label">Portrait</span></div>
+        <div class="about-bio reveal">
+          <p class="lede" style="color:var(--paper-soft); font-size:clamp(18px,1.6vw,21px);">I'm Humayun — a product designer and builder based in Montreal, working remotely since 2020. Shopify, ClassDojo, and a string of healthcare and AI startups before going independent. I also write fiction and publish at <a href="https://humayun.xyz" class="tlink">humayun.xyz</a>.</p>
+          <p class="lede" style="margin-top:22px;">I work the way Raymond Loewy designed: <span class="maya">MAYA — Most Advanced Yet Acceptable</span>. New enough to matter, familiar enough to say yes to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final">
+    <div class="glow"></div>
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2-sec">Got something that needs to get a <span class="accent-i">yes?</span></h2>
+        <p class="body">I take one new engagement at a time. If the timing's right, let's talk.</p>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" class="btn btn-primary">Book a call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="border-t border-line">
-    <div class="mx-auto max-w-measure px-6 py-14">
-      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div class="space-y-1.5 text-[0.92rem] text-muted">
-          <p>Studio Maya Inc. · Montreal</p>
-        </div>
-        <p class="eyebrow text-faint">MAYA — Most Advanced Yet Acceptable</p>
+  <footer>
+    <div class="container">
+      <a href="#top" class="wordmark">Studio Maya<span>.</span></a>
+      <div class="foot-links">
+        <a href="https://humayun.xyz">humayun.xyz</a>
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
       </div>
+      <p class="foot-cap">© 2026 Studio Maya — MAYA</p>
     </div>
   </footer>
 
   <script>
-    // Fade in a hairline under the nav once the user scrolls past the hero top.
+    // Scroll reveal
     (function () {
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 12) {
-          nav.classList.add('border-line');
-          nav.classList.remove('border-transparent');
-        } else {
-          nav.classList.remove('border-line');
-          nav.classList.add('border-transparent');
-        }
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (n) { return n.classList && n.classList.contains('reveal'); });
+            var i = sibs.indexOf(el);
+            el.style.transitionDelay = ((i % 3) * 0.08) + 's';
+            el.classList.add('in');
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Hero glow parallax
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var glows = document.querySelectorAll('.hero .glow');
+      var ticking = false;
+      function update() {
+        var y = window.scrollY * 0.12;
+        glows.forEach(function (g) { g.style.marginTop = y + 'px'; });
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
     })();
   </script>
+
 </body>
 </html>
