@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Maya — Practice with Joy case study</title>
-  <meta name="description" content="An AI marketing engine that stood up brand, websites and marketing for six independent healthtech clinics — built largely solo." />
+  <meta name="description" content="An AI marketing engine that runs brand, websites and marketing for a network of independent healthtech clinics — built largely solo." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,7 +53,7 @@
   <div class="metric-band">
     <div class="container">
       <div class="metric-grid">
-        <div class="metric-item reveal"><div class="big">6</div><div class="lbl">Clinics onboarded</div></div>
+        <div class="metric-item reveal"><div class="big">8&ndash;10</div><div class="lbl">Clinics' marketing run — solo + AI</div></div>
         <div class="metric-item reveal"><div class="big">3<span class="mk">wk</span></div><div class="lbl">Kickoff &rarr; site + ads live</div></div>
         <div class="metric-item reveal"><div class="big">28</div><div class="lbl">Organic keywords ranked · Generations Health</div></div>
       </div>
@@ -66,8 +66,8 @@
         <div class="reveal"><span class="eyebrow"><span class="num">01</span> &mdash; The problem</span></div>
         <div class="reveal">
           <h2 class="h2-sub">Every new clinic was a manual build.</h2>
-          <p class="body">Practice with Joy helps independent nurse practitioners spin up their own clinics — people who, as the team puts it, "don't know what a domain is." Each one needed a brand, a multi-page SEO site, and an ongoing marketing motion, all stood up by hand. One person owned that onboarding, and it didn't scale.</p>
-          <p class="body">The upside made the bottleneck expensive: through an Aledade partnership, roughly a thousand value-based-care practices were in reach — about half with a bad website or none at all. Demand wasn't the constraint. The manual cost of launching each clinic was.</p>
+          <p class="body">Practice with Joy helps independent nurse practitioners spin up their own clinics — people who, as the team puts it, "don't know what a domain is." Each one needed a brand, a multi-page SEO site, and an ongoing marketing motion, stood up by hand.</p>
+          <p class="body">By the time I was running marketing for eight to ten clinics, it had become a treadmill of repetitive setup — re-uploading the same brand docs and meeting notes into a fresh Claude project for every clinic and every asset, switching tools constantly. The upside only sharpened it: through an Aledade partnership, roughly a thousand value-based-care practices were in reach, about half with a bad website or none at all. Demand wasn't the constraint. The manual cost of launching and running each clinic was.</p>
         </div>
       </div>
     </div>
@@ -80,12 +80,21 @@
         <div class="reveal">
           <h2 class="h2-sub">Turn the playbook into AI tooling.</h2>
           <p class="body">I took the founder's brand-building playbook — kickoff call, questionnaire, brand blueprint, logo, site — and rebuilt it as a pipeline. <em>Sitebuilder</em> assembles a clinic's multi-page site from component blocks on a headless CMS, with an AI pass that seeds the first draft straight from the sales-call transcript.</p>
-          <p class="body"><em>Joyful Marketing</em> — which I designed and built — is a NotebookLM-style tool that takes a clinic's brand and meeting recordings and produces social posts, print collateral and blog content, with a calendar and a client-approval flow. Underneath, n8n workflows automate the repetitive pieces — blog drafting, editorial image generation — so a clinic's content calendar largely fills itself.</p>
+          <p class="body"><em>Joyful Marketing</em> — which I designed and built on Replit with Claude — borrows NotebookLM's mental model: upload a clinic's sources once (brand blueprint, intake forms, meeting notes), then generate every asset type from that shared context. A chat layer explores and refines the brand; a Studio generates blog posts, social posts and images; a Calendar lays out two to three months of social content as Facebook mockups, with client review, approval and one-click download. Underneath, n8n workflows automate the repetitive pieces — blog drafting, editorial image generation — so the calendar largely fills itself.</p>
           <div class="artifacts">
             <figure class="artifact"><div class="shot empty tall" data-label="Sitebuilder — clinic site"></div><figcaption>Sitebuilder — component-built clinic sites on a headless CMS.</figcaption></figure>
             <figure class="artifact"><div class="shot empty tall" data-label="Joyful Marketing — content tool"></div><figcaption>Joyful Marketing — brand + recordings in, a content calendar out.</figcaption></figure>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">The goal isn't to remove the human from the process — it's to eliminate the repetitive setup work so I can focus on the creative decisions that actually matter.</p>
+        <p class="meta-label" style="margin-top:18px;">Humayun Khan · Studio Maya</p>
       </div>
     </div>
   </section>
