@@ -13,6 +13,9 @@
   --ghost: #3a3833;
   --accent: #d4a574;
   --hairline: rgba(232,232,230,0.09);
+  /* Screenshot tint field — pages override on <body> with their brand hue */
+  --tint-a: rgba(212,165,116,0.10);
+  --tint-b: rgba(212,165,116,0.02);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -171,6 +174,54 @@ nav.bar .container { display:flex; align-items:center; justify-content:space-bet
 .img-slot .meta-label { color:var(--ghost); }
 .work-media.img-slot { border:none; border-top:1px solid var(--hairline); border-radius:0; }
 @media (min-width:780px){ .work-media.img-slot { border-top:none; border-left:1px solid var(--hairline); } }
+
+/* ===================================================================
+   Framed screenshot treatment — ONE consistent look across all cases.
+   Every screenshot floats on a brand-tinted field with the same padding,
+   corner radius and single soft shadow. Pages set their hue by overriding
+   --tint-a / --tint-b on <body>; an empty .shot reads as an intentional
+   tinted field (not a TODO box) until the real image is dropped in.
+     <div class="shot"><img src="..." alt="..."></div>           full-bleed UI
+     <div class="shot tall"><img ...></div>                      phone / portrait
+     <div class="shot empty" data-label="hero — joyful"></div>   placeholder
+   =================================================================== */
+.shot {
+  position:relative;
+  background:
+    radial-gradient(120% 120% at 26% 16%, var(--tint-a), transparent 62%),
+    linear-gradient(160deg, var(--tint-b), transparent 70%),
+    var(--surface);
+  border:1px solid var(--hairline);
+  border-radius:12px;
+  padding:clamp(22px,4.5vw,64px);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.band .shot {
+  background:
+    radial-gradient(120% 120% at 26% 16%, var(--tint-a), transparent 62%),
+    linear-gradient(160deg, var(--tint-b), transparent 70%),
+    var(--ink);
+}
+.shot img {
+  width:100%; height:auto; display:block;
+  border-radius:7px;
+  box-shadow:0 30px 64px -28px rgba(0,0,0,0.62), 0 1px 0 0 rgba(232,232,230,0.06);
+}
+/* phone / portrait captures: constrain width, rounder corners */
+.shot.tall img { max-width:min(300px,72%); border-radius:24px; }
+/* empty state — still an art-directed tinted field, with a quiet label */
+.shot.empty { min-height:clamp(260px,36vw,440px); }
+.shot.empty::before {
+  content:attr(data-label);
+  font-family:ui-monospace,Menlo,monospace; font-size:10.5px;
+  letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);
+  border:1px dashed rgba(232,232,230,0.16); border-radius:4px; padding:8px 12px;
+}
+/* aspect helpers for consistent ratios across a set */
+.shot.r-wide { aspect-ratio:16/9; }
+.shot.r-photo { aspect-ratio:16/10; }
 
 /* Testimonial */
 .quote-card { background:var(--surface); border:1px solid var(--hairline); border-radius:6px; padding:clamp(28px,3vw,38px); display:flex; flex-direction:column; }
