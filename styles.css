@@ -352,6 +352,34 @@ footer .container { display:flex; flex-wrap:wrap; align-items:center; justify-co
 .feat .f-media { min-height:clamp(220px,26vw,320px); }
 .feat .f-body { padding:clamp(28px,3vw,40px); }
 
+/* ===================================================================
+   Offers page + homepage offer cards
+   =================================================================== */
+.offer-price { font-family:'Newsreader',serif; font-weight:200; font-size:clamp(30px,3vw,40px); line-height:1; color:var(--paper); margin:16px 0 6px; }
+.offer-price .per { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); }
+.offer-timeline { font-family:ui-monospace,Menlo,monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); }
+
+.offer-grid { display:grid; gap:20px; grid-template-columns:1fr; }
+@media (min-width:820px){ .offer-grid { grid-template-columns:1fr 1fr; } }
+.offer-lg { background:var(--surface); border:1px solid var(--hairline); border-radius:8px; padding:clamp(28px,3vw,38px); display:flex; flex-direction:column; position:relative; }
+.offer-lg.feature { border-color:rgba(212,165,116,0.45); }
+.offer-lg .flag { position:absolute; top:18px; right:18px; font-family:ui-monospace,Menlo,monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink); background:var(--accent); border-radius:3px; padding:4px 9px; }
+.offer-lg .tag { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); }
+.offer-lg .name { font-family:'Newsreader',serif; font-weight:400; font-size:clamp(24px,2.4vw,30px); color:var(--paper); margin-top:8px; }
+.offer-lg .desc { margin-top:16px; }
+.spec { margin-top:20px; padding-top:18px; border-top:1px solid var(--hairline); display:flex; flex-direction:column; gap:13px; }
+.spec .row { display:grid; grid-template-columns:74px 1fr; gap:14px; align-items:start; }
+.spec .row .k { font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); padding-top:3px; }
+.spec .row .v { font-size:13.5px; line-height:1.55; color:var(--muted); }
+.offer-lg .cta-row { margin-top:auto; padding-top:24px; }
+
+.steps { display:grid; gap:18px; grid-template-columns:1fr; }
+@media (min-width:720px){ .steps { grid-template-columns:repeat(3,1fr); } }
+.stepcard { border:1px solid var(--hairline); border-radius:8px; padding:26px; }
+.stepcard .n { font-family:'Newsreader',serif; font-weight:200; font-size:36px; color:var(--accent); line-height:1; }
+.stepcard .t { font-family:'Newsreader',serif; font-size:20px; color:var(--paper); margin-top:12px; }
+.stepcard .d { font-size:13.5px; line-height:1.6; color:var(--muted); margin-top:8px; }
+
 /* ---------- Reveal ---------- */
 .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
 .reveal.in { opacity:1; transform:none; }
