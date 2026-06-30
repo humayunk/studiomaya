@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All My Parts — Case study · Studio Maya</title>
-  <meta name="description" content="Designing and building an AI journaling app for people in Internal Family Systems therapy — track parts between sessions, surface patterns across entries." />
+  <title>All My Parts, Case study · Studio Maya</title>
+  <meta name="description" content="Designing and building an AI journaling app for people in Internal Family Systems therapy, track parts between sessions, surface patterns across entries." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,200..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css" />
 </head>
 <body style="--tint-a:rgba(212,165,116,0.15); --tint-b:rgba(212,165,116,0.05);">
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="maya"><g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 32 L50 23"/><path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/><path d="M26 52 L20 52"/><path d="M74 52 L80 52"/><path d="M42 67 L58 67"/></g><circle cx="50" cy="18" r="4.5" fill="#E63329"/><circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/></g></defs></svg>
+
   <nav class="bar">
     <div class="container">
-      <a href="../index.html#top" class="wordmark">Studio Maya<span>.</span></a>
+      <a href="../index.html#top" class="logo"><svg viewBox="0 0 100 100"><use href="#maya"/></svg><span class="wm">studio maya<span class="red">.</span></span></a>
       <div class="navlinks">
         <a href="../index.html#work" class="hide-sm">Work</a>
         <a href="../offers.html" class="hide-sm">Offers</a>
@@ -36,10 +39,10 @@
         <span class="here">All My Parts</span>
       </nav>
       <h1 class="h1-sub">A journaling app that knows the mind is <span class="accent-i">plural.</span></h1>
-      <p class="standfirst lede">All My Parts is an AI journaling app for people in Internal Family Systems therapy. Track the parts that show up between sessions; an AI layer reads across entries to surface patterns a person might otherwise miss. I designed, built and shipped it solo — it's in paid beta now.</p>
+      <p class="standfirst lede">All My Parts is an AI journaling app for people in Internal Family Systems therapy. Track the parts that show up between sessions; an AI layer reads across entries to surface patterns a person might otherwise miss. I designed, built and shipped it solo, it's in paid beta now.</p>
 
       <div class="meta-strip">
-        <div class="item"><span class="meta-label">Role</span><span class="v">Founder, designer &amp; builder — solo</span></div>
+        <div class="item"><span class="meta-label">Role</span><span class="v">Founder, designer &amp; builder, solo</span></div>
         <div class="item"><span class="meta-label">Stack</span><span class="v">Rails · OpenAI API · Stripe · Google Auth</span></div>
         <div class="item"><span class="meta-label">Status</span><span class="v">Paid beta · allmyparts.me</span></div>
         <div class="item"><span class="meta-label">Timeline</span><span class="v">2025–present</span></div>
@@ -48,7 +51,7 @@
   </header>
 
   <div class="container" style="padding-top:clamp(36px,5vh,56px); padding-bottom:clamp(36px,5vh,56px);">
-    <div class="shot empty r-photo reveal" data-label="hero — all my parts"></div>
+    <div class="shot empty r-photo reveal" data-label="hero, all my parts"></div>
   </div>
 
   <!-- METRIC BAND -->
@@ -66,11 +69,11 @@
   <section>
     <div class="container">
       <div class="case-sec">
-        <div class="reveal"><span class="eyebrow"><span class="num">01</span> &mdash; The problem</span></div>
+        <div class="reveal"><span class="eyebrow"><span class="num">01</span> · The problem</span></div>
         <div class="reveal">
           <h2 class="h2-sub">A single-self journal can't hold a plural mind.</h2>
-          <p class="body">Internal Family Systems is a fast-growing therapy that treats the mind as a system of distinct parts — managers, firefighters, exiles — each with its own role and protection logic. Therapists routinely ask IFS clients to track those parts between sessions. Most people do it on paper or in a Notes app.</p>
-          <p class="body">Both work, but neither makes patterns visible across weeks of entries. And every existing journaling app assumes a single self journaling alone — IFS's central premise, that the mind is plural, breaks that assumption. To do this right, the data model itself has to know about parts.</p>
+          <p class="body">Internal Family Systems is a fast-growing therapy that treats the mind as a system of distinct parts, managers, firefighters, exiles, each with its own role and protection logic. Therapists routinely ask IFS clients to track those parts between sessions. Most people do it on paper or in a Notes app.</p>
+          <p class="body">Both work, but neither makes patterns visible across weeks of entries. And every existing journaling app assumes a single self journaling alone, IFS's central premise, that the mind is plural, breaks that assumption. To do this right, the data model itself has to know about parts.</p>
         </div>
       </div>
     </div>
@@ -80,13 +83,13 @@
   <section class="band">
     <div class="container">
       <div class="case-sec">
-        <div class="reveal"><span class="eyebrow"><span class="num">02</span> &mdash; What I built</span></div>
+        <div class="reveal"><span class="eyebrow"><span class="num">02</span> · What I built</span></div>
         <div class="reveal">
           <h2 class="h2-sub">A journal shaped around parts.</h2>
-          <p class="body">A web app where each entry is tagged with the parts that showed up — manager, firefighter, exile — and the Self-energy felt in the moment. Over time, that parts library becomes the user's personal map. An AI summary layer reads across recent entries and surfaces themes each week: which parts are most active, what triggers them, where Self-energy is breaking through.</p>
-          <p class="body">The hard part wasn't the AI — it was the data model and the language. Calling a "manager" a manager and a "firefighter" a firefighter without sounding clinical took several rewrites. Built solo over a few months in Cursor, on Rails — chosen because the LLM-meets-CRUD shape of the app maps cleanly to convention-over-configuration.</p>
+          <p class="body">A web app where each entry is tagged with the parts that showed up, manager, firefighter, exile, and the Self-energy felt in the moment. Over time, that parts library becomes the user's personal map. An AI summary layer reads across recent entries and surfaces themes each week: which parts are most active, what triggers them, where Self-energy is breaking through.</p>
+          <p class="body">The hard part wasn't the AI, it was the data model and the language. Calling a "manager" a manager and a "firefighter" a firefighter without sounding clinical took several rewrites. Built solo over a few months in Cursor, on Rails, chosen because the LLM-meets-CRUD shape of the app maps cleanly to convention-over-configuration.</p>
           <div class="artifacts">
-            <figure class="artifact"><div class="shot empty tall" data-label="entry editor"></div><figcaption>Entry editor — tag the parts that showed up.</figcaption></figure>
+            <figure class="artifact"><div class="shot empty tall" data-label="entry editor"></div><figcaption>Entry editor, tag the parts that showed up.</figcaption></figure>
             <figure class="artifact"><div class="shot empty tall" data-label="parts map"></div><figcaption>The parts library, building into a personal map.</figcaption></figure>
           </div>
           <div class="shot empty r-photo reveal" style="margin-top:clamp(28px,4vh,42px);" data-label="weekly AI summary"></div>
@@ -99,7 +102,7 @@
   <section>
     <div class="container">
       <div class="pullquote-wrap reveal">
-        <p class="pullquote">The goal isn't to replace the therapist — it's to give the client a clearer hand-off into the next session.</p>
+        <p class="pullquote">The goal isn't to replace the therapist, it's to give the client a clearer hand-off into the next session.</p>
         <p class="meta-label" style="margin-top:18px;">Humayun Khan · Studio Maya</p>
       </div>
     </div>
@@ -109,11 +112,11 @@
   <section class="band">
     <div class="container">
       <div class="case-sec">
-        <div class="reveal"><span class="eyebrow"><span class="num">03</span> &mdash; Where it is now</span></div>
+        <div class="reveal"><span class="eyebrow"><span class="num">03</span> · Where it is now</span></div>
         <div class="reveal">
           <h2 class="h2-sub">In paid beta, finding its first users.</h2>
-          <p class="body">All My Parts is live at <a href="https://allmyparts.me" target="_blank" rel="noopener" class="tlink">allmyparts.me</a> — $12.99/month or $99/year. Early users skew toward people already in IFS therapy who use it between sessions, plus IFS-curious people building a self-practice.</p>
-          <p class="body">Next is the credibility scaffolding — therapist endorsements and a small Reddit and Substack presence — before pushing on paid acquisition. It's the case study I care most about: my own product, designed and built end to end.</p>
+          <p class="body">All My Parts is live at <a href="https://allmyparts.me" target="_blank" rel="noopener" class="tlink">allmyparts.me</a>, $12.99/month or $99/year. Early users skew toward people already in IFS therapy who use it between sessions, plus IFS-curious people building a self-practice.</p>
+          <p class="body">Next is the credibility scaffolding, therapist endorsements and a small Reddit and Substack presence, before pushing on paid acquisition. It's the case study I care most about: my own product, designed and built end to end.</p>
         </div>
       </div>
     </div>
@@ -154,7 +157,7 @@
         <a href="https://x.com/humayunkhan">X</a>
         <a href="https://github.com/humayunk">GitHub</a>
       </div>
-      <p class="foot-cap">© 2026 Studio Maya — MAYA</p>
+      <p class="foot-cap">© 2026 Studio Maya, MAYA</p>
     </div>
   </footer>
 
