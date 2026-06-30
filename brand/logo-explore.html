@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Maya — logo exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#14110f;--paper:#F4F1E8;--blue:#0B3D91;--cyan:#2E6FE8;--red:#E63329;--mono:'JetBrains Mono',monospace;--disp:'Space Grotesk',sans-serif}
+  body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(rgba(11,61,145,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,61,145,0.07) 1px,transparent 1px);background-size:26px 26px}
+  .wrap{max-width:1040px;margin:0 auto;padding:48px 24px 90px}
+  .head{border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-bottom:18px}
+  .head .k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+  .head h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1.0;letter-spacing:-0.03em;margin:12px 0 12px}
+  .head p{max-width:66ch;color:#4a443d;font-size:15px}
+
+  .sk{stroke:var(--ink);fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:url(#ink)}
+  .bp{stroke:var(--blue);fill:none;stroke-width:1.4}
+  .bpd{stroke:var(--blue);fill:none;stroke-width:1.4;stroke-dasharray:4 4}
+
+  .logo{border-top:1px solid rgba(20,17,15,0.16);padding:30px 0;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+  @media(min-width:820px){.logo{grid-template-columns:200px 80px 1fr}}
+  .logo .big{background:#FBF9F2;border:1px solid rgba(20,17,15,0.16);border-radius:8px;height:160px;display:flex;align-items:center;justify-content:center}
+  .logo .fav{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .logo .fav .chip{width:40px;height:40px;background:#FBF9F2;border:1px solid rgba(20,17,15,0.2);border-radius:9px;display:flex;align-items:center;justify-content:center}
+  .logo .fav .cl{font-family:var(--mono);font-size:8.5px;color:#9a9388;letter-spacing:0.06em}
+  .logo .meta{}
+  .logo .nm{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue)}
+  .logo .meta h3{font-family:var(--disp);font-weight:600;font-size:20px;margin:6px 0 6px}
+  .logo .meta p{font-size:13px;color:#5c574f;line-height:1.55;max-width:52ch}
+  /* lockup */
+  .lock{display:inline-flex;align-items:center;gap:12px;margin-top:16px;padding:10px 16px;background:#FBF9F2;border:1px solid rgba(20,17,15,0.16);border-radius:8px}
+  .word{font-family:var(--disp);font-weight:700;font-size:23px;letter-spacing:-0.02em;color:var(--ink)}
+  .word .dot{color:var(--blue)}
+  .word .red{color:var(--red)}
+  .footer{margin-top:54px;border-top:1.5px solid var(--ink);padding-top:22px;font-family:var(--mono);font-size:12px;color:#5c574f;line-height:1.7}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="ink" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="6" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.8"/></filter>
+</defs></svg>
+
+<div class="wrap">
+  <header class="head">
+    <p class="k">Studio Maya · logo exploration · sharpie × blueprint · Space Grotesk</p>
+    <h1>Five marks from the same hand.</h1>
+    <p>Each uses the chosen language — a confident marker stroke with blueprint precision — and is shown big, at favicon size (does it survive small?), and locked up with the Space Grotesk wordmark. Name + "Most Advanced Yet Acceptable" stay fixed.</p>
+  </header>
+
+  <!-- 1 NODE / APERTURE -->
+  <div class="logo">
+    <div class="big">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle class="sk" cx="60" cy="60" r="34"/>
+        <line class="bp" x1="60" y1="14" x2="60" y2="106"/><line class="bp" x1="14" y1="60" x2="106" y2="60"/>
+        <line class="bp" x1="60" y1="8" x2="60" y2="16"/><line class="bp" x1="60" y1="104" x2="60" y2="112"/><line class="bp" x1="8" y1="60" x2="16" y2="60"/><line class="bp" x1="104" y1="60" x2="112" y2="60"/>
+        <circle cx="60" cy="60" r="5" fill="#E63329"/>
+      </svg>
+    </div>
+    <div class="fav">
+      <div class="chip"><svg width="26" height="26" viewBox="0 0 120 120"><circle class="sk" cx="60" cy="60" r="34" stroke-width="7"/><line class="bp" x1="60" y1="20" x2="60" y2="100" stroke-width="3"/><line class="bp" x1="20" y1="60" x2="100" y2="60" stroke-width="3"/><circle cx="60" cy="60" r="9" fill="#E63329"/></svg></div>
+      <span class="cl">24px</span>
+    </div>
+    <div class="meta">
+      <span class="nm">01 · The Node</span>
+      <h3>Aperture / observation point</h3>
+      <p>A hand-drawn lens with a precise crosshair + registration ticks — curiosity and observation, the instrument that looks closely. The red center is the "specimen." Doubles as the period in the wordmark.</p>
+      <div class="lock"><svg width="26" height="26" viewBox="0 0 120 120"><circle class="sk" cx="60" cy="60" r="34" stroke-width="6"/><line class="bp" x1="60" y1="22" x2="60" y2="98" stroke-width="2.6"/><line class="bp" x1="22" y1="60" x2="98" y2="60" stroke-width="2.6"/><circle cx="60" cy="60" r="8" fill="#E63329"/></svg><span class="word">Studio Maya</span></div>
+    </div>
+  </div>
+
+  <!-- 2 CONSTRUCTED M -->
+  <div class="logo">
+    <div class="big">
+      <svg width="150" height="120" viewBox="0 0 150 120">
+        <line class="bpd" x1="30" y1="22" x2="30" y2="100"/><line class="bpd" x1="120" y1="22" x2="120" y2="100"/>
+        <line class="bp" x1="24" y1="100" x2="126" y2="100"/><path class="bp" d="M27 97 L24 100 L27 103"/><path class="bp" d="M123 97 L126 100 L123 103"/>
+        <path class="sk" d="M30 96 L30 30 L75 70 L120 30 L120 96"/>
+        <circle cx="75" cy="70" r="4" fill="#E63329"/>
+      </svg>
+    </div>
+    <div class="fav">
+      <div class="chip"><svg width="28" height="28" viewBox="0 0 150 120"><path class="sk" d="M30 96 L30 30 L75 70 L120 30 L120 96" stroke-width="9"/></svg></div>
+      <span class="cl">24px</span>
+    </div>
+    <div class="meta">
+      <span class="nm">02 · The Constructed M</span>
+      <h3>Monogram, drafted</h3>
+      <p>A marker "M" sitting on blueprint construction — baseline, guide verticals, a width dimension. The hand and the measurement together: advanced yet acceptable, literally drawn.</p>
+      <div class="lock"><svg width="30" height="24" viewBox="0 0 150 120"><path class="sk" d="M30 96 L30 30 L75 70 L120 30 L120 96" stroke-width="8"/></svg><span class="word">Studio Maya<span class="dot">.</span></span></div>
+    </div>
+  </div>
+
+  <!-- 3 PLOT-M -->
+  <div class="logo">
+    <div class="big">
+      <svg width="150" height="120" viewBox="0 0 150 120">
+        <line class="bp" x1="22" y1="18" x2="22" y2="100"/><line class="bp" x1="22" y1="100" x2="134" y2="100"/>
+        <path class="sk" d="M26 86 L52 36 L80 64 L108 30 L130 18"/>
+        <circle cx="130" cy="18" r="4.5" fill="#E63329"/>
+        <line class="bpd" x1="130" y1="18" x2="130" y2="100"/>
+      </svg>
+    </div>
+    <div class="fav">
+      <div class="chip"><svg width="28" height="24" viewBox="0 0 150 120"><path class="sk" d="M26 86 L52 36 L80 64 L108 30 L130 18" stroke-width="9"/></svg></div>
+      <span class="cl">24px</span>
+    </div>
+    <div class="meta">
+      <span class="nm">03 · The Plot-M</span>
+      <h3>The line that goes up</h3>
+      <p>An "M" that's also a hand-plotted trend on a blueprint axis — outcomes, ship-rate, "I make the graph go up." Mark and metric in one. Strongest tie to the lab/figure device.</p>
+      <div class="lock"><svg width="30" height="24" viewBox="0 0 150 120"><path class="sk" d="M26 86 L52 36 L80 64 L108 30 L130 18" stroke-width="8"/></svg><span class="word">Studio Maya</span></div>
+    </div>
+  </div>
+
+  <!-- 4 SPECIMEN FRAME -->
+  <div class="logo">
+    <div class="big">
+      <svg width="140" height="120" viewBox="0 0 140 120">
+        <!-- registration corners -->
+        <g class="bp">
+          <path d="M26 28 L26 18 L36 18"/><path d="M114 28 L114 18 L104 18"/>
+          <path d="M26 92 L26 102 L36 102"/><path d="M114 92 L114 102 L104 102"/>
+        </g>
+        <path class="sk" d="M48 86 L48 40 L70 62 L92 40 L92 86" stroke-width="4.5"/>
+        <circle cx="70" cy="62" r="3.5" fill="#E63329"/>
+      </svg>
+    </div>
+    <div class="fav">
+      <div class="chip"><svg width="28" height="24" viewBox="0 0 140 120"><g class="bp" stroke-width="3"><path d="M30 36 L30 22 L44 22"/><path d="M110 36 L110 22 L96 22"/><path d="M30 88 L30 102 L44 102"/><path d="M110 88 L110 102 L96 102"/></g><path class="sk" d="M52 84 L52 44 L70 62 L88 44 L88 84" stroke-width="7"/></svg></div>
+      <span class="cl">24px</span>
+    </div>
+    <div class="meta">
+      <span class="nm">04 · The Specimen Frame</span>
+      <h3>M, mounted &amp; registered</h3>
+      <p>The monogram inside blueprint crop/registration marks — every project (and the studio itself) is a specimen under examination. The frame is reusable around case-study images too.</p>
+      <div class="lock"><svg width="26" height="22" viewBox="0 0 140 120"><g class="bp" stroke-width="2.6"><path d="M30 36 L30 22 L44 22"/><path d="M110 36 L110 22 L96 22"/><path d="M30 88 L30 102 L44 102"/><path d="M110 88 L110 102 L96 102"/></g><path class="sk" d="M52 84 L52 44 L70 62 L88 44 L88 84" stroke-width="6"/></svg><span class="word">Studio Maya</span></div>
+    </div>
+  </div>
+
+  <!-- 5 WORDMARK AS FIGURE -->
+  <div class="logo">
+    <div class="big" style="padding:0 18px">
+      <div style="text-align:center">
+        <span class="word" style="font-size:30px">Studio Maya<span class="red">.</span></span>
+        <svg width="170" height="22" viewBox="0 0 170 22" style="display:block;margin:8px auto 4px"><line class="bp" x1="6" y1="11" x2="164" y2="11"/><line class="bp" x1="6" y1="6" x2="6" y2="16"/><line class="bp" x1="164" y1="6" x2="164" y2="16"/></svg>
+        <span style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--blue)">FIG. — MOST ADVANCED YET ACCEPTABLE</span>
+      </div>
+    </div>
+    <div class="fav">
+      <div class="chip"><span class="word" style="font-size:20px;color:var(--ink)">M<span class="red">.</span></span></div>
+      <span class="cl">24px</span>
+    </div>
+    <div class="meta">
+      <span class="nm">05 · Wordmark as Figure</span>
+      <h3>No icon — the lockup is the logo</h3>
+      <p>Just "Studio Maya" in Space Grotesk, annotated like a blueprint figure: a dimension line under it, a mono caption, the period as a signal-red node. Favicon falls back to "M." — least flashy, most confident, zero icon baggage.</p>
+      <div class="lock"><span class="word">Studio Maya<span class="red">.</span></span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Which mark pulls at you (or favicon vs. wordmark feel)? Notes welcome — lighter/heavier hand, drop the red, the M-shape, etc. Once you pick, I refine it into clean vectors (the final mark would be hand-built, not filter-roughed), set the favicon + nav lockup, and fold it into the full design system + site reskin.
+  </div>
+</div>
+</body>
+</html>
