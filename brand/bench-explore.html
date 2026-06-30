@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Bench — type & graphic exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Spectral:wght@300;400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#14110f;--paper:#F4F1E8;--blue:#0B3D91;--cyan:#2E6FE8;--red:#E63329;--mono:'JetBrains Mono',monospace}
+  body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(rgba(11,61,145,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,61,145,0.07) 1px,transparent 1px);
+    background-size:26px 26px}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 90px}
+  .head{border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-bottom:8px}
+  .head .k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+  .head h1{font-family:'Instrument Serif',serif;font-size:clamp(34px,5vw,54px);line-height:1.0;margin:12px 0 12px}
+  .head p{max-width:64ch;color:#4a443d;font-size:15px}
+
+  .sech{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin:54px 0 4px;display:flex;align-items:center;gap:10px}
+  .sech::after{content:"";flex:1;height:1px;background:rgba(20,17,15,0.2)}
+  .secsub{font-size:14px;color:#4a443d;margin-bottom:26px;max-width:60ch}
+
+  /* type specimens */
+  .spec{border-top:1px solid rgba(20,17,15,0.16);padding:22px 0}
+  .spec .meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;color:#5c574f;margin-bottom:14px;display:flex;gap:12px;flex-wrap:wrap}
+  .spec .meta b{color:var(--ink)}
+  .spec .meta .tag{color:var(--blue)}
+  .spec .line{line-height:1.0;letter-spacing:-0.01em}
+  .spec .line em{color:var(--blue);font-style:italic}
+  .s-instrument .line{font-family:'Instrument Serif',serif;font-size:clamp(34px,6vw,68px)}
+  .s-fraunces .line{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(32px,5.6vw,62px);line-height:1.02}
+  .s-fraunces .line em{font-style:italic}
+  .s-grotesk .line{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,5.2vw,58px);letter-spacing:-0.03em}
+  .s-grotesk .line em{font-style:normal;font-weight:500}
+  .s-mono .line{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(24px,4.2vw,46px);letter-spacing:-0.02em;line-height:1.05}
+  .s-mono .line em{font-style:normal;color:var(--red)}
+  .s-spectral .line{font-family:'Spectral',serif;font-weight:500;font-size:clamp(32px,5.4vw,60px)}
+
+  /* graphic style grid */
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:980px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:#FBF9F2;border:1px solid rgba(20,17,15,0.2);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+  .card .art{height:190px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(20,17,15,0.14);position:relative;overflow:hidden}
+  .card .num{position:absolute;top:10px;left:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;color:#9a9388}
+  .card .body{padding:16px 18px}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin-bottom:6px}
+  .card p{font-size:12.5px;line-height:1.5;color:#5c574f}
+  .card .use{font-family:var(--mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);margin-top:10px}
+  .blueprintbg{background:var(--blue)}
+  .footer{margin-top:54px;border-top:1.5px solid var(--ink);padding-top:22px;font-family:var(--mono);font-size:12px;color:#5c574f;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <p class="k">Studio Maya · The Bench · type + graphic exploration</p>
+    <h1>Pick a headline voice, and the graphic language.</h1>
+    <p>You're into the schematic direction but unsure on the heading face. Below: the same hero line in five faces (A), then six graphic/illustration styles that could complement the lab feel (B), each drawn and applied to a Studio Maya object. Pick a heading + the style(s) that pull at you — or mix.</p>
+  </header>
+
+  <!-- ===================== A · HEADING TYPE ===================== -->
+  <div class="sech">A · Headline faces</div>
+  <p class="secsub">Same line, five voices — from eccentric serif to full lab-instrument mono. The body + caption type (Hanken Grotesk + JetBrains Mono) stays constant; this is just the display face.</p>
+
+  <div class="spec s-instrument">
+    <div class="meta"><span>Option 1</span><b>Instrument Serif</b><span class="tag">the current pick · free</span><span>eccentric high-contrast Didone — characterful but a touch fragile large</span></div>
+    <div class="line">I build products — some mine, some for <em>founders.</em></div>
+  </div>
+
+  <div class="spec s-fraunces">
+    <div class="meta"><span>Option 2</span><b>Fraunces</b><span class="tag">free · Google</span><span>old-style with "wonk" — warmer, sturdier, more crafted; reads art+science</span></div>
+    <div class="line">I build products — some mine, some for <em>founders.</em></div>
+  </div>
+
+  <div class="spec s-grotesk">
+    <div class="meta"><span>Option 3</span><b>Space Grotesk</b><span class="tag">free · Google</span><span>geometric grotesque — precise, engineered, "this person ships"</span></div>
+    <div class="line">I build products — some mine, some for <em>founders.</em></div>
+  </div>
+
+  <div class="spec s-mono">
+    <div class="meta"><span>Option 4</span><b>Space Mono</b><span class="tag">free · Google</span><span>monospaced display — the boldest lab-native move; headline as instrument readout</span></div>
+    <div class="line">I build products — some mine, some for <em>founders.</em></div>
+  </div>
+
+  <div class="spec s-spectral">
+    <div class="meta"><span>Option 5</span><b>Spectral</b><span class="tag">free · Google</span><span>literary screen-serif — calmer, editorial, less eccentric than Instrument</span></div>
+    <div class="line">I build products — some mine, some for <em>founders.</em></div>
+  </div>
+
+  <!-- ===================== B · GRAPHIC STYLES ===================== -->
+  <div class="sech">B · Graphic / illustration languages</div>
+  <p class="secsub">Six ways to draw "the work" inside the lab world. Same object (an app/product) across the first four so you can compare the style itself; then an icon system and a data-figure style.</p>
+
+  <div class="grid">
+
+    <!-- 1 patent line drawing -->
+    <div class="card">
+      <div class="art" style="background:#FBF9F2">
+        <span class="num">Fig. 1</span>
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none" stroke="#14110f" stroke-width="1.4">
+          <rect x="58" y="20" width="64" height="110" rx="7"/>
+          <rect x="66" y="34" width="48" height="74"/>
+          <circle cx="90" cy="120" r="4"/>
+          <!-- exploded screen layer -->
+          <rect x="120" y="44" width="40" height="54" stroke-dasharray="3 3"/>
+          <line x1="114" y1="50" x2="120" y2="46"/>
+          <circle cx="150" cy="36" r="7"/><text x="146.5" y="39.5" font-family="monospace" font-size="9" stroke="none" fill="#14110f">2</text>
+          <line x1="150" y1="44" x2="150" y2="42" /><line x1="150" y1="29" x2="150" y2="20"/>
+          <circle cx="40" cy="64" r="7"/><text x="36.5" y="67.5" font-family="monospace" font-size="9" stroke="none" fill="#14110f">1</text>
+          <line x1="47" y1="64" x2="66" y2="64"/>
+        </svg>
+      </div>
+      <div class="body"><h3>Patent line drawing</h3><p>Thin-line technical illustration: products drawn as exploded, numbered parts. Pure "how it's made."</p><p class="use">Case-study hero objects</p></div>
+    </div>
+
+    <!-- 2 blueprint -->
+    <div class="card">
+      <div class="art blueprintbg">
+        <span class="num" style="color:#9bbcff">Pl. II</span>
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none" stroke="#dfe9ff" stroke-width="1.3">
+          <rect x="60" y="22" width="60" height="106" rx="6"/>
+          <rect x="68" y="36" width="44" height="70"/>
+          <circle cx="90" cy="118" r="3.5"/>
+          <!-- dimension lines -->
+          <line x1="48" y1="22" x2="48" y2="128"/><path d="M45 25 L48 22 L51 25"/><path d="M45 125 L48 128 L51 125"/>
+          <text x="30" y="78" font-family="monospace" font-size="8" fill="#dfe9ff" stroke="none">106</text>
+          <line x1="60" y1="138" x2="120" y2="138"/><path d="M63 135 L60 138 L63 141"/><path d="M117 135 L120 138 L117 141"/>
+        </svg>
+      </div>
+      <div class="body"><h3>Blueprint / cyanotype</h3><p>White line on Prussian blue with dimension lines. The "spec mode" — plans before product.</p><p class="use">Process / spec pages, hover state</p></div>
+    </div>
+
+    <!-- 3 axonometric -->
+    <div class="card">
+      <div class="art" style="background:#FBF9F2">
+        <span class="num">Fig. 3</span>
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none" stroke="#14110f" stroke-width="1.4">
+          <!-- iso card -->
+          <polygon points="90,34 140,60 90,86 40,60" fill="#dfe6f7"/>
+          <polygon points="40,60 90,86 90,120 40,94" fill="#c3d2ee"/>
+          <polygon points="140,60 90,86 90,120 140,94" fill="#eef2fb"/>
+          <line x1="90" y1="86" x2="90" y2="120"/>
+          <circle cx="90" cy="60" r="6" fill="#E63329" stroke="none"/>
+        </svg>
+      </div>
+      <div class="body"><h3>Axonometric</h3><p>Isometric technical objects — UI and systems shown as little 3D apparatus on the bench.</p><p class="use">Offers, "how it works" steps</p></div>
+    </div>
+
+    <!-- 4 hand-drawn sketch -->
+    <div class="card">
+      <div class="art" style="background:#FBF9F2">
+        <span class="num">sketch</span>
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none" stroke="#14110f" stroke-width="1.5" stroke-linecap="round">
+          <path d="M60 24 q-2 0 -2 6 l1 96 q0 6 5 6 l50 -1 q5 0 5 -6 l-1 -98 q0 -5 -5 -5 z"/>
+          <path d="M67 38 l46 0 0 66 -46 1 z" stroke-width="1.2"/>
+          <path d="M82 118 q8 -3 16 0" stroke-width="1.2"/>
+          <path d="M74 52 l32 1 M74 64 l24 0 M74 76 l30 1" stroke-width="1.1" stroke-dasharray="1 4"/>
+          <path d="M128 50 q14 2 14 18 q0 14 -12 16" stroke="#E63329" stroke-width="1.2"/>
+          <path d="M130 88 l-4 -3 4 -2" stroke="#E63329" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="body"><h3>Hand-drawn schematic</h3><p>Looser pen-on-grid sketches. Adds warmth + the "play" — the field-notebook hand, not machine-perfect.</p><p class="use">Marginalia, "on the bench" WIP</p></div>
+    </div>
+
+    <!-- 5 isotype -->
+    <div class="card">
+      <div class="art" style="background:#FBF9F2">
+        <span class="num">key</span>
+        <svg width="200" height="120" viewBox="0 0 200 120" fill="#14110f">
+          <!-- person -->
+          <g transform="translate(8,34)"><circle cx="14" cy="10" r="9"/><path d="M2 52 q0 -24 12 -24 q12 0 12 24 z"/></g>
+          <!-- screen -->
+          <g transform="translate(56,38)"><rect width="34" height="24" rx="2"/><rect x="6" y="30" width="22" height="4" fill="#14110f"/></g>
+          <!-- flask -->
+          <g transform="translate(108,34)"><path d="M12 2 l0 16 -10 24 q-2 6 4 6 l24 0 q6 0 4 -6 l-10 -24 0 -16 z"/><rect x="8" y="0" width="16" height="4"/></g>
+          <!-- chart up -->
+          <g transform="translate(158,36)" fill="none" stroke="#E63329" stroke-width="3"><path d="M2 44 L2 2 M2 44 L40 44"/><path d="M6 36 L16 24 L24 30 L38 8" stroke="#14110f"/></g>
+        </svg>
+      </div>
+      <div class="body"><h3>Isotype pictograms</h3><p>A flat, functional icon language (Neurath/Arntz). Your own vocabulary for explaining offers + concepts; quantities by counting.</p><p class="use">Offers, nav, explainers</p></div>
+    </div>
+
+    <!-- 6 annotated diagram -->
+    <div class="card">
+      <div class="art" style="background:#FBF9F2">
+        <span class="num">Fig. 6</span>
+        <svg width="200" height="150" viewBox="0 0 200 150" fill="none" stroke="#14110f" stroke-width="1.3">
+          <line x1="30" y1="20" x2="30" y2="120"/><line x1="30" y1="120" x2="180" y2="120"/>
+          <polyline points="30,108 60,96 90,98 120,70 150,52 175,34" stroke="#0B3D91" stroke-width="2"/>
+          <circle cx="150" cy="52" r="3.5" fill="#E63329" stroke="none"/>
+          <line x1="150" y1="52" x2="150" y2="38" stroke-dasharray="2 2"/>
+          <text x="118" y="32" font-family="monospace" font-size="9" fill="#14110f" stroke="none">Fig. 6 — ship rate ↑</text>
+        </svg>
+      </div>
+      <div class="body"><h3>Annotated figure</h3><p>Tufte-clean charts + callouts. Real metrics drawn like a lab figure — proof rendered as data, not vibes.</p><p class="use">Outcomes, case-study results</p></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Tell me: (1) which headline face — or "try X" · (2) which graphic style(s) to develop — you can pick more than one (e.g. patent-line for case studies + isotype for offers + hand-drawn for WIP) · (3) anything to push further. Then I build the full design system around it and reskin the site.
+  </div>
+
+</div>
+</body>
+</html>
