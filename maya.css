@@ -236,3 +236,11 @@ footer .container{display:flex;flex-wrap:wrap;align-items:center;justify-content
 .h2-sec{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-0.03em;text-wrap:balance}
 .h2-sec em,.h2-sec .accent-i{font-style:normal;color:var(--blue)}
 section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
+
+/* footer wordmark safety alias */
+.wordmark{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none}
+.wordmark span{color:var(--red)}
+
+/* nav button text (beat .navlinks a specificity) */
+.navlinks a.btn-primary,.navlinks a.btn-primary:hover{color:#fff}
+.navlinks a.btn-secondary{color:var(--ink)}
