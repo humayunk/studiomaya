@@ -227,10 +227,58 @@
     <div class="container">
       <div class="sec-head reveal"><span class="eyebrow"><span class="num">07</span> · About</span></div>
       <div class="about-grid">
-        <div class="about-portrait reveal"><svg width="60" height="60" viewBox="0 0 100 100" style="opacity:.5"><use href="#maya"/></svg></div>
+        <div class="about-portrait reveal" style="overflow:hidden">
+          <svg viewBox="0 0 400 500" style="width:100%;height:auto;display:block" aria-label="Illustrated portrait of Humayun">
+            <defs>
+              <pattern id="brick" width="72" height="40" patternUnits="userSpaceOnUse">
+                <g stroke="rgba(11,61,145,0.16)" stroke-width="1" fill="none">
+                  <path d="M0 0 H72 M0 20 H72 M0 40 H72"/>
+                  <path d="M0 0 V20 M36 0 V20"/>
+                  <path d="M18 20 V40 M54 20 V40"/>
+                </g>
+              </pattern>
+            </defs>
+            <rect width="400" height="500" fill="url(#brick)"/>
+            <g stroke-linecap="round" stroke-linejoin="round">
+              <!-- sweater -->
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="5" d="M92 500 L96 320 Q100 268 150 254 L182 246 Q200 240 218 246 L250 254 Q300 268 304 320 L308 500 Z"/>
+              <path fill="none" stroke="#14110f" stroke-width="3.5" d="M176 250 Q200 268 224 250"/>
+              <g stroke="#14110f" stroke-width="1.6" opacity="0.4" fill="none">
+                <path d="M122 322 L120 500 M152 312 L152 500 M182 304 L184 500 M218 304 L216 500 M248 312 L248 500 M278 322 L280 500"/>
+              </g>
+              <!-- neck -->
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="5" d="M182 250 L184 214 L216 214 L218 250 Z"/>
+              <!-- head -->
+              <ellipse cx="200" cy="170" rx="48" ry="56" fill="#FBF9F2" stroke="#14110f" stroke-width="5"/>
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="4" d="M152 166 q-11 2 -9 14 q2 9 11 8"/>
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="4" d="M248 166 q11 2 9 14 q-2 9 -11 8"/>
+              <!-- hair -->
+              <path fill="#14110f" stroke="#14110f" stroke-width="3" d="M150 158 Q140 102 200 94 Q260 102 250 160 Q240 120 210 114 Q205 130 186 121 Q160 122 154 158 Z"/>
+              <!-- brows -->
+              <path fill="none" stroke="#14110f" stroke-width="3.5" d="M167 160 q11 -7 23 -2"/>
+              <path fill="none" stroke="#14110f" stroke-width="3.5" d="M210 158 q12 -5 23 2"/>
+              <!-- eyes (smiling) -->
+              <path fill="none" stroke="#14110f" stroke-width="4" d="M169 177 q11 -8 22 0"/>
+              <path fill="none" stroke="#14110f" stroke-width="4" d="M209 177 q11 -8 22 0"/>
+              <!-- nose -->
+              <path fill="none" stroke="#14110f" stroke-width="3.5" d="M199 183 q-5 12 4 15"/>
+              <!-- smile -->
+              <path fill="none" stroke="#14110f" stroke-width="5" d="M169 203 Q200 234 231 203"/>
+              <!-- crossed arms -->
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="5" d="M94 358 Q102 337 127 345 L289 421 Q302 431 293 447 Q282 461 265 453 L106 393 Q86 381 94 358 Z"/>
+              <path fill="#FBF9F2" stroke="#14110f" stroke-width="5" d="M306 358 Q298 337 273 345 L111 421 Q98 431 107 447 Q118 461 135 453 L294 393 Q314 381 306 358 Z"/>
+              <g stroke="#14110f" stroke-width="1.6" opacity="0.4" fill="none">
+                <path d="M104 364 l16 30 M118 356 l16 32"/>
+                <path d="M296 364 l-16 30 M282 356 l-16 32"/>
+              </g>
+            </g>
+            <circle cx="20" cy="476" r="3.5" fill="#E63329"/>
+            <text x="32" y="480" font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#0B3D91" letter-spacing="1.5">FIG. 07 · HUMAYUN</text>
+          </svg>
+        </div>
         <div class="reveal">
           <p class="lede" style="color:var(--ink)">I'm Humayun, a product designer and builder based in Montreal, working remotely since 2020. Shopify, ClassDojo, and a string of healthcare and AI startups before going independent.</p>
-          <p class="body" style="margin-top:18px">Now I run Studio Maya: I take founders from idea to a shipped product, and I build my own. The name is from Raymond Loewy's principle, <em>Most Advanced Yet Acceptable</em>, the line between novel and familiar, which is exactly where good products live. I also write fiction and publish at <a href="https://humayun.xyz" class="tlink">humayun.xyz</a>.</p>
+          <p class="body" style="margin-top:18px">Now I run Studio Maya: I take founders from idea to a shipped product, and I build my own. The name is from Raymond Loewy's principle, <em>Most Advanced Yet Acceptable</em>, the line between novel and familiar, which is exactly where good products live.</p>
         </div>
       </div>
     </div>
