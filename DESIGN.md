@@ -97,3 +97,24 @@ brand/*.html              # exploration archive (moodboards, concept boards, log
 ```
 
 Single CTA across the site: **"Book a fit call"** → `https://cal.com/humayunkhan`.
+
+## Illustration (spot art)
+
+All illustration shares **one hand** so the logo, hero, portrait, and future spot art read as the same illustrator:
+
+- **Bold, even, confident felt-tip MARKER outline** — thick uniform weight (matches the logo), rounded ends, gentle organic wobble (never ruler-straight).
+- **Flat and minimal** — no cross-hatching, no shading. Iconic, reductive, generous negative space.
+- **Cream paper** (`#F4F1E8`) ground.
+- **Blueprint-blue annotation** (`#0B3D91`) is the connective device: thin dimension lines, leader-dot callouts, faint grid/brick behind the subject.
+- **One small signal-red** (`#E63329`) accent per illustration.
+
+Line-weight test: if it's finer or more cross-hatched than the Maya logo, it's off-style; push bolder and flatter.
+
+### Pipeline (Gemini image-to-image)
+
+Spot illustrations are generated with `gemini-3.1-flash-image-preview` via the **cortex** repo (which has `@google/genai` + `GEMINI_API_KEY` in `.env`). Pattern: `node --env-file=.env <script>.mjs` from `~/Development/humayunk/cortex`, feeding a reference photo (for portraits) or text-only (for objects) plus the locked style prompt below. Output PNGs saved to `studiomaya-static/brand/maya/`.
+
+Locked style prefix:
+> Hand-drawn illustration in a BOLD, EVEN, confident black felt-tip MARKER line style: thick uniform outlines, rounded ends, gentle organic wobble, FLAT and graphic with absolutely NO cross-hatching and NO shading. Warm cream paper background hex #F4F1E8. A few thin blueprint-blue (#0B3D91) dimension lines and small leader-dot annotation marks. One small signal-red (#E63329) accent. No text, no letters, no numbers, no signature.
+
+Live assets: `brand/maya/portrait-e-bold.png` (About), `brand/maya/hero-phone-1.png` (hero), `brand/maya/favicon.svg` (Maya mark).
