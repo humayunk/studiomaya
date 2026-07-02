@@ -84,6 +84,7 @@ nav.bar .container{display:flex;align-items:center;justify-content:space-between
 .hero-note{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--faint);margin-top:16px}
 .hero-art{position:relative}
 .hero-art svg{width:100%;height:auto;display:block}
+.hero-art img{height:clamp(360px,52vh,620px);width:auto;max-width:100%;display:block;margin-inline:auto}
 
 /* ---------- blueprint / sharpie helpers ---------- */
 .sk{stroke:var(--ink);fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
