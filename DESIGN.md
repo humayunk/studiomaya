@@ -91,7 +91,8 @@ Avoid: warm-near-black + gold (the old generic look), AI purple/violet, healthte
 maya.css                  # the design system (this doc's implementation)
 brand/maya/favicon.svg    # Maya mark, favicon/app-icon
 index.html                # homepage (reference implementation)
-offers.html               # offers ladder
+offers.html               # offers hub: three offers + how I work + Build Partner
+offers/*.html             # offer pillar pages (prototype, workflow-automation, full-build)
 work/*.html               # case studies (all-my-parts, reputable-health, practice-with-joy)
 brand/*.html              # exploration archive (moodboards, concept boards, logo studies)
 ```
