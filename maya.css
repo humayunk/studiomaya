@@ -124,14 +124,13 @@ nav.bar .container{display:flex;align-items:center;justify-content:space-between
 .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column}
 .prod-foot{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(18px,1.8vw,23px);color:var(--ink-soft);margin-top:clamp(28px,4vh,44px)}
-.quote-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,2.6vw,32px)}
+.quote-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column}
 .qmark{font-family:var(--disp);font-weight:700;font-size:46px;line-height:.5;color:rgba(11,61,145,.5)}
 .skel{display:flex;flex-direction:column;gap:11px;margin:22px 0}
 .skel span{height:11px;border-radius:3px;background:rgba(20,17,15,0.07);display:block}
 .todo{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:3px;padding:3px 8px}
-.qfoot{margin-top:18px;display:flex;align-items:center;gap:11px}
-.qface{width:40px;height:40px;border-radius:50%;background:rgba(20,17,15,.05);border:1px solid var(--line);flex:none}
-img.qface{object-fit:cover;object-position:center 22%}
+.qfoot{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:11px}
+.qface{width:44px;height:44px;border-radius:50%;background-color:var(--paper);background-size:150%;background-position:center 20%;background-repeat:no-repeat;border:1px solid var(--line);flex:none}
 .qname{font-size:13px;color:var(--faint);line-height:1.4}
 .qname b{display:block;color:var(--muted)}
 
