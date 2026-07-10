@@ -131,6 +131,7 @@ nav.bar .container{display:flex;align-items:center;justify-content:space-between
 .todo{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:3px;padding:3px 8px}
 .qfoot{margin-top:18px;display:flex;align-items:center;gap:11px}
 .qface{width:40px;height:40px;border-radius:50%;background:rgba(20,17,15,.05);border:1px solid var(--line);flex:none}
+img.qface{object-fit:cover;object-position:center 22%}
 .qname{font-size:13px;color:var(--faint);line-height:1.4}
 .qname b{display:block;color:var(--muted)}
 

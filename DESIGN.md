@@ -118,4 +118,4 @@ Spot illustrations are generated with `gemini-3.1-flash-image-preview` via the *
 Locked style prefix:
 > Hand-drawn illustration in a BOLD, EVEN, confident black felt-tip MARKER line style: thick uniform outlines, rounded ends, gentle organic wobble, FLAT and graphic with absolutely NO cross-hatching and NO shading. Warm cream paper background hex #F4F1E8. A few thin blueprint-blue (#0B3D91) dimension lines and small leader-dot annotation marks. One small signal-red (#E63329) accent. No text, no letters, no numbers, no signature.
 
-Live assets: `brand/maya/portrait-min-2.png` (About), `brand/maya/hero-explode.png` (hero), `brand/maya/favicon.svg` (Maya mark).
+Live assets: `brand/maya/portrait-min-2.png` (About), `brand/maya/hero-explode.png` (hero), `brand/maya/favicon.svg` (Maya mark), and `brand/maya/avatar-{kenny,alison,robleh}.png` (testimonial avatars, illustrated from their photos in the same hand).
