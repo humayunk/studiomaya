@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Bench — sharpie × blueprint exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#14110f;--paper:#F4F1E8;--blue:#0B3D91;--cyan:#2E6FE8;--red:#E63329;--mono:'JetBrains Mono',monospace;--disp:'Space Grotesk',sans-serif}
+  body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(rgba(11,61,145,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,61,145,0.07) 1px,transparent 1px);
+    background-size:26px 26px}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 90px}
+  .head{border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-bottom:30px}
+  .head .k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+  .head h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1.0;letter-spacing:-0.03em;margin:12px 0 12px}
+  .head p{max-width:66ch;color:#4a443d;font-size:15px}
+
+  .sk{stroke:var(--ink);fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;filter:url(#sketch)}
+  .sk2{stroke:var(--ink);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;filter:url(#sketch2)}
+  .skfill{fill:var(--ink);filter:url(#sketch)}
+  .bp{stroke:var(--blue);fill:none;stroke-width:1;}
+  .bpd{stroke:var(--blue);fill:none;stroke-width:1;stroke-dasharray:3 3}
+  .lbl{font-family:var(--mono);font-size:9px;fill:var(--blue)}
+  .lbl-ink{font-family:var(--mono);font-size:9px;fill:#5c574f}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;border:1px solid rgba(20,17,15,0.2);border-radius:8px;background:rgba(251,249,242,0.7);padding:30px;margin-bottom:14px}
+  @media(min-width:820px){.hero{grid-template-columns:1.05fr 0.95fr}}
+  .hero .eye{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue)}
+  .hero h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:0.98;letter-spacing:-0.03em;margin:14px 0 14px}
+  .hero h2 em{font-style:normal;color:var(--blue)}
+  .hero .sub{font-size:15px;color:#4a443d;max-width:40ch}
+  .hcap{font-family:var(--mono);font-size:10px;color:#9a9388;margin-top:10px}
+
+  .sech{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin:50px 0 4px;display:flex;align-items:center;gap:10px}
+  .sech::after{content:"";flex:1;height:1px;background:rgba(20,17,15,0.2)}
+  .secsub{font-size:14px;color:#4a443d;margin-bottom:24px;max-width:64ch}
+
+  .row3{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:720px){.row3{grid-template-columns:1fr 1fr 1fr}}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+
+  .card{background:#FBF9F2;border:1px solid rgba(20,17,15,0.2);border-radius:6px;overflow:hidden}
+  .card.blue{background:var(--blue)}
+  .card .art{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+  .card .b{padding:14px 16px;border-top:1px solid rgba(20,17,15,0.14)}
+  .card.blue .b{border-top:1px solid rgba(255,255,255,0.18)}
+  .card h3{font-family:var(--disp);font-weight:600;font-size:16px}
+  .card.blue h3{color:#fff}
+  .card p{font-size:12px;line-height:1.5;color:#5c574f;margin-top:4px}
+  .card.blue p{color:#bcd0ff}
+  .tagn{position:absolute;top:10px;left:12px;font-family:var(--mono);font-size:9px;letter-spacing:0.08em;color:#9a9388}
+  .card.blue .tagn{color:#9bbcff}
+  .footer{margin-top:54px;border-top:1.5px solid var(--ink);padding-top:22px;font-family:var(--mono);font-size:12px;color:#5c574f;line-height:1.7}
+</style>
+</head>
+<body>
+
+<!-- filters: roughen clean paths into a marker hand -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="sketch" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+  <filter id="sketch2" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.0"/></filter>
+</defs></svg>
+
+<div class="wrap">
+
+  <header class="head">
+    <p class="k">Studio Maya · The Bench · graphic language v2 · headline = Space Grotesk ✓</p>
+    <h1>Sharpie × blueprint.</h1>
+    <p>A confident hand-drawn marker line, annotated with crisp blueprint precision — dimension lines, figure numbers, leader callouts. The wobble is the warmth and play; the annotation is the rigor and science. Below: the system on a hero, a "dial the mix" row, and applied samples. (Drawings are roughened-vector sketches — final art would be cleaned/redrawn, but this nails the feel.)</p>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="eye">● Available for one new build — July 2026</div>
+      <h2>I build products — some mine, some for <em>founders.</em></h2>
+      <p class="sub">Design, code, and AI in one head. I take healthcare and AI founders from idea to a product that ships — in weeks.</p>
+      <p class="hcap">Space Grotesk headline · sharpie hero object · blueprint annotation</p>
+    </div>
+    <div>
+      <svg width="100%" viewBox="0 0 320 240" aria-label="hero sketch">
+        <!-- blueprint frame + dims -->
+        <line class="bp" x1="40" y1="20" x2="40" y2="210"/><path class="bp" d="M37 24 L40 20 L43 24"/><path class="bp" d="M37 206 L40 210 L43 206"/>
+        <text class="lbl" x="18" y="118" transform="rotate(-90 18 118)">FIG. 1 — MVP</text>
+        <!-- sharpie device -->
+        <g class="sk">
+          <path d="M95 30 q-6 0 -6 8 l0 168 q0 8 8 8 l120 0 q8 0 8 -8 l0 -168 q0 -8 -8 -8 z"/>
+          <path d="M108 56 l98 0 0 110 -98 0 z"/>
+          <path d="M150 188 q12 -5 24 0"/>
+        </g>
+        <!-- sharpie scribble content -->
+        <g class="sk2">
+          <path d="M120 72 l74 0 M120 88 l52 0 M120 104 l66 0"/>
+          <circle cx="135" cy="138" r="14"/>
+          <path d="M158 130 l34 0 M158 144 l24 0"/>
+        </g>
+        <!-- clean red node accent (replaces the wonky arc) -->
+        <circle cx="206" cy="138" r="4.5" fill="#E63329"/>
+        <!-- blueprint leader callouts -->
+        <line class="bpd" x1="206" y1="80" x2="280" y2="62"/><circle class="bp" cx="280" cy="62" r="2.5"/><text class="lbl" x="252" y="54">1a · entry</text>
+        <line class="bpd" x1="186" y1="138" x2="284" y2="150"/><circle class="bp" cx="284" cy="150" r="2.5"/><text class="lbl" x="250" y="168">1b · AI summary</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- DIAL THE MIX -->
+  <div class="sech">Dial the mix</div>
+  <p class="secsub">Same object, three balances of hand vs. blueprint — so you can say how loose or how technical it should sit.</p>
+  <div class="row3">
+    <div class="card"><div class="art"><span class="tagn">01 · pure sharpie</span>
+      <svg width="190" height="180" viewBox="0 0 190 180">
+        <g class="sk"><rect x="60" y="26" width="70" height="128" rx="10"/><rect x="72" y="44" width="46" height="84"/><circle cx="95" cy="142" r="4"/></g>
+      </svg></div>
+      <div class="b"><h3>Pure marker</h3><p>Just the confident hand. Warmest, most "play" — least technical.</p></div></div>
+
+    <div class="card"><div class="art"><span class="tagn">02 · sharpie + blueprint</span>
+      <svg width="190" height="180" viewBox="0 0 190 180">
+        <g class="sk"><rect x="60" y="26" width="70" height="128" rx="10"/><rect x="72" y="44" width="46" height="84"/><circle cx="95" cy="142" r="4"/></g>
+        <line class="bp" x1="44" y1="26" x2="44" y2="154"/><path class="bp" d="M41 30 L44 26 L47 30"/><path class="bp" d="M41 150 L44 154 L47 150"/>
+        <line class="bpd" x1="118" y1="60" x2="168" y2="48"/><circle class="bp" cx="168" cy="48" r="2.5"/><text class="lbl" x="150" y="42">1a</text>
+        <text class="lbl" x="22" y="94" transform="rotate(-90 22 94)">128</text>
+      </svg></div>
+      <div class="b"><h3>Marker + annotation</h3><p>The hybrid. Hand-drawn object, crisp blueprint dims + callouts. <b>The recommended balance.</b></p></div></div>
+
+    <div class="card blue"><div class="art"><span class="tagn">03 · blueprint mode</span>
+      <svg width="190" height="180" viewBox="0 0 190 180">
+        <g style="stroke:#eaf1ff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:url(#sketch)"><rect x="60" y="26" width="70" height="128" rx="10"/><rect x="72" y="44" width="46" height="84"/><circle cx="95" cy="142" r="4"/></g>
+        <line x1="44" y1="26" x2="44" y2="154" stroke="#9bbcff" stroke-width="1"/><text x="22" y="94" transform="rotate(-90 22 94)" font-family="monospace" font-size="9" fill="#9bbcff">128</text>
+        <line x1="118" y1="60" x2="168" y2="48" stroke="#9bbcff" stroke-width="1" stroke-dasharray="3 3"/><text x="150" y="42" font-family="monospace" font-size="9" fill="#9bbcff">1a</text>
+      </svg></div>
+      <div class="b"><h3>White-on-blue</h3><p>Inverted "spec mode" for process pages or hover. Coolest, most science.</p></div></div>
+  </div>
+
+  <!-- APPLIED SAMPLES -->
+  <div class="sech">Applied across the site</div>
+  <p class="secsub">How the hybrid shows up in different places. These can all coexist — that range is the system.</p>
+  <div class="grid">
+
+    <!-- idea -> mvp flow -->
+    <div class="card"><div class="art" style="height:200px"><span class="tagn">Fig. 2 — process</span>
+      <svg width="92%" viewBox="0 0 360 180">
+        <!-- idea scribble -->
+        <g class="sk2"><circle cx="42" cy="70" r="20"/><path d="M42 90 l0 10 M34 102 l16 0"/><path d="M30 58 q12 -16 24 0"/></g>
+        <text class="lbl-ink" x="22" y="138">idea</text>
+        <!-- arrow -->
+        <path class="sk2" d="M74 70 l44 0 M110 64 l8 6 -8 6"/>
+        <!-- wireframe box -->
+        <g class="sk"><rect x="130" y="44" width="64" height="56" rx="4"/><path d="M140 60 l44 0 M140 72 l30 0"/></g>
+        <text class="lbl-ink" x="138" y="138">prototype</text>
+        <!-- arrow -->
+        <path class="sk2" d="M204 70 l44 0 M240 64 l8 6 -8 6"/>
+        <!-- shipped phone w/ check -->
+        <g class="sk"><rect x="262" y="34" width="52" height="92" rx="8"/><path d="M276 76 l8 9 16 -20" stroke="#E63329"/></g>
+        <text class="lbl-ink" x="270" y="138">shipped</text>
+        <text class="lbl" x="20" y="20">FIG. 2 — idea → prototype → MVP</text>
+      </svg></div>
+      <div class="b"><h3>Process / "how it works"</h3><p>Sharpie objects + arrows, blueprint figure label. The story of a build, hand-told.</p></div></div>
+
+    <!-- exploded -->
+    <div class="card"><div class="art" style="height:200px"><span class="tagn">Fig. 3 — exploded</span>
+      <svg width="90%" viewBox="0 0 320 180">
+        <g class="sk"><rect x="36" y="44" width="86" height="100" rx="8"/></g>
+        <g class="sk2"><rect x="120" y="30" width="64" height="44"/><rect x="170" y="74" width="64" height="44"/><rect x="220" y="116" width="58" height="40"/></g>
+        <line class="bpd" x1="184" y1="52" x2="232" y2="40"/><circle class="bp" cx="232" cy="40" r="2.5"/><text class="lbl" x="238" y="44">entry editor</text>
+        <line class="bpd" x1="234" y1="96" x2="276" y2="92"/><circle class="bp" cx="276" cy="92" r="2.5"/><text class="lbl" x="282" y="96">map</text>
+        <line class="bpd" x1="278" y1="136" x2="300" y2="140"/><circle class="bp" cx="300" cy="140" r="2.5"/>
+        <text class="lbl" x="20" y="20">FIG. 3 — All My Parts, exploded</text>
+      </svg></div>
+      <div class="b"><h3>Case-study hero objects</h3><p>The product pulled apart, sharpie-drawn, blueprint leader-lines naming each part.</p></div></div>
+
+    <!-- offer icons -->
+    <div class="card"><div class="art" style="height:200px"><span class="tagn">key — offers</span>
+      <svg width="92%" viewBox="0 0 360 150">
+        <g class="sk"><rect x="30" y="44" width="56" height="40" rx="3"/></g><text class="lbl-ink" x="34" y="104">Prototype</text><text class="lbl" x="34" y="118">$5k · 1wk</text>
+        <g class="sk"><rect x="150" y="36" width="60" height="14" rx="2"/><rect x="150" y="56" width="60" height="14" rx="2"/><rect x="150" y="76" width="60" height="14" rx="2"/></g><text class="lbl-ink" x="150" y="110">The MVP</text><text class="lbl" x="150" y="124">$9k · 3wk</text>
+        <g class="sk"><path d="M300 30 l0 60 M300 34 l30 10 -30 12"/></g><text class="lbl-ink" x="284" y="110">Launch</text><text class="lbl" x="284" y="124">$7.5k · 2wk</text>
+      </svg></div>
+      <div class="b"><h3>Offer / nav icons</h3><p>Hand-drawn spot marks instead of stock icons — a wireframe, stacked layers, a flag.</p></div></div>
+
+    <!-- annotated figure -->
+    <div class="card"><div class="art" style="height:200px"><span class="tagn">Fig. 6 — outcome</span>
+      <svg width="90%" viewBox="0 0 320 170">
+        <line class="bp" x1="40" y1="24" x2="40" y2="140"/><line class="bp" x1="40" y1="140" x2="290" y2="140"/>
+        <path class="sk" d="M44 124 q40 -6 70 -14 q40 -10 70 -44 q30 -28 60 -42" stroke-width="3"/>
+        <path d="M244 24 l6 0 0 6" class="bp"/>
+        <circle cx="234" cy="44" r="4" fill="#E63329" filter="url(#sketch)"/>
+        <line class="bpd" x1="234" y1="44" x2="234" y2="26"/>
+        <text class="lbl" x="180" y="20">FIG. 6 — ship rate ↑</text>
+        <text class="lbl-ink" x="44" y="158">6 hrs → 30 min · per study launch</text>
+      </svg></div>
+      <div class="b"><h3>Outcomes / metrics</h3><p>Real numbers drawn like a lab figure — hand-drawn trend line, blueprint axis + callout.</p></div></div>
+
+  </div>
+
+  <div class="footer">
+    Reactions? Tell me: is the marker weight / wobble right (heavier? lighter? rougher?) · which balance from the dial (I'd default to 02) · any of the applied samples that land or miss · should the red accent stay. Then I lock the graphic system + Space Grotesk into a full design spec and reskin the site.
+  </div>
+
+</div>
+</body>
+</html>

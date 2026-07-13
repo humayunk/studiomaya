@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maya, Lightswitch case study</title>
+  <meta name="description" content="A six-week fractional design sprint for Lightswitch, a monetization platform for non-technical builders. Designed the onboarding wizard, a design system, and the auth + checkout components the team built its soft launch on." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=16" />
+</head>
+<body style="--tint-a:rgba(11,61,145,0.12); --tint-b:rgba(46,111,232,0.05);">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="maya"><g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 32 L50 23"/><path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/><path d="M26 52 L20 52"/><path d="M74 52 L80 52"/><path d="M42 67 L58 67"/></g><circle cx="50" cy="18" r="4.5" fill="#E63329"/><circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/></g></defs></svg>
+
+  <nav class="bar">
+    <div class="container">
+      <a href="../index.html#top" class="logo"><svg viewBox="0 0 100 100"><use href="#maya"/></svg><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="subhero">
+    <div class="glow"></div>
+    <div class="container">
+      <nav class="crumb">
+        <a href="../offers/prototype.html">The Prototype</a>
+        <span class="sep">/</span>
+        <span class="here">Lightswitch</span>
+      </nav>
+      <h1 class="h1-sub">Monetization, minus the <span class="accent-i">developer part.</span></h1>
+      <p class="standfirst lede">Lightswitch lets non-technical founders add subscriptions, paywalls and auth to AI-built apps without ever touching Stripe or Supabase. Over a six-week fractional sprint I designed the onboarding wizard, a design system, and the auth and checkout components the team built its soft launch on.</p>
+
+      <div class="meta-strip">
+        <div class="item"><span class="meta-label">Role</span><span class="v">Fractional product designer, onboarding, design system, auth + checkout UI</span></div>
+        <div class="item"><span class="meta-label">Scope</span><span class="v">6-week sprint, 2&ndash;3 syncs a week</span></div>
+        <div class="item"><span class="meta-label">Team</span><span class="v">Lightswitch, pre-seed, two founders + one engineer</span></div>
+        <div class="item"><span class="meta-label">Timeline</span><span class="v">Sep&ndash;Oct 2025</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top:clamp(36px,5vh,56px); padding-bottom:clamp(36px,5vh,56px);">
+    <div class="vhero reveal" data-label="hero video, lightswitch onboarding (recording)"><video src="media/lightswitch-hero.mp4" poster="media/lightswitch-hero-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+  </div>
+
+  <!-- METRIC BAND -->
+  <div class="metric-band">
+    <div class="container">
+      <div class="metric-grid">
+        <div class="metric-item reveal"><div class="big">6<span class="mk">wks</span></div><div class="lbl">Nothing to soft-launch-ready</div></div>
+        <div class="metric-item reveal"><div class="big">2&ndash;3<span class="mk">/wk</span></div><div class="lbl">Embedded design syncs with the founders</div></div>
+        <div class="metric-item reveal"><div class="big">3-in-1</div><div class="lbl">Onboarding wizard · design system · auth + checkout</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 PROBLEM -->
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">01</span> · The problem</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">The whole promise lived in a screen that didn't exist.</h2>
+          <p class="body">Lightswitch's pitch is that a non-technical founder can add payments, subscriptions and auth to an app built with tools like Lovable, Cursor or Replit, without ever touching Stripe or Supabase. All of that complexity had to disappear behind one product surface, the onboarding wizard, and it hadn't been designed yet.</p>
+          <p class="body">Monica, the CEO, had spent a decade in consumer subscriptions but was stuck building a design system from scratch with no onboarding UX. She brought me in as a fractional designer to design the core setup flow, stand up a design system that could act as a forcing function for product decisions, and hand her technical co-founder auth and payment components ready to build from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 APPROACH -->
+  <section class="band">
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">02</span> · The approach</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Hide the hard parts. Preview everything.</h2>
+          <p class="body">I designed the onboarding as a guided wizard: connect Supabase over OAuth instead of pasting keys, set the app basics, build a pricing plan on an interactive table that previews the customer-facing result in real time, connect Stripe through an embedded component that pulls the keys automatically, and configure Google Auth. One deliberate call: put pricing setup <em>before</em> the Stripe Connect step, so founders hit the rewarding part first and push through the tedious middle instead of dropping off.</p>
+          <p class="body">Around it, a three-column dashboard, a collapsible dark sidebar, a content column, and a preview column showing the end app update at every step, and a standardized set of auth and checkout components: sign-in, sign-up, password reset, one- and two-plan pricing pages, and an embedded Stripe checkout. Customization was kept to a primary color and a logo, modeled on Shopify's checkout: trustworthy and consistent, not endlessly brandable. Opinionated defaults over configuration, plain language over developer-speak, and a preview at every step so nothing shipped blind.</p>
+          <figure class="artifact" style="margin:clamp(28px,4vh,42px) 0 0">
+            <div class="shot reveal"><img src="media/ls-onboarding.png" alt="Lightswitch onboarding wizard, the Connect Supabase step" /></div>
+            <figcaption>The onboarding wizard: connect Supabase over OAuth, no keys to paste, with the setup steps down the left.</figcaption>
+          </figure>
+          <figure class="artifact" style="margin:clamp(22px,3vh,32px) 0 0">
+            <div class="shot reveal"><img src="media/ls-auth.png" alt="Lightswitch auth setup with a live sign-in preview" /></div>
+            <figcaption>Auth setup, with a live preview of the customer's sign-in screen updating as you configure it.</figcaption>
+          </figure>
+          <figure class="artifact" style="margin:clamp(22px,3vh,32px) 0 0">
+            <div class="shot reveal"><img src="media/ls-checkout.png" alt="Lightswitch checkout configuration with a live Stripe checkout preview" /></div>
+            <figcaption>Checkout configuration, previewing the end customer's Stripe checkout before going live.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section>
+    <div class="container">
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">The job wasn't to make it pretty. It was to settle a hundred product decisions by drawing them, so the team could stop debating and start building.</p>
+        <p class="meta-label" style="margin-top:18px;">Humayun Khan · Studio Maya</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 OUTCOME -->
+  <section class="band">
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">03</span> · The outcome</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Built, and days from a soft launch.</h2>
+          <p class="body">In six weeks the onboarding wizard, design system and component set went from nothing to prototypes the technical co-founder was shipping production code from, delivered in Replit and Figma, usually within a day of each sync. By the final sprint sync the monetization flow was nearly complete and the team was scoping a soft launch the following week, onboarding the first users by hand.</p>
+          <p class="body">The engagement was scoped to continue past launch, with the next sprints already mapped: transactional emails, upgraded end-user pages, and eventually a visual workflow builder for freemium and premium journeys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT QUOTE: hidden until a real quote from Monica Villar is procured. Restore this block when ready. -->
+  <!--
+  <div class="cq-band">
+    <div class="container">
+      <div class="cq-inner reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="skel" style="max-width:48rem;"><span style="width:90%"></span><span style="width:82%"></span><span style="width:60%"></span></div>
+        <span class="todo gray">Real client quote, to be supplied, none fabricated</span>
+        <div class="cq-foot"><div class="qface"></div><div class="qname"><b>Monica Villar</b>Co-founder &amp; CEO, Lightswitch</div></div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- NEXT CASE -->
+  <section>
+    <div class="container">
+      <div class="nextcase reveal">
+        <div>
+          <span class="meta-label">Next case</span>
+          <a href="practice-with-joy.html" class="nc-title">Practice with Joy &rarr;</a>
+        </div>
+        <a href="../index.html#work" class="tlink">All work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPACT CTA -->
+  <section class="band cta-compact">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2-sub">Got something that needs to get a <span class="accent-i">yes?</span></h2>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html#top" class="logo"><svg viewBox="0 0 100 100" style="width:30px;height:30px"><use href="#maya"/></svg><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">© 2026 Studio Maya, MAYA</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

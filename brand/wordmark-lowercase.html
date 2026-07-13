@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Maya — lowercase wordmark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#14110f;--paper:#F4F1E8;--blue:#0B3D91;--red:#E63329;--mono:'JetBrains Mono',monospace;--disp:'Space Grotesk',sans-serif}
+  body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(rgba(11,61,145,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,61,145,0.07) 1px,transparent 1px);background-size:26px 26px}
+  .wrap{max-width:980px;margin:0 auto;padding:48px 24px 90px}
+  .head{border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-bottom:30px}
+  .head .k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+  .head h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1.0;letter-spacing:-0.03em;margin:12px 0 12px}
+  .head p{max-width:66ch;color:#4a443d;font-size:15px}
+
+  .item{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+  .lock{display:inline-flex;align-items:center;gap:15px;padding:18px 24px;background:#FBF9F2;border:1px solid rgba(20,17,15,0.18);border-radius:9px}
+  .lock.dark{background:var(--blue);border-color:transparent}
+  .lock.stack{flex-direction:column;gap:10px;text-align:center;align-items:center}
+  .w{font-family:var(--disp);letter-spacing:-0.02em;color:var(--ink);font-size:27px;font-weight:700}
+  .w .red{color:var(--red)}
+  .w .mut{color:#6a6258;font-weight:500}
+  .lock.dark .w{color:#fff}
+  .lab{font-family:var(--mono);font-size:10px;color:#8a8378;letter-spacing:0.04em}
+  .lab b{color:var(--ink)}
+  .footer{margin-top:46px;border-top:1.5px solid var(--ink);padding-top:22px;font-family:var(--mono);font-size:12px;color:#5c574f;line-height:1.7}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="ink2" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.7"/></filter>
+</defs></svg>
+
+<!-- reusable level-2 robot (neutral) -->
+<svg width="0" height="0" style="position:absolute"><defs><g id="maya">
+  <g style="stroke:#14110f;fill:none;stroke-width:5.4;stroke-linecap:round;stroke-linejoin:round;filter:url(#ink2)"><line x1="50" y1="33" x2="50" y2="23"/><rect x="26" y="33" width="48" height="46" rx="14"/><line x1="26" y1="51" x2="20" y2="51"/><line x1="74" y1="51" x2="80" y2="51"/></g>
+  <circle cx="50" cy="18" r="5" fill="#E63329"/><circle cx="41" cy="55" r="5" fill="#14110f"/><circle cx="59" cy="55" r="5" fill="#14110f"/>
+  <line x1="42" y1="67" x2="58" y2="67" stroke="#14110f" stroke-width="4" stroke-linecap="round" filter="url(#ink2)"/>
+</g>
+<g id="mayaw">
+  <g style="stroke:#fff;fill:none;stroke-width:5.4;stroke-linecap:round;stroke-linejoin:round;filter:url(#ink2)"><line x1="50" y1="33" x2="50" y2="23"/><rect x="26" y="33" width="48" height="46" rx="14"/><line x1="26" y1="51" x2="20" y2="51"/><line x1="74" y1="51" x2="80" y2="51"/></g>
+  <circle cx="50" cy="18" r="5" fill="#E63329"/><circle cx="41" cy="55" r="5" fill="#fff"/><circle cx="59" cy="55" r="5" fill="#fff"/>
+  <line x1="42" y1="67" x2="58" y2="67" stroke="#fff" stroke-width="4" stroke-linecap="round" filter="url(#ink2)"/>
+</g></defs></svg>
+
+<div class="wrap">
+  <header class="head">
+    <p class="k">Studio Maya · lowercase wordmark · Level-2 robot ✓</p>
+    <h1>studio maya, lowercase.</h1>
+    <p>Lowercase reads warmer and more modern — humble-confident, less corporate. Same Level-2 marker robot throughout; the variations are weight, tracking, the dot, and layout.</p>
+  </header>
+
+  <!-- 1 -->
+  <div class="item">
+    <div class="lock"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w">studio maya<span class="red">.</span></span></div>
+    <span class="lab"><b>01 · the baseline</b> — all lowercase, bold, red-dot period. Friendly + confident.</span>
+  </div>
+
+  <!-- 2 -->
+  <div class="item">
+    <div class="lock"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w" style="letter-spacing:-0.04em">studio maya</span></div>
+    <span class="lab"><b>02 · tight, no dot</b> — closer tracking, dropped period. Cleaner, more contemporary.</span>
+  </div>
+
+  <!-- 3 -->
+  <div class="item">
+    <div class="lock"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w"><span class="mut">studio</span> maya<span class="red">.</span></span></div>
+    <span class="lab"><b>03 · two-tone</b> — "studio" lighter/muted, "maya" bold. Emphasis on the name.</span>
+  </div>
+
+  <!-- 4 -->
+  <div class="item">
+    <div class="lock"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w" style="font-weight:500;letter-spacing:0.01em">studio maya<span class="red" style="font-weight:700">.</span></span></div>
+    <span class="lab"><b>04 · lighter weight</b> — medium weight, airier tracking. Softer, more editorial.</span>
+  </div>
+
+  <!-- 5 -->
+  <div class="item">
+    <div class="lock"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w" style="font-weight:600">studio</span><span class="w" style="font-weight:600;color:var(--blue);margin-left:-6px">maya</span></div>
+    <span class="lab"><b>05 · maya in blueprint blue</b> — the name carries the brand blue instead of a red dot.</span>
+  </div>
+
+  <!-- 6 stacked -->
+  <div class="item">
+    <div class="lock stack"><svg width="50" height="50" viewBox="0 0 100 100"><use href="#maya"/></svg><span class="w" style="font-size:22px">studio maya<span class="red">.</span></span></div>
+    <span class="lab"><b>06 · stacked</b> — robot above, lowercase below. For square spaces / profile avatars.</span>
+  </div>
+
+  <!-- 7 robot trailing as the dot -->
+  <div class="item">
+    <div class="lock"><span class="w" style="letter-spacing:-0.03em">studio maya</span><svg width="38" height="38" viewBox="0 0 100 100" style="margin-left:2px"><use href="#maya"/></svg></div>
+    <span class="lab"><b>07 · robot trailing</b> — Maya sits at the end, like the period/character signing off.</span>
+  </div>
+
+  <!-- 8 on blue -->
+  <div class="item">
+    <div class="lock dark"><svg width="42" height="42" viewBox="0 0 100 100"><use href="#mayaw"/></svg><span class="w">studio maya<span class="red">.</span></span></div>
+    <span class="lab"><b>08 · on blueprint blue</b> — baseline lockup, dark mode.</span>
+  </div>
+
+  <div class="footer">
+    Pick a lowercase variation (or "mix 03 + 07") and I'll lock the wordmark, hand-vectorize Maya at Level 2, build the favicon/app-icon + expression set, then start the reskin. (If you want, I can also drop the matching UPPERCASE/MAYA versions beside your pick for one last side-by-side.)
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maya, Practice with Joy case study</title>
+  <meta name="description" content="An AI marketing engine that runs brand, websites and marketing for a network of independent healthtech clinics, built largely solo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=16" />
+</head>
+<body style="--tint-a:rgba(233,151,78,0.14); --tint-b:rgba(212,165,116,0.05);">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="maya"><g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 32 L50 23"/><path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/><path d="M26 52 L20 52"/><path d="M74 52 L80 52"/><path d="M42 67 L58 67"/></g><circle cx="50" cy="18" r="4.5" fill="#E63329"/><circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/></g></defs></svg>
+
+  <nav class="bar">
+    <div class="container">
+      <a href="../index.html#top" class="logo"><svg viewBox="0 0 100 100"><use href="#maya"/></svg><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="subhero">
+    <div class="glow"></div>
+    <div class="container">
+      <nav class="crumb">
+        <a href="../offers/workflow-automation.html">Workflow Automation</a>
+        <span class="sep">/</span>
+        <span class="here">Practice with Joy</span>
+      </nav>
+      <h1 class="h1-sub">An AI engine that stood up <span class="accent-i">marketing for a clinic network.</span></h1>
+      <p class="standfirst lede">Practice with Joy helps independent nurse practitioners launch their own clinics. I ran the brand, websites and marketing for six of them, largely solo, by building the AI tooling that turns a kickoff call into a live site and a running content calendar.</p>
+
+      <div class="meta-strip">
+        <div class="item"><span class="meta-label">Role</span><span class="v">Brand, web &amp; marketing lead, solo, AI-leveraged</span></div>
+        <div class="item"><span class="meta-label">Skills</span><span class="v">Product design, brand, AI tooling, automation</span></div>
+        <div class="item"><span class="meta-label">Timeline</span><span class="v">2025–present</span></div>
+        <div class="item"><span class="meta-label">Context</span><span class="v">Practice with Joy, healthtech MSO, alongside the founding eng team</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top:clamp(36px,5vh,56px); padding-bottom:clamp(36px,5vh,56px);">
+    <div class="vhero reveal" data-label="hero video, joyful marketing + clinic site (recording)"><video src="media/practice-with-joy-hero.mp4" poster="media/practice-with-joy-hero-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+  </div>
+
+  <div class="metric-band">
+    <div class="container">
+      <div class="metric-grid">
+        <div class="metric-item reveal"><div class="big">8&ndash;10</div><div class="lbl">Clinics' marketing run, solo + AI</div></div>
+        <div class="metric-item reveal"><div class="big">3<span class="mk">wk</span></div><div class="lbl">Kickoff &rarr; site + ads live</div></div>
+        <div class="metric-item reveal"><div class="big">28</div><div class="lbl">Organic keywords ranked · Generations Health</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">01</span> · The problem</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Every new clinic was a manual build.</h2>
+          <p class="body">Practice with Joy helps independent nurse practitioners spin up their own clinics, people who, as the team puts it, "don't know what a domain is." Each one needed a brand, a multi-page SEO site, and an ongoing marketing motion, stood up by hand.</p>
+          <p class="body">By the time I was running marketing for eight to ten clinics, it had become a treadmill of repetitive setup, re-uploading the same brand docs and meeting notes into a fresh Claude project for every clinic and every asset, switching tools constantly. The upside only sharpened it: through an Aledade partnership, roughly a thousand value-based-care practices were in reach, about half with a bad website or none at all. Demand wasn't the constraint. The manual cost of launching and running each clinic was.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">02</span> · The approach</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Turn the playbook into AI tooling.</h2>
+          <p class="body">I took the founder's brand-building playbook, kickoff call, questionnaire, brand blueprint, logo, site, and rebuilt it as a pipeline. <em>Sitebuilder</em> assembles a clinic's multi-page site from component blocks on a headless CMS, with an AI pass that seeds the first draft straight from the sales-call transcript.</p>
+          <p class="body"><em>Joyful Marketing</em>, which I designed and built on Replit with Claude, borrows NotebookLM's mental model: upload a clinic's sources once (brand blueprint, intake forms, meeting notes), then generate every asset type from that shared context. A chat layer explores and refines the brand; a Studio generates blog posts, social posts and images; a Calendar lays out two to three months of social content as Facebook mockups, with client review, approval and one-click download. Underneath, n8n workflows automate the repetitive pieces, blog drafting, editorial image generation, so the calendar largely fills itself.</p>
+          <figure class="artifact" style="margin:clamp(28px,4vh,42px) 0 0">
+            <div class="shot reveal"><img src="media/joy-brand.png" alt="Joyful Marketing, brand strategy and guidelines generated from a clinic's sources" /></div>
+            <figcaption>Joyful Marketing: brand strategy and guidelines, built from the clinic's uploaded sources.</figcaption>
+          </figure>
+          <figure class="artifact" style="margin:clamp(22px,3vh,32px) 0 0">
+            <div class="shot reveal"><img src="media/joy-studio.png" alt="Joyful Marketing Studio, generating blog posts, social posts and imagery from shared context" /></div>
+            <figcaption>The Studio: blog posts, social posts and imagery, all generated from one shared context.</figcaption>
+          </figure>
+          <figure class="artifact" style="margin:clamp(22px,3vh,32px) 0 0">
+            <div class="shot reveal"><img src="media/joy-calendar.png" alt="Joyful Marketing content calendar laid out as reviewable social posts" /></div>
+            <figcaption>Out the other end: a content calendar laid out as ready-to-review social posts.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">The goal isn't to remove the human from the process, it's to eliminate the repetitive setup work so I can focus on the creative decisions that actually matter.</p>
+        <p class="meta-label" style="margin-top:18px;">Humayun Khan · Studio Maya</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">03</span> · The outcome</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Weeks to launch, not months.</h2>
+          <p class="body">The first clinic validated the loop end to end, from kickoff to a live site and running Google Ads in about three weeks. Generations Health launched on an SEO-built site ranking 28 organic keywords at a 79% health score; Tangerine Health Pros became the first full end-to-end launch on the new Sitebuilder.</p>
+          <p class="body">What had been a one-person manual bottleneck became a repeatable, AI-leveraged pipeline, the thing that makes a 500-clinic opportunity even thinkable for a small team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT QUOTE: hidden until a real quote is procured. Restore this block when ready. -->
+  <!--
+  <div class="cq-band">
+    <div class="container">
+      <div class="cq-inner reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="skel" style="max-width:48rem;"><span style="width:94%"></span><span style="width:82%"></span><span style="width:62%"></span></div>
+        <span class="todo gray">Real client quote, to be supplied, none fabricated</span>
+        <div class="cq-foot"><div class="qface"></div><div class="qname"><b>[Name]</b>[Role, Practice with Joy]</div></div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <section>
+    <div class="container">
+      <div class="nextcase reveal">
+        <div>
+          <span class="meta-label">Next case</span>
+          <a href="all-my-parts.html" class="nc-title">All My Parts &rarr;</a>
+        </div>
+        <a href="../index.html#work" class="tlink">All work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta-compact">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2-sub">Got something that needs to get a <span class="accent-i">yes?</span></h2>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html#top" class="logo"><svg viewBox="0 0 100 100" style="width:30px;height:30px"><use href="#maya"/></svg><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">© 2026 Studio Maya, MAYA</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

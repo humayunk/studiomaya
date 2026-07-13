@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Maya — robot mark, refined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#14110f;--paper:#F4F1E8;--blue:#0B3D91;--red:#E63329;--mono:'JetBrains Mono',monospace;--disp:'Space Grotesk',sans-serif}
+  body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(rgba(11,61,145,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(11,61,145,0.07) 1px,transparent 1px);background-size:26px 26px}
+  .wrap{max-width:1040px;margin:0 auto;padding:48px 24px 90px}
+  .head{border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-bottom:8px}
+  .head .k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+  .head h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1.0;letter-spacing:-0.03em;margin:12px 0 12px}
+  .head p{max-width:66ch;color:#4a443d;font-size:15px}
+  .sech{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin:46px 0 22px;display:flex;align-items:center;gap:10px}
+  .sech::after{content:"";flex:1;height:1px;background:rgba(20,17,15,0.2)}
+  .note{font-size:13px;color:#5c574f;margin:-10px 0 22px;max-width:62ch}
+
+  .sk{stroke:var(--ink);fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:url(#ink)}
+  .skt{stroke:var(--ink);fill:none;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;filter:url(#ink)}
+
+  .hero-mark{background:#FBF9F2;border:1px solid rgba(20,17,15,0.18);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:40px}
+  .row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:720px){.row{grid-template-columns:repeat(4,1fr)}}
+  .cell{background:#FBF9F2;border:1px solid rgba(20,17,15,0.18);border-radius:8px;padding:20px 12px;text-align:center}
+  .cell svg{display:block;margin:0 auto}
+  .cell .cap{font-family:var(--mono);font-size:9.5px;color:#5c574f;letter-spacing:0.04em;margin-top:12px}
+  .cell .cap b{color:var(--ink)}
+
+  .sizes{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;background:#FBF9F2;border:1px solid rgba(20,17,15,0.18);border-radius:8px;padding:26px}
+  .sizes .s{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .sizes .lab{font-family:var(--mono);font-size:9px;color:#9a9388}
+
+  .lockwrap{display:flex;flex-wrap:wrap;gap:14px}
+  .lock{display:inline-flex;align-items:center;gap:13px;padding:14px 20px;background:#FBF9F2;border:1px solid rgba(20,17,15,0.18);border-radius:8px}
+  .lock.stack{flex-direction:column;gap:8px;text-align:center}
+  .lock.dark{background:var(--blue);border-color:transparent}
+  .word{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;color:var(--ink)}
+  .lock.dark .word{color:#fff}
+  .red{color:var(--red)}
+  .tile{border-radius:22%;display:flex;align-items:center;justify-content:center}
+  .footer{margin-top:54px;border-top:1.5px solid var(--ink);padding-top:22px;font-family:var(--mono);font-size:12px;color:#5c574f;line-height:1.7}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="ink" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.5"/></filter>
+</defs></svg>
+
+<div class="wrap">
+  <header class="head">
+    <p class="k">Studio Maya · the minimal robot · refined</p>
+    <h1>Maya, the mark.</h1>
+    <p>The minimal head, cleaned up and built into a system. Pick the exact details from the variants, then I hand-vectorize it (no filter wobble in the final — just intentional marker character) and wire it in as favicon + nav lockup.</p>
+  </header>
+
+  <!-- PRIMARY -->
+  <div class="sech">Primary mark</div>
+  <div class="hero-mark">
+    <svg width="150" height="150" viewBox="0 0 100 100">
+      <line class="sk" x1="50" y1="33" x2="50" y2="23"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/>
+      <rect class="sk" x="26" y="33" width="48" height="46" rx="14"/>
+      <circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/>
+      <line class="skt" x1="42" y1="67" x2="58" y2="67"/>
+      <line class="skt" x1="26" y1="51" x2="20" y2="51"/><line class="skt" x1="74" y1="51" x2="80" y2="51"/>
+    </svg>
+  </div>
+
+  <!-- VARIANTS -->
+  <div class="sech">Dial it in — which details?</div>
+  <p class="note">Same robot, small differences. Tell me a combo (e.g. "rounder head + smile + red antenna, drop the ear ports").</p>
+  <div class="row">
+    <!-- v1 the pick -->
+    <div class="cell">
+      <svg width="92" height="92" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="23"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/><line class="skt" x1="26" y1="51" x2="20" y2="51"/><line class="skt" x1="74" y1="51" x2="80" y2="51"/></svg>
+      <div class="cap"><b>01 · the pick</b><br>straight mouth · ear ports · red light</div>
+    </div>
+    <!-- v2 rounder + smile -->
+    <div class="cell">
+      <svg width="92" height="92" viewBox="0 0 100 100"><line class="sk" x1="50" y1="31" x2="50" y2="21"/><circle cx="50" cy="16" r="4.5" fill="#E63329"/><rect class="sk" x="24" y="31" width="52" height="50" rx="24"/><circle cx="41" cy="54" r="4.6" fill="#14110f"/><circle cx="59" cy="54" r="4.6" fill="#14110f"/><path class="skt" d="M41 65 q9 7 18 0"/></svg>
+      <div class="cap"><b>02 · rounder + smile</b><br>friendliest, no ports</div>
+    </div>
+    <!-- v3 boxier -->
+    <div class="cell">
+      <svg width="92" height="92" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="23"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect class="sk" x="27" y="33" width="46" height="46" rx="6"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/><line class="skt" x1="27" y1="51" x2="21" y2="51"/><line class="skt" x1="73" y1="51" x2="79" y2="51"/></svg>
+      <div class="cap"><b>03 · boxier</b><br>more technical/robot</div>
+    </div>
+    <!-- v4 blue light + speaker mouth -->
+    <div class="cell">
+      <svg width="92" height="92" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="23"/><circle cx="50" cy="18" r="4.5" fill="#0B3D91"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><g class="skt"><line x1="43" y1="65" x2="43" y2="69"/><line x1="50" y1="65" x2="50" y2="69"/><line x1="57" y1="65" x2="57" y2="69"/></g></svg>
+      <div class="cap"><b>04 · blue light + grille</b><br>cooler, more "instrument"</div>
+    </div>
+  </div>
+
+  <!-- SIZES -->
+  <div class="sech">Survives small</div>
+  <div class="sizes">
+    <div class="s"><svg width="64" height="64" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="23"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/></svg><span class="lab">64</span></div>
+    <div class="s"><svg width="32" height="32" viewBox="0 0 100 100"><line x1="50" y1="33" x2="50" y2="24" stroke="#14110f" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="18" r="6" fill="#E63329"/><rect x="26" y="33" width="48" height="46" rx="14" fill="none" stroke="#14110f" stroke-width="6"/><circle cx="41" cy="55" r="6" fill="#14110f"/><circle cx="59" cy="55" r="6" fill="#14110f"/><line x1="42" y1="68" x2="58" y2="68" stroke="#14110f" stroke-width="4.5" stroke-linecap="round"/></svg><span class="lab">32</span></div>
+    <div class="s"><svg width="24" height="24" viewBox="0 0 100 100"><line x1="50" y1="33" x2="50" y2="25" stroke="#14110f" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="18" r="7" fill="#E63329"/><rect x="26" y="33" width="48" height="46" rx="13" fill="none" stroke="#14110f" stroke-width="7"/><circle cx="41" cy="55" r="7" fill="#14110f"/><circle cx="59" cy="55" r="7" fill="#14110f"/></svg><span class="lab">24</span></div>
+    <div class="s"><svg width="16" height="16" viewBox="0 0 100 100"><circle cx="50" cy="16" r="9" fill="#E63329"/><rect x="24" y="34" width="52" height="46" rx="12" fill="none" stroke="#14110f" stroke-width="9"/><circle cx="40" cy="56" r="8" fill="#14110f"/><circle cx="60" cy="56" r="8" fill="#14110f"/></svg><span class="lab">16 · favicon</span></div>
+    <!-- app icon tiles -->
+    <div class="s"><div class="tile" style="width:64px;height:64px;background:var(--paper);border:1px solid rgba(20,17,15,0.18)"><svg width="44" height="44" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="24" stroke-width="6"/><circle cx="50" cy="18" r="5" fill="#E63329"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14" stroke-width="6"/><circle cx="41" cy="55" r="5" fill="#14110f"/><circle cx="59" cy="55" r="5" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/></svg></div><span class="lab">app · light</span></div>
+    <div class="s"><div class="tile" style="width:64px;height:64px;background:var(--blue)"><svg width="44" height="44" viewBox="0 0 100 100"><line x1="50" y1="33" x2="50" y2="24" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="18" r="5" fill="#E63329"/><rect x="26" y="33" width="48" height="46" rx="14" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/><circle cx="41" cy="55" r="5" fill="#fff"/><circle cx="59" cy="55" r="5" fill="#fff"/><line x1="42" y1="67" x2="58" y2="67" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></svg></div><span class="lab">app · blue</span></div>
+  </div>
+
+  <!-- LOCKUPS -->
+  <div class="sech">Lockups</div>
+  <div class="lockwrap">
+    <div class="lock">
+      <svg width="38" height="38" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="24" stroke-width="5"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14" stroke-width="5"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/></svg>
+      <span class="word" style="font-size:23px">Studio Maya<span class="red">.</span></span>
+    </div>
+    <div class="lock dark">
+      <svg width="38" height="38" viewBox="0 0 100 100"><line x1="50" y1="33" x2="50" y2="24" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect x="26" y="33" width="48" height="46" rx="14" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><circle cx="41" cy="55" r="4.6" fill="#fff"/><circle cx="59" cy="55" r="4.6" fill="#fff"/><line x1="42" y1="67" x2="58" y2="67" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/></svg>
+      <span class="word" style="font-size:23px">Studio Maya<span class="red">.</span></span>
+    </div>
+    <div class="lock stack">
+      <svg width="44" height="44" viewBox="0 0 100 100"><line class="sk" x1="50" y1="33" x2="50" y2="24" stroke-width="5"/><circle cx="50" cy="18" r="4.5" fill="#E63329"/><rect class="sk" x="26" y="33" width="48" height="46" rx="14" stroke-width="5"/><circle cx="41" cy="55" r="4.6" fill="#14110f"/><circle cx="59" cy="55" r="4.6" fill="#14110f"/><line class="skt" x1="42" y1="67" x2="58" y2="67"/></svg>
+      <span class="word" style="font-size:19px">Studio Maya<span class="red">.</span></span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Tell me the final combo: head shape (pick/rounder/boxier), mouth (line/smile/grille/none), antenna light (red/blue), ear ports (keep/drop). Then I hand-vectorize the clean mark, export favicon + app-icon + wordmark SVGs, and start the full reskin with Maya in the nav.
+  </div>
+</div>
+</body>
+</html>

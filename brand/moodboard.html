@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maya — Brand Moodboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#E9E6E0; color:#1a1714; font-family:'Hanken Grotesk',system-ui,sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5; }
+    .wrap { max-width:1080px; margin:0 auto; padding:48px 24px 80px; }
+    .mono { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; }
+
+    /* header */
+    .head { border-bottom:1px solid rgba(26,23,20,0.14); padding-bottom:32px; margin-bottom:40px; }
+    .head .kick { color:#8a7f74; }
+    .head h1 { font-family:'Fraunces',serif; font-weight:500; font-size:clamp(34px,5vw,56px); line-height:1.04; letter-spacing:-0.02em; margin:14px 0 16px; }
+    .head p { max-width:60ch; color:#4a443d; font-size:16px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .chip { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; padding:6px 11px; border:1px solid rgba(26,23,20,0.18); border-radius:100px; color:#4a443d; }
+    .chip.fix { background:rgba(26,23,20,0.06); }
+
+    /* direction card */
+    .dir { background:#fff; border:1px solid rgba(26,23,20,0.12); border-radius:14px; overflow:hidden; margin-bottom:36px; box-shadow:0 1px 0 rgba(26,23,20,0.04); }
+    .dir-head { padding:26px 30px 0; }
+    .dir-head .n { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#a89a8c; }
+    .dir-head h2 { font-family:'Fraunces',serif; font-weight:500; font-size:30px; letter-spacing:-0.015em; margin:6px 0 4px; }
+    .dir-head .adj { color:#6a6258; font-size:14px; }
+    .dir-body { display:grid; grid-template-columns:1fr; gap:0; }
+    @media(min-width:860px){ .dir-body { grid-template-columns:300px 1fr; } }
+
+    .panel { padding:24px 30px 30px; }
+    .panel.left { border-right:1px solid rgba(26,23,20,0.08); }
+    .label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#a89a8c; margin-bottom:12px; }
+
+    .swatches { display:flex; flex-direction:column; gap:7px; margin-bottom:24px; }
+    .sw { display:flex; align-items:center; gap:11px; }
+    .sw .dot { width:30px; height:30px; border-radius:7px; border:1px solid rgba(0,0,0,0.12); flex:none; }
+    .sw .hex { font-family:'JetBrains Mono',monospace; font-size:11px; color:#1a1714; }
+    .sw .role { font-size:12px; color:#8a7f74; }
+
+    .type-specimen .ts-serif { font-size:30px; line-height:1.1; letter-spacing:-0.015em; margin-bottom:4px; }
+    .type-specimen .ts-body { font-size:14px; line-height:1.55; color:#4a443d; margin:10px 0; max-width:38ch; }
+    .type-specimen .ts-names { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#8a7f74; letter-spacing:0.04em; }
+
+    /* mini mockup — uses per-direction vars */
+    .mock { border-radius:10px; overflow:hidden; border:1px solid rgba(0,0,0,0.10); background:var(--bg); color:var(--text); font-family:var(--sans); }
+    .mock .bar { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--line); }
+    .mock .mark { font-family:var(--serif); font-weight:500; font-size:18px; letter-spacing:-0.01em; color:var(--text); }
+    .mock .mark span { color:var(--p); }
+    .mock .nav { display:flex; align-items:center; gap:16px; }
+    .mock .nav a { font-size:12px; color:var(--muted); text-decoration:none; }
+    .mock .pill { font-size:11.5px; padding:7px 13px; border-radius:100px; background:var(--p); color:var(--onp); font-weight:600; }
+    .mock .hero { padding:34px 28px 38px; position:relative; }
+    .mock .eye { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--p); display:flex; align-items:center; gap:7px; }
+    .mock .eye .led { width:6px; height:6px; border-radius:50%; background:var(--p); display:inline-block; }
+    .mock h3 { font-family:var(--serif); font-weight:var(--serifw,500); font-size:clamp(26px,3.6vw,40px); line-height:1.06; letter-spacing:-0.02em; margin:16px 0 14px; max-width:18ch; color:var(--text); }
+    .mock h3 em { font-style:italic; color:var(--p); }
+    .mock .sub { font-size:14px; line-height:1.55; color:var(--muted); max-width:46ch; }
+    .mock .cta { display:flex; gap:11px; margin-top:22px; align-items:center; }
+    .mock .b1 { font-size:13px; font-weight:600; padding:11px 18px; border-radius:7px; background:var(--p); color:var(--onp); }
+    .mock .b2 { font-size:13px; padding:11px 18px; border-radius:7px; border:1px solid var(--line2); color:var(--text); }
+    .mock .offers { display:flex; gap:8px; margin-top:26px; flex-wrap:wrap; }
+    .mock .off { font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:6px 10px; }
+    .mock .off b { color:var(--text); font-weight:600; }
+
+    .refs { padding:18px 30px 26px; border-top:1px solid rgba(26,23,20,0.08); }
+    .refs .label { margin-bottom:8px; }
+    .refs p { font-size:13px; color:#6a6258; }
+    .refs a { color:#7A1F12; }
+
+    .note { background:#fff; border:1px dashed rgba(26,23,20,0.22); border-radius:12px; padding:22px 26px; }
+    .note h3 { font-family:'Fraunces',serif; font-weight:500; font-size:20px; margin-bottom:6px; }
+    .note p { font-size:14px; color:#4a443d; max-width:64ch; }
+    .note .mini { display:flex; gap:6px; margin-top:14px; }
+    .note .mini .dot { width:26px; height:26px; border-radius:6px; border:1px solid rgba(0,0,0,0.12); }
+    footer { margin-top:40px; color:#8a7f74; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="head">
+      <p class="kick mono">Studio Maya · Brand moodboard · v1</p>
+      <h1>Three ways to feel warm, human, and built.</h1>
+      <p>Pick a direction (or mix). All three move off the generic dark + gold look you flagged — into warm/light territory almost no dev-studio occupies. Each is shown applied to a real Studio Maya screen so you can judge the feeling, not just swatches.</p>
+      <div class="meta">
+        <span class="chip fix">FIXED · name "Studio Maya"</span>
+        <span class="chip fix">FIXED · "Most Advanced Yet Acceptable"</span>
+        <span class="chip">LEAD · warm / human-trust</span>
+        <span class="chip">DROPPED · gold accent · dark-mode default</span>
+      </div>
+    </header>
+
+    <!-- ============ A · APOTHECARY ============ -->
+    <section class="dir">
+      <div class="dir-head">
+        <p class="n">Direction A</p>
+        <h2>Apothecary</h2>
+        <p class="adj">Literate · precise · calm · premium · clinical-warm</p>
+      </div>
+      <div class="dir-body">
+        <div class="panel left">
+          <p class="label">Palette · Bone &amp; Ink</p>
+          <div class="swatches">
+            <div class="sw"><span class="dot" style="background:#F3EDE3"></span><span class="hex">#F3EDE3</span><span class="role">paper</span></div>
+            <div class="sw"><span class="dot" style="background:#FBF8F2"></span><span class="hex">#FBF8F2</span><span class="role">surface</span></div>
+            <div class="sw"><span class="dot" style="background:#1C1A17"></span><span class="hex">#1C1A17</span><span class="role">ink</span></div>
+            <div class="sw"><span class="dot" style="background:#7A1F12"></span><span class="hex">#7A1F12</span><span class="role">deep rust</span></div>
+            <div class="sw"><span class="dot" style="background:#3E4A3C"></span><span class="hex">#3E4A3C</span><span class="role">olive-ink</span></div>
+          </div>
+          <p class="label">Type</p>
+          <div class="type-specimen">
+            <div class="ts-serif" style="font-family:'Spectral',serif;font-weight:400;">Most Advanced<br>Yet Acceptable</div>
+            <p class="ts-body" style="font-family:'Hanken Grotesk',sans-serif;">A well-made book. Quiet authority, dense considered typesetting, warmth in the paper.</p>
+            <p class="ts-names">Spectral · Hanken Grotesk · IBM Plex Mono</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="label">Applied to Studio Maya</p>
+          <div class="mock" style="--bg:#F3EDE3;--surface:#FBF8F2;--text:#1C1A17;--muted:#6a6258;--p:#7A1F12;--onp:#F3EDE3;--line:rgba(28,26,23,0.12);--line2:rgba(28,26,23,0.28);--serif:'Spectral',serif;--serifw:400;--sans:'Hanken Grotesk',sans-serif;--mono:'IBM Plex Mono',monospace;">
+            <div class="bar">
+              <span class="mark">Studio Maya<span>.</span></span>
+              <span class="nav"><a>Work</a><a>Offers</a><span class="pill">Book a fit call</span></span>
+            </div>
+            <div class="hero">
+              <span class="eye"><span class="led"></span>Available for one new build — July 2026</span>
+              <h3>I build products — some mine, some for <em>founders.</em></h3>
+              <p class="sub">Design, code, and AI in one head. I take healthcare and AI founders from idea to a product that ships — in weeks.</p>
+              <div class="cta"><span class="b1">Book a fit call</span><span class="b2">See offers</span></div>
+              <div class="offers"><span class="off">The MVP · <b>$9k</b></span><span class="off">Prototype · <b>$5k</b></span><span class="off">Launch Sprint · <b>$7.5k</b></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="refs">
+        <p class="label">In the spirit of</p>
+        <p>Aesop (apothecary-as-luxury) · Monocle (matte, two-typeface discipline) · leerob.com (editorial serif in a builder's kit). Signature device: dense small-caps "datasheet" specs + Criterion-style numbered case studies.</p>
+      </div>
+    </section>
+
+    <!-- ============ B · PRACTICE ============ -->
+    <section class="dir">
+      <div class="dir-head">
+        <p class="n">Direction B</p>
+        <h2>Practice</h2>
+        <p class="adj">Calm · trustworthy · competent · human · grounded</p>
+      </div>
+      <div class="dir-body">
+        <div class="panel left">
+          <p class="label">Palette · Clinic Warm</p>
+          <div class="swatches">
+            <div class="sw"><span class="dot" style="background:#F6F4F0"></span><span class="hex">#F6F4F0</span><span class="role">warm paper</span></div>
+            <div class="sw"><span class="dot" style="background:#FFFFFF"></span><span class="hex">#FFFFFF</span><span class="role">surface</span></div>
+            <div class="sw"><span class="dot" style="background:#1F2A2E"></span><span class="hex">#1F2A2E</span><span class="role">deep slate</span></div>
+            <div class="sw"><span class="dot" style="background:#1E5C5A"></span><span class="hex">#1E5C5A</span><span class="role">slate-teal</span></div>
+            <div class="sw"><span class="dot" style="background:#C9714B"></span><span class="hex">#C9714B</span><span class="role">warm clay</span></div>
+          </div>
+          <p class="label">Type</p>
+          <div class="type-specimen">
+            <div class="ts-serif" style="font-family:'Fraunces',serif;font-weight:500;font-optical-sizing:auto;">Most Advanced<br>Yet Acceptable</div>
+            <p class="ts-body" style="font-family:'Schibsted Grotesk',sans-serif;">A calm, well-designed practice. Competent and human — trustworthy without clinical sky-blue.</p>
+            <p class="ts-names">Fraunces · Schibsted Grotesk · JetBrains Mono</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="label">Applied to Studio Maya</p>
+          <div class="mock" style="--bg:#F6F4F0;--surface:#FFFFFF;--text:#1F2A2E;--muted:#5c6b6a;--p:#1E5C5A;--onp:#F6F4F0;--line:rgba(31,42,46,0.12);--line2:rgba(31,42,46,0.28);--serif:'Fraunces',serif;--serifw:500;--sans:'Schibsted Grotesk',sans-serif;--mono:'JetBrains Mono',monospace;">
+            <div class="bar">
+              <span class="mark">Studio Maya<span>.</span></span>
+              <span class="nav"><a>Work</a><a>Offers</a><span class="pill">Book a fit call</span></span>
+            </div>
+            <div class="hero">
+              <span class="eye"><span class="led"></span>Available for one new build — July 2026</span>
+              <h3>I build products — some mine, some for <em>founders.</em></h3>
+              <p class="sub">Design, code, and AI in one head. I take healthcare and AI founders from idea to a product that ships — in weeks.</p>
+              <div class="cta"><span class="b1">Book a fit call</span><span class="b2">See offers</span></div>
+              <div class="offers"><span class="off">The MVP · <b>$9k</b></span><span class="off">Prototype · <b>$5k</b></span><span class="off">Launch Sprint · <b>$7.5k</b></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="refs">
+        <p class="label">In the spirit of</p>
+        <p>Anthropic/Claude (warm off-white + clay, trustworthy not techy) · Aesop (warm neutrals) · Things (one calm accent). The deep-teal + clay combo reads healthcare-credible while dodging the committee sky-blue 57% of healthtech uses.</p>
+      </div>
+    </section>
+
+    <!-- ============ C · SIGNAL ============ -->
+    <section class="dir">
+      <div class="dir-head">
+        <p class="n">Direction C</p>
+        <h2>Signal</h2>
+        <p class="adj">Decisive · opinionated · warm · distinctive · confident</p>
+      </div>
+      <div class="dir-body">
+        <div class="panel left">
+          <p class="label">Palette · Persimmon</p>
+          <div class="swatches">
+            <div class="sw"><span class="dot" style="background:#FAF6F0"></span><span class="hex">#FAF6F0</span><span class="role">warm paper</span></div>
+            <div class="sw"><span class="dot" style="background:#FFFFFF"></span><span class="hex">#FFFFFF</span><span class="role">surface</span></div>
+            <div class="sw"><span class="dot" style="background:#1A1714"></span><span class="hex">#1A1714</span><span class="role">near-black</span></div>
+            <div class="sw"><span class="dot" style="background:#FD5E0F"></span><span class="hex">#FD5E0F</span><span class="role">persimmon</span></div>
+            <div class="sw"><span class="dot" style="background:#12100E"></span><span class="hex">#12100E</span><span class="role">ink</span></div>
+          </div>
+          <p class="label">Type</p>
+          <div class="type-specimen">
+            <div class="ts-serif" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;">Most Advanced<br>Yet Acceptable</div>
+            <p class="ts-body" style="font-family:'Space Grotesk',sans-serif;">The studio with an opinion. One owned color does all the work — instantly recognizable.</p>
+            <p class="ts-names">Instrument Serif · Space Grotesk · JetBrains Mono</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="label">Applied to Studio Maya</p>
+          <div class="mock" style="--bg:#FAF6F0;--surface:#FFFFFF;--text:#1A1714;--muted:#6a6056;--p:#FD5E0F;--onp:#1A1714;--line:rgba(26,23,20,0.12);--line2:rgba(26,23,20,0.28);--serif:'Instrument Serif',serif;--serifw:400;--sans:'Space Grotesk',sans-serif;--mono:'JetBrains Mono',monospace;">
+            <div class="bar">
+              <span class="mark">Studio Maya<span>.</span></span>
+              <span class="nav"><a>Work</a><a>Offers</a><span class="pill">Book a fit call</span></span>
+            </div>
+            <div class="hero">
+              <span class="eye"><span class="led"></span>Available for one new build — July 2026</span>
+              <h3 style="font-size:clamp(30px,4.4vw,46px);">I build products — some mine, some for <em>founders.</em></h3>
+              <p class="sub">Design, code, and AI in one head. I take healthcare and AI founders from idea to a product that ships — in weeks.</p>
+              <div class="cta"><span class="b1">Book a fit call</span><span class="b2">See offers</span></div>
+              <div class="offers"><span class="off">The MVP · <b>$9k</b></span><span class="off">Prototype · <b>$5k</b></span><span class="off">Launch Sprint · <b>$7.5k</b></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="refs">
+        <p class="label">In the spirit of</p>
+        <p>Hermès (one owned orange = the brand) · Arc (warm cream, not white) · basement.studio (saturated signature, used relentlessly). Highest-ceiling pure-brand play: one bold hue you can plant a flag on, on warm paper.</p>
+      </div>
+    </section>
+
+    <!-- ============ DARK FALLBACK ============ -->
+    <div class="note">
+      <h3>If you'd rather stay dark — "Atelier"</h3>
+      <p>You were open to dropping dark, so I led with light. But if a dark home still feels more "you," there's a warm-dark option done right: oxblood + copper on near-black (not the generic gold) — a leather-and-iron workshop after dark. Say the word and I'll add it as a fourth mockup.</p>
+      <div class="mini">
+        <span class="dot" style="background:#161311"></span>
+        <span class="dot" style="background:#211C19"></span>
+        <span class="dot" style="background:#EDE6DD"></span>
+        <span class="dot" style="background:#9E3B2E"></span>
+        <span class="dot" style="background:#C9714B"></span>
+      </div>
+    </div>
+
+    <footer>
+      Pick a direction (A / B / C), tell me what to tweak, or ask for the dark option. Once you choose, I build the full design system and reskin the site against it. · Studio Maya brand moodboard
+    </footer>
+
+  </div>
+</body>
+</html>

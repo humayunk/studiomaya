@@ -1,478 +1,260 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Maya — Design & build for healthcare AI</title>
-  <meta name="description" content="Studio Maya is a design-and-build studio of one. I design and build products with founders in healthcare AI — and I make my own." />
-
-  <!-- Fonts -->
+  <title>Studio Maya, I build products, some mine, some for founders</title>
+  <meta name="description" content="An embedded builder for healthcare and AI founders. I design and ship products: prototypes, workflow automation, and full builds, and ship my own too." />
+  <link rel="icon" href="brand/maya/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            ink: '#0a0908',
-            paper: '#e8e8e6',
-            muted: '#8c8a84',
-            faint: '#5e5c57',
-            accent: '#d4a574',
-            line: 'rgba(232,232,230,0.09)',
-          },
-          fontFamily: {
-            serif: ['Newsreader', 'Georgia', 'serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-          },
-          maxWidth: {
-            measure: '46rem',
-          },
-        },
-      },
-    };
-  </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    ::selection { background: #d4a574; color: #0a0908; }
-
-    /* Editorial serif refinements */
-    .display { font-feature-settings: "liga" 1, "kern" 1; letter-spacing: -0.018em; }
-    .lede { text-wrap: pretty; }
-
-    /* Small mono label */
-    .eyebrow {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    /* Links inside prose */
-    .link {
-      color: #d4a574;
-      text-decoration: none;
-      background-image: linear-gradient(currentColor, currentColor);
-      background-size: 0% 1px;
-      background-repeat: no-repeat;
-      background-position: 0 100%;
-      transition: background-size .35s cubic-bezier(.2,.7,.2,1);
-    }
-    .link:hover { background-size: 100% 1px; }
-
-    /* Availability dot pulse */
-    .pulse {
-      position: relative;
-    }
-    .pulse::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 9999px;
-      box-shadow: 0 0 0 0 rgba(212,165,116,0.55);
-      animation: pulse 2.6s ease-out infinite;
-    }
-    @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(212,165,116,0.5); }
-      70%  { box-shadow: 0 0 0 7px rgba(212,165,116,0); }
-      100% { box-shadow: 0 0 0 0 rgba(212,165,116,0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .pulse::after { animation: none; }
-    }
-
-    /* Work row hover */
-    .work-row { transition: color .3s ease; }
-    .work-row .arrow {
-      opacity: 0;
-      transform: translateX(-6px);
-      transition: opacity .3s ease, transform .3s ease, color .3s ease;
-    }
-    .work-row:hover .arrow { opacity: 1; transform: translateX(0); }
-    .work-row:hover .work-title { color: #d4a574; }
-
-    /* Nav scroll border */
-    #nav { transition: border-color .4s ease, background-color .4s ease; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="maya.css?v=16" />
 </head>
+<body>
 
-<body class="bg-ink text-paper font-sans antialiased">
+  <!-- Maya mark, reusable -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <g id="maya">
+      <g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 32 L50 23"/>
+        <path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/>
+        <path d="M26 52 L20 52"/><path d="M74 52 L80 52"/>
+        <path d="M42 67 L58 67"/>
+      </g>
+      <circle cx="50" cy="18" r="4.5" fill="#E63329"/>
+      <circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/>
+    </g>
+  </defs></svg>
 
-  <!-- ============ NAV ============ -->
-  <header id="nav" class="sticky top-0 z-50 border-b border-transparent bg-ink/95">
-    <nav class="mx-auto flex max-w-measure items-center justify-between px-6 py-5">
-      <a href="#top" class="font-serif text-[1.05rem] font-medium tracking-tight text-paper transition-colors hover:text-accent">Studio&nbsp;Maya</a>
-      <div class="flex items-center gap-5 text-[0.85rem] text-muted sm:gap-7 sm:text-[0.92rem]">
-        <a href="#products" class="transition-colors hover:text-paper">Products</a>
-        <a href="#engagements" class="transition-colors hover:text-paper">Engagements</a>
-        <a href="#about" class="transition-colors hover:text-paper">About</a>
+  <!-- NAV -->
+  <nav class="bar">
+    <div class="container">
+      <a href="#top" class="logo"><svg viewBox="0 0 100 100"><use href="#maya"/></svg><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="#work" class="hide-sm">Work</a>
+        <a href="#offers" class="hide-sm">Offers</a>
+        <a href="#products" class="hide-sm">Products</a>
+        <a href="#about" class="hide-sm">About</a>
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-text reveal">
+        <span class="avail eyebrow"><span class="dot"></span>Available for one new build, July 2026</span>
+        <h1 class="h1">I build products. Some mine, some for <em>founders.</em></h1>
+        <p class="lede">Design, code, and AI in one head. I take healthcare and AI founders from idea to a product that ships, in weeks. And I run my own products too, so I've sat in the founder's seat, not just the designer's.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="#offers" class="btn btn-secondary">See offers</a>
+        </div>
+        <p class="hero-note">Fixed scope, fixed price. Prototype, workflow automation, or a full build.</p>
+      </div>
+      <div class="hero-art reveal"><img src="brand/maya/hero-explode.png" alt="A product, drawn on the bench" style="width:100%;height:auto;display:block" /></div>
+    </div>
   </header>
 
-  <main id="top" class="mx-auto max-w-measure px-6">
-
-    <!-- ============ HERO ============ -->
-    <section class="pt-24 pb-20 sm:pt-32 sm:pb-28">
-      <h1 class="display font-serif text-[2.1rem] font-light leading-[1.12] text-balance text-paper sm:text-[3.6rem] sm:leading-[1.08]">
-        I build products.
-        <span class="block text-muted">Some are mine. Some are for&nbsp;founders.</span>
-      </h1>
-
-      <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
-        <span class="inline-flex items-center gap-2.5 text-[0.9rem] text-muted">
-          <span class="pulse inline-block h-2 w-2 shrink-0 rounded-full bg-accent"></span>
-          Available for one new engagement starting July&nbsp;2026
-        </span>
+  <!-- 01 PROOF -->
+  <section id="proof" class="proof band">
+    <div class="container">
+      <p class="eyebrow reveal"><span class="num">01</span> · Trusted by teams at</p>
+      <div class="logos reveal">
+        <div class="logo-cell" tabindex="0"><div class="logo-name">Shopify</div><div class="logo-out">Product design across commerce surfaces used by millions of merchants.</div></div>
+        <div class="logo-cell" tabindex="0"><div class="logo-name">ClassDojo</div><div class="logo-out">Sole Android designer through the React Native migration. 50M+ users.</div></div>
+        <div class="logo-cell" tabindex="0"><div class="logo-name">Reputable Health</div><div class="logo-out">Built the AI tool that took study launches from 6 hours to 30 minutes.</div></div>
+        <div class="logo-cell" tabindex="0"><div class="logo-name">Practice with Joy</div><div class="logo-out">An AI marketing engine running brand + sites for a network of clinics.</div></div>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-9">
-        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[1rem] font-medium text-ink transition-all duration-300 hover:brightness-110">
-          <span>Book a call</span>
-          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+  <!-- 02 THE SHIFT -->
+  <section id="shift">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="eyebrow"><span class="num">02</span> · The shift</span>
+          <h2 class="h2" style="margin-top:16px">The build got cheap. The <em>yes</em> didn't.</h2>
+        </div>
+        <div class="reveal">
+          <p class="body">Anyone can ship a prototype now. The hard part was never the code, it's making something people actually get excited about, fund, and come back to. That's a design problem, and it's the one that decides whether your idea becomes a company.</p>
+          <p class="body" style="margin-top:18px">Most people you'd hire for this are career designers. I'm a designer who's also shipped and run my own products, priced them, watched the signup graph stay flat, killed the features nobody used, felt every consequence of getting the experience wrong.</p>
+          <p class="body" style="margin-top:18px">So I don't hand you a Figma file and walk away. I design <em>and build</em> for the outcome you actually need: board sign-off, the investment, a user who comes back. I've had to earn those exact yeses with my own money on the line.</p>
+        </div>
+      </div>
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">Engineers come at it from the backend. PMs from the spec. I come at it from the experience, the part that gets people to say yes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 OFFERS -->
+  <section id="offers" class="band">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">03</span> · Offers</span>
+        <h2 class="h2">From idea to shipped. <em>Pick where you start.</em></h2>
+      </div>
+      <div class="offers">
+        <a class="offer reveal" href="offers/prototype.html" style="text-decoration:none">
+          <span class="onum">01 · 1 week</span>
+          <h3>The Prototype</h3>
+          <div class="price">$5,000 <span class="per">USD</span></div>
+          <p class="tl">clickable, real, live</p>
+          <p class="od">One core flow on a live URL, to show a board, test with users, or pitch before you build the whole thing.</p>
+          <p class="bf"><span class="tlink">See the Prototype &rarr;</span></p>
+        </a>
+        <a class="offer reveal" href="offers/workflow-automation.html" style="text-decoration:none">
+          <span class="onum">02 · 2 weeks</span>
+          <h3>Workflow Automation</h3>
+          <div class="price">$7,500 <span class="per">USD</span></div>
+          <p class="tl">custom tool · AI · deployed</p>
+          <p class="od">A custom internal tool or AI workflow that kills a painful, repetitive process, in your team's hands.</p>
+          <p class="bf"><span class="tlink">See Workflow Automation &rarr;</span></p>
+        </a>
+        <a class="offer feature reveal" href="offers/full-build.html" style="text-decoration:none">
+          <span class="flag">Most popular</span>
+          <span class="onum">03 · 3 weeks</span>
+          <h3>The Full Build</h3>
+          <div class="price">$9,000 <span class="per">USD</span></div>
+          <p class="tl">auth · db · core loop · live</p>
+          <p class="od">A real product users can sign up for, deployed, and the code is yours to keep.</p>
+          <p class="bf"><span class="tlink">See the Full Build &rarr;</span></p>
         </a>
       </div>
-    </section>
+      <p class="reveal" style="margin-top:30px"><span class="body" style="color:var(--faint)">Plus Build Partner, an ongoing retainer after launch.</span> &nbsp;<a href="offers.html" class="tlink">See full offers &amp; how it works &rarr;</a></p>
+    </div>
+  </section>
 
-    <hr class="border-line" />
-
-    <!-- ============ WHAT I DO ============ -->
-    <section class="py-20 sm:py-24">
-      <p class="eyebrow text-faint">What I do</p>
-      <div class="mt-12 grid gap-12 sm:grid-cols-1">
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">What I do</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            I build products. Some I keep and run myself; some I build for founders. Either way I cover the whole stack — research, design, prototyping, and shipping production code with AI tooling (Claude, Cursor).
-          </p>
-        </div>
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">How fractional works</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            When I take client work, I embed with one founder at a time — usually three to six months at 20–40 hrs/week. Strong preference for engagements that ship an actual product, not just a deliverable.
-          </p>
-        </div>
-
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Who I work with</h3>
-          <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-            Technical founders building in complex, regulated spaces — healthcare especially, plus fintech, edtech, enterprise. Pre-seed to Series A. People who want an embedded product partner, not a logo.
-          </p>
-        </div>
-
+  <!-- 04 SELECTED WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">04</span> · Selected work</span>
+        <h2 class="h2">Work that earned a <em>yes.</em></h2>
       </div>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ PRODUCTS ============ -->
-    <section id="products" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">Products</p>
-
-      <div class="mt-12 grid gap-12">
-
-        <!-- All My Parts -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">All My Parts</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–present</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              An AI journaling app inspired by Internal Family Systems therapy. For people in IFS work who want to track their parts between sessions.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://allmyparts.me" target="_blank" rel="noopener" class="link text-[0.85rem]">allmyparts.me &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Cortex -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Cortex</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–present</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A spaced-repetition learning app for product designers. Hand-curated, illustrated card decks to build design vocabulary.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://learnwithcortex.com" target="_blank" rel="noopener" class="link text-[0.85rem]">learnwithcortex.com &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Joyful Marketing -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Joyful Marketing</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–2026</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A NotebookLM-style platform that generates a clinic's blog posts, social calendar, and brand-on-brand creative from a single context upload. Replaces hours of per-clinic setup with minutes.
-            </p>
-            <p class="mt-3 font-mono text-[0.8rem] text-faint">
-              For Practice with Joy
-            </p>
-          </div>
-        </div>
-
-        <!-- Reputable Studies -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Reputable Studies</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              An AI tool that turns clinical study protocols into participant-ready landing pages and ad copy. Campaign launch time: 6 hours to 30 minutes.
-            </p>
-            <p class="mt-3 font-mono text-[0.8rem] text-faint">
-              For Reputable Health
-            </p>
-          </div>
-        </div>
-
-        <!-- QueryCat -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">QueryCat</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2023–2024</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              A marketplace connecting aspiring authors with literary agents. Reached 1,000+ users and $300 MRR before sunsetting.
-            </p>
-            <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8rem]">
-              <a href="https://querycat.co" target="_blank" rel="noopener" class="link text-[0.85rem]">querycat.co &rarr;</a>
-              <span class="text-faint">Studio Maya product</span>
-            </p>
-          </div>
-        </div>
-
-      </div>
-      <p class="mt-12 text-[0.92rem] text-faint">Case studies coming soon.</p>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ ENGAGEMENTS ============ -->
-    <section id="engagements" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">Engagements</p>
-
-      <div class="mt-12 grid gap-12">
-
-        <!-- Practice with Joy -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Practice with Joy</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025–2026</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed and built across the platform — clinic websites, marketing automation, patient intake, HIPAA-compliant documentation. NP-focused telehealth.
-            </p>
-            <p class="mt-3"><a href="https://www.practicewithjoy.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">practicewithjoy.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Reputable Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Reputable Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Sr. Product Designer, AI. Designed marketing automation (Reputable Studies), prototyped Heartbeats — a token-based engagement system, and led PM for an offshore dev team.
-            </p>
-            <p class="mt-3"><a href="https://www.reputable.health" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">reputable.health &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- NIA Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">NIA Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2025</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Redesigned onboarding and dashboard for a seed-stage preventative health platform ($8.25M raised).
-            </p>
-            <p class="mt-3"><a href="https://niahealth.co" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">niahealth.co &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- RxFood -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">RxFood</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2024</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Led product design and a design sprint on an early-stage AI nutrition therapy platform.
-            </p>
-            <p class="mt-3"><a href="https://rxfood.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">rxfood.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- ClassDojo -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">ClassDojo</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2022–2023</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Sole Android designer through the React Native migration, 50M+ users.
-            </p>
-            <p class="mt-3"><a href="https://classdojo.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">classdojo.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Ruth Health -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Ruth Health</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2022</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed a YC-backed maternal telehealth platform from the ground up.
-            </p>
-            <p class="mt-3"><a href="https://www.ycombinator.com/companies/ruth-health" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">ycombinator.com/companies/ruth-health &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Agoro Carbon Alliance -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Agoro Carbon Alliance</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2021</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Researched and prototyped a platform incentivizing farmers to adopt carbon-neutral practices through credits. A Yara International subsidiary.
-            </p>
-            <p class="mt-3"><a href="https://agorocarbon.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">agorocarbon.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Applied Materials -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Applied Materials</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2020–2021</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed an automated pricing platform and ERP solution for the Fortune 500 semiconductor manufacturer (NASDAQ: AMAT).
-            </p>
-            <p class="mt-3"><a href="https://appliedmaterials.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">appliedmaterials.com &rarr;</a></p>
-          </div>
-        </div>
-
-        <!-- Ambry Genetics -->
-        <div class="grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-8">
-          <div class="flex items-baseline gap-3 sm:block">
-            <h3 class="font-serif text-[1.3rem] font-normal leading-snug text-paper">Ambry Genetics</h3>
-            <span class="font-mono text-[0.78rem] text-faint">2020</span>
-          </div>
-          <div>
-            <p class="lede text-[1.05rem] leading-[1.7] text-muted">
-              Designed a COVID-19 assessment platform for safe return-to-work. A Konica Minolta subsidiary.
-            </p>
-            <p class="mt-3"><a href="https://www.ambrygen.com" target="_blank" rel="noopener" class="link font-mono text-[0.85rem]">ambrygen.com &rarr;</a></p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="py-20 sm:py-24 scroll-mt-20">
-      <p class="eyebrow text-faint">About</p>
-
-      <div class="mt-10 max-w-[38rem] space-y-7 text-[1.12rem] leading-[1.75] text-paper/90">
-        <p class="lede">
-          I'm Humayun. I've spent the last decade designing products in complex, regulated spaces — at Shopify (pre-IPO), ClassDojo (50M+ users), Roadmunk (acq. Tempo), and Tiny Hearts (acq. Shopify), before going independent in 2020.
-        </p>
-        <p class="lede text-muted">
-          Studio Maya takes its name from the MAYA principle — "Most Advanced Yet Acceptable" — coined by industrial designer Raymond Loewy. Every product I build aims for that line: as advanced as the user can absorb, no further.
-        </p>
-        <p class="lede text-muted">
-          Based in Montreal. Work remote, anywhere.
-        </p>
-      </div>
-    </section>
-
-    <hr class="border-line" />
-
-    <!-- ============ CTA ============ -->
-    <section class="py-24 sm:py-32">
-      <h2 class="display font-serif text-[2rem] font-light leading-[1.15] text-paper sm:text-[2.6rem]">
-        Building something worth shipping?
-      </h2>
-      <p class="mt-5 text-[1.12rem] leading-relaxed text-muted">
-        I'm available for one new engagement starting July&nbsp;2026.
-      </p>
-      <div class="mt-9">
-        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[1rem] font-medium text-ink transition-all duration-300 hover:brightness-110">
-          <span>Book a call</span>
-          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+      <div class="cards">
+        <a class="card reveal" href="work/all-my-parts.html" style="text-decoration:none">
+          <img class="card-ill" src="brand/maya/work-all-my-parts.png" alt="" aria-hidden="true" />
+          <span class="eyebrow">All My Parts · my product</span>
+          <div class="price" style="margin-top:12px">Solo</div>
+          <p class="tl" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)">idea → shipped product</p>
+          <p class="od" style="color:var(--muted);font-size:14px;margin-top:14px">An AI journaling app for IFS therapy, designed, built and shipped end to end.</p>
+          <p style="margin-top:16px"><span class="tlink">See the full story &rarr;</span></p>
+        </a>
+        <a class="card reveal" href="work/lightswitch.html" style="text-decoration:none">
+          <img class="card-ill" src="brand/maya/work-lightswitch.png" alt="" aria-hidden="true" />
+          <span class="eyebrow">Lightswitch</span>
+          <div class="price" style="margin-top:12px">6 wks</div>
+          <p class="tl" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)">idea → soft launch</p>
+          <p class="od" style="color:var(--muted);font-size:14px;margin-top:14px">Designed the onboarding, design system and checkout for a monetization platform.</p>
+          <p style="margin-top:16px"><span class="tlink">See the full story &rarr;</span></p>
+        </a>
+        <a class="card reveal" href="work/practice-with-joy.html" style="text-decoration:none">
+          <img class="card-ill" src="brand/maya/work-practice-with-joy.png" alt="" aria-hidden="true" />
+          <span class="eyebrow">Practice with Joy</span>
+          <div class="price" style="margin-top:12px">8–10</div>
+          <p class="tl" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)">clinics' marketing run</p>
+          <p class="od" style="color:var(--muted);font-size:14px;margin-top:14px">An AI marketing engine, brand, sites and content for a network of clinics.</p>
+          <p style="margin-top:16px"><span class="tlink">See the full story &rarr;</span></p>
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="border-t border-line">
-    <div class="mx-auto max-w-measure px-6 py-14">
-      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div class="space-y-1.5 text-[0.92rem] text-muted">
-          <p>Studio Maya Inc. · Montreal</p>
-        </div>
-        <p class="eyebrow text-faint">MAYA — Most Advanced Yet Acceptable</p>
+  <!-- 05 TESTIMONIALS -->
+  <section id="testimonials" class="band">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">05</span> · What founders say</span>
+        <h2 class="h2">What founders say.</h2>
       </div>
+      <div class="cards">
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is the rare designer who can take a fuzzy, high-stakes problem and turn it into something clean and shippable. He led the design of our COVID-19 assessment platform under real deadline pressure and made it look easy. Any team would be lucky to have him.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-kenny.png)" role="img" aria-label="Kenny Wong"></div><div class="qname"><b>Kenny Wong</b>Ex-VP Product, Genome Smart</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of, while keeping the mothers we work with firmly in mind. He'd be a valuable addition to any early-stage start-up.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-alison.png)" role="img" aria-label="Alison Greenberg"></div><div class="qname"><b>Alison Greenberg</b>Former Co-CEO, Ruth Health (YC S21)</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is one of those rare people who can design and build the whole thing.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-robleh.png)" role="img" aria-label="Robleh Jama"></div><div class="qname"><b>Robleh Jama</b>Founder, Boom</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="eyebrow"><span class="num">06</span> · Products</span>
+          <h2 class="h2" style="margin-top:16px">I ship my own products, too.</h2>
+        </div>
+        <div class="reveal">
+          <p class="body" style="margin-bottom:28px">Not as a side hustle, as a way to stay honest. Running my own products means I'm not theorizing about what founders face. I'm living it this week: the pricing call, the distribution grind, the question of whether anyone will use the thing.</p>
+          <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))">
+            <article class="card">
+              <h3 class="h3">All My Parts</h3>
+              <p class="body" style="font-size:14px;margin-top:10px">An AI journaling app inspired by Internal Family Systems therapy.</p>
+              <p style="margin-top:14px"><a href="work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
+            </article>
+            <!-- Cortex hidden for now, more products to be added shortly.
+            <article class="card">
+              <h3 class="h3">Cortex</h3>
+              <p class="body" style="font-size:14px;margin-top:10px">A spaced-repetition learning app for product designers.</p>
+            </article>
+            -->
+          </div>
+        </div>
+      </div>
+      <p class="prod-foot reveal">Every lesson from these goes straight into your product.</p>
+    </div>
+  </section>
+
+  <!-- 07 ABOUT -->
+  <section id="about" class="band">
+    <div class="container">
+      <div class="sec-head reveal"><span class="eyebrow"><span class="num">07</span> · About</span></div>
+      <div class="about-grid">
+        <div class="about-portrait reveal" style="overflow:hidden"><img src="brand/maya/portrait-min-2.png" alt="Illustrated portrait of Humayun" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div class="reveal">
+          <p class="lede" style="color:var(--ink)">I'm Humayun, a product designer and builder based in Montreal, working remotely since 2020. Shopify, ClassDojo, and a string of healthcare and AI startups before going independent.</p>
+          <p class="body" style="margin-top:18px">Now I run Studio Maya: I take founders from idea to a shipped product, and I build my own. The name is from Raymond Loewy's principle, <em>Most Advanced Yet Acceptable</em>, the line between novel and familiar, which is exactly where good products live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2">Got something that needs to get a <em>yes?</em></h2>
+        <p class="body">I take one new build at a time. If the timing's right, let's talk.</p>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="#top" class="logo"><svg viewBox="0 0 100 100" style="width:30px;height:30px"><use href="#maya"/></svg><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">© 2026 Studio Maya, Most Advanced Yet Acceptable</p>
     </div>
   </footer>
 
   <script>
-    // Fade in a hairline under the nav once the user scrolls past the hero top.
-    (function () {
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 12) {
-          nav.classList.add('border-line');
-          nav.classList.remove('border-transparent');
-        } else {
-          nav.classList.remove('border-line');
-          nav.classList.add('border-transparent');
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+    (function(){
+      var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.12});
+      document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
     })();
   </script>
+
 </body>
 </html>
