@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M monogram variations, Studio Maya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--paper:#F4F1E8;--surface:#FBF9F2;--ink:#14110f;--muted:#6a6258;--faint:#9a9388;--blue:#0B3D91;--red:#E63329;--line:rgba(20,17,15,.12);--grid:rgba(11,61,145,0.07)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);
+      background:
+        repeating-linear-gradient(0deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),
+        repeating-linear-gradient(90deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),
+        var(--paper);}
+    .wrap{max-width:1120px;margin:0 auto;padding:56px 28px 100px}
+    .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.02em;margin:12px 0 6px}
+    .lede{color:var(--muted);font-size:15px;max-width:62ch;line-height:1.6;margin:0 0 40px}
+    .lede a{color:var(--blue)}
+    .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:16px}
+    .card.pick{border-color:rgba(11,61,145,.5);box-shadow:0 0 0 1px rgba(11,61,145,.35)}
+    .big{height:150px;display:grid;place-items:center;background:#F4EEE0;border-radius:8px}
+    .big img{height:118px;width:auto}
+    .lock{display:flex;align-items:center;gap:9px;padding:10px 12px;background:var(--paper);border-radius:8px}
+    .lock img{width:30px;height:30px;object-fit:contain}
+    .wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
+    .wm .red{color:var(--red)}
+    .fav{display:flex;align-items:center;gap:14px}
+    .fav .chip{background:#fff;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center}
+    .fav .s16{width:20px;height:20px}.fav .s16 img{width:16px;height:16px;object-fit:contain}
+    .fav .s24{width:30px;height:30px}.fav .s24 img{width:22px;height:22px;object-fit:contain}
+    .fav .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+    .meta .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;margin:0}
+    .meta .why{color:var(--muted);font-size:13px;line-height:1.5;margin:4px 0 0}
+    .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:2px 7px;align-self:flex-start;color:var(--blue)}
+    .tag.top{color:var(--red);border-color:rgba(230,51,41,.4)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Brand · logo · M monogram</p>
+    <h1>The "M" direction</h1>
+    <p class="lede">Six takes on the M mark, a familiar letterform (acceptable) with a streamline-modern twist (advanced). Cream is placeholder; the final would be a clean hand-drawn SVG with a transparent ground and a proper favicon. Compared at large, nav-lockup, and 16/24px favicon scale.</p>
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <script>
+    const marks = [
+      {file:'m-c-oneline.png', name:'One-line streamline M', tag:'top pick', top:true, why:'One unbroken marker stroke traces the whole M with a streamline flow. The most distinctive and ownable, unmistakably an M yet clearly not a font. Holds up small.'},
+      {file:'m-a-rounded.png', name:'Rounded m + red dot', tag:'top pick', top:true, why:'Soft rounded humps that echo the lowercase "studio maya." wordmark, red dot sitting like the period. Friendly, warm, very cohesive with the logotype.'},
+      {file:'m-f-serifless.png', name:'Clean M + red period', tag:'safest', why:'A confident geometric M with the red dot as an explicit period. Timeless and the most legible at tiny sizes, but the least distinctive (closest to a plain letter).'},
+      {file:'m-e-bullet.png', name:'Bullet-peak M', tag:'most advanced', why:'Centre vertex capped with a Loewy bullet-nose, outline weight. The strongest streamline statement, but busy and can read as a crown at favicon size.'},
+      {file:'m-b-geometric.png', name:'Outline M', tag:'variant', why:'Double-line outline M with the dot floating above. Adds depth, but the hollow stroke muddies at small sizes.'},
+      {file:'m-d-tail.png', name:'M with tail + period', tag:'variant', why:'The last leg trails into a speed-line tail with a red period. Nice motion and ties to the wordmark, but this render is brushy, off from the clean marker.'},
+    ];
+    document.getElementById('grid').innerHTML = marks.map(m => `
+      <div class="card${m.top?' pick':''}">
+        <span class="tag${m.top?' top':''}">${m.tag}</span>
+        <div class="big"><img src="maya/explore/${m.file}" alt="${m.name}"></div>
+        <div class="lock"><img src="maya/explore/${m.file}" alt=""><span class="wm">studio maya<span class="red">.</span></span></div>
+        <div class="fav">
+          <div class="chip s24"><img src="maya/explore/${m.file}" alt=""></div>
+          <div class="chip s16"><img src="maya/explore/${m.file}" alt=""></div>
+          <span class="lbl">favicon · 24 / 16px</span>
+        </div>
+        <div class="meta"><p class="name">${m.name}</p><p class="why">${m.why}</p></div>
+      </div>`).join('');
+  </script>
+</body>
+</html>
