@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Studio Maya, bullseye mark (Loewy / Lucky Strike) -->
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#14110f" stroke-width="7"/>
+  <circle cx="50" cy="50" r="17" fill="none" stroke="#14110f" stroke-width="7"/>
+  <circle cx="50" cy="50" r="7.5" fill="#E63329"/>
+</svg>
