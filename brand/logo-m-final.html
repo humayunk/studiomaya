@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rounded m, in context, Studio Maya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--paper:#F4F1E8;--surface:#FBF9F2;--ink:#14110f;--muted:#6a6258;--faint:#9a9388;--blue:#0B3D91;--red:#E63329;--line:rgba(20,17,15,.12);--grid:rgba(11,61,145,0.07)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);
+      background:repeating-linear-gradient(0deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),repeating-linear-gradient(90deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),var(--paper);}
+    .wrap{max-width:1000px;margin:0 auto;padding:52px 28px 100px}
+    .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:12px 0 34px}
+    h2{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:38px 0 14px}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px}
+    /* real nav mockup */
+    .nav{display:flex;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 20px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo svg{width:34px;height:34px}
+    .wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em}
+    .wm .red{color:var(--red)}
+    .navlinks{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--muted)}
+    .btn{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:9px 15px;border-radius:7px}
+    /* sizes row */
+    .row{display:flex;align-items:flex-end;gap:34px;flex-wrap:wrap}
+    .s{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .s .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+    .mk-120 svg{width:120px;height:120px}
+    .mk-64 svg{width:64px;height:64px}
+    .mk-32 svg{width:32px;height:32px}
+    /* favicon / tab */
+    .tab{display:inline-flex;align-items:center;gap:8px;background:#2b2b2b;color:#ddd;border-radius:8px 8px 0 0;padding:9px 14px;font-size:13px}
+    .tab img{width:16px;height:16px;border-radius:3px}
+    .tab.big img{width:28px;height:28px;border-radius:5px}
+    .faviconrow{display:flex;gap:20px;align-items:flex-end;flex-wrap:wrap}
+    .compare{display:flex;gap:40px;flex-wrap:wrap;align-items:center}
+    .compare .c{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .compare .c .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  </style>
+</head>
+<body>
+  <!-- reusable inline marks -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <g id="m-mark">
+      <g fill="none" stroke="#14110f" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27 70 L27 51 Q27 39 38.5 39 Q50 39 50 55 Q50 39 61.5 39 Q73 39 73 51 L73 70"/>
+      </g>
+      <circle cx="50" cy="65" r="5" fill="#E63329"/>
+    </g>
+    <g id="m-mark-nodot">
+      <g fill="none" stroke="#14110f" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27 70 L27 51 Q27 39 38.5 39 Q50 39 50 55 Q50 39 61.5 39 Q73 39 73 51 L73 70"/>
+      </g>
+    </g>
+    <g id="robot">
+      <g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 32 L50 23"/>
+        <path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/>
+        <path d="M26 52 L20 52"/><path d="M74 52 L80 52"/>
+        <path d="M42 67 L58 67"/>
+      </g>
+      <circle cx="50" cy="18" r="4.5" fill="#E63329"/>
+      <circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/>
+    </g>
+  </defs></svg>
+
+  <div class="wrap">
+    <p class="eyebrow">Brand · logo · sign-off</p>
+    <h1>Rounded "m", in context</h1>
+
+    <h2>In the nav · with dot</h2>
+    <div class="nav">
+      <div class="logo"><svg viewBox="0 0 100 100"><use href="#m-mark"/></svg><span class="wm">studio maya<span class="red">.</span></span></div>
+      <div class="navlinks"><span>Work</span><span>Offers</span><span>Products</span><span>About</span><span class="btn">Book a fit call</span></div>
+    </div>
+
+    <h2 style="margin-top:22px">In the nav · without dot</h2>
+    <div class="nav">
+      <div class="logo"><svg viewBox="0 0 100 100"><use href="#m-mark-nodot"/></svg><span class="wm">studio maya<span class="red">.</span></span></div>
+      <div class="navlinks"><span>Work</span><span>Offers</span><span>Products</span><span>About</span><span class="btn">Book a fit call</span></div>
+    </div>
+
+    <h2>With dot vs without</h2>
+    <div class="panel row" style="gap:48px">
+      <div class="s"><svg viewBox="0 0 100 100" style="width:88px;height:88px"><use href="#m-mark"/></svg><span class="lbl">with dot</span></div>
+      <div class="s"><svg viewBox="0 0 100 100" style="width:88px;height:88px"><use href="#m-mark-nodot"/></svg><span class="lbl">without dot</span></div>
+      <div class="s"><svg viewBox="0 0 100 100" style="width:32px;height:32px"><use href="#m-mark"/></svg><span class="lbl">32px · dot</span></div>
+      <div class="s"><svg viewBox="0 0 100 100" style="width:32px;height:32px"><use href="#m-mark-nodot"/></svg><span class="lbl">32px · no dot</span></div>
+    </div>
+
+    <h2>The mark, at size</h2>
+    <div class="panel">
+      <div class="row">
+        <div class="s mk-120"><svg viewBox="0 0 100 100"><use href="#m-mark"/></svg><span class="lbl">120px</span></div>
+        <div class="s mk-64"><svg viewBox="0 0 100 100"><use href="#m-mark"/></svg><span class="lbl">64px</span></div>
+        <div class="s mk-32"><svg viewBox="0 0 100 100"><use href="#m-mark"/></svg><span class="lbl">32px</span></div>
+      </div>
+    </div>
+
+    <h2>Favicon / browser tab (white ground)</h2>
+    <div class="panel faviconrow">
+      <div class="tab big"><img src="maya/favicon-m.svg" alt=""> studiomaya.io</div>
+      <div class="tab"><img src="maya/favicon-m.svg" alt=""> studiomaya.io</div>
+    </div>
+
+    <h2>New vs current mark</h2>
+    <div class="panel compare">
+      <div class="c"><svg viewBox="0 0 100 100" style="width:64px;height:64px"><use href="#m-mark"/></svg><span class="lbl">new · rounded m</span></div>
+      <div class="c"><svg viewBox="0 0 100 100" style="width:64px;height:64px"><use href="#robot"/></svg><span class="lbl">current · robot</span></div>
+    </div>
+  </div>
+</body>
+</html>
