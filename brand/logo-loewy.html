@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo exploration, Loewy / MAYA, Studio Maya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--paper:#F4F1E8;--surface:#FBF9F2;--ink:#14110f;--muted:#6a6258;--faint:#9a9388;--blue:#0B3D91;--red:#E63329;--line:rgba(20,17,15,.12);--grid:rgba(11,61,145,0.07)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);
+      background:
+        repeating-linear-gradient(0deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),
+        repeating-linear-gradient(90deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),
+        var(--paper);}
+    .wrap{max-width:1120px;margin:0 auto;padding:56px 28px 100px}
+    .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.02em;margin:12px 0 6px}
+    .lede{color:var(--muted);font-size:15px;max-width:60ch;line-height:1.6;margin:0 0 40px}
+    .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:16px}
+    .big{height:150px;display:grid;place-items:center;background:#F4EEE0;border-radius:8px}
+    .big img{height:120px;width:auto}
+    /* nav lockup */
+    .lock{display:flex;align-items:center;gap:9px;padding:10px 12px;background:var(--paper);border-radius:8px}
+    .lock img{width:30px;height:30px;object-fit:contain}
+    .wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
+    .wm .red{color:var(--red)}
+    /* favicon row */
+    .fav{display:flex;align-items:center;gap:14px}
+    .fav .chip{background:#fff;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center}
+    .fav .s16{width:20px;height:20px}.fav .s16 img{width:16px;height:16px;object-fit:contain}
+    .fav .s24{width:30px;height:30px}.fav .s24 img{width:22px;height:22px;object-fit:contain}
+    .fav .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+    .meta .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;margin:0}
+    .meta .why{color:var(--muted);font-size:13px;line-height:1.5;margin:4px 0 0}
+    .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);border:1px solid var(--line);border-radius:3px;padding:2px 7px;align-self:flex-start}
+    .curbench{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);margin-top:40px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Brand · logo exploration</p>
+    <h1>Loewy / MAYA icon directions</h1>
+    <p class="lede">Marks drawn from Raymond Loewy's actual work (streamliner trains, the Lucky Strike target) and from the MAYA principle itself (Most Advanced Yet Acceptable). Shown large, as a nav lockup, and at favicon size, the only test that matters for a mark. Same marker hand as the brand; cream is placeholder and would become transparent on the final.</p>
+
+    <div class="grid" id="grid"></div>
+
+    <p class="curbench">For reference, the current mark is the Maya robot (brand/maya/favicon.svg).</p>
+  </div>
+
+  <script>
+    const marks = [
+      {file:'icon-m.png', name:'Streamlined "M"', tag:'MAYA monogram', why:'The initial M with streamline-rounded legs, red dot in the valley. A letterform (familiar) with an advanced curve, literally Most Advanced Yet Acceptable. Reads instantly at favicon size.'},
+      {file:'icon-train.png', name:'Streamliner loco', tag:'Loewy homage', why:'Loewy\'s signature: the bullet-nose streamline locomotive, speed lines, red headlight. Direct nod to his most iconic work; distinctive but still legible small.'},
+      {file:'icon-curve.png', name:'The MAYA curve', tag:'the diagram', why:'Loewy\'s own diagram: desirability peaks right at the limit of acceptability. Red dot marks the sweet spot. The most conceptually ownable, but leans abstract.'},
+      {file:'icon-target.png', name:'Lucky Strike target', tag:'Loewy homage', why:'His most famous graphic redesign, the bullseye. Plays straight to your signal-red. Extremely simple and scalable, though a common shape.'},
+      {file:'icon-bullet2.png', name:'Bullet nose', tag:'streamline', why:'The streamline nose reduced to a silhouette + speed lines. Clean sense of forward motion; sibling to the loco but simpler.'},
+      {file:'icon-teardrop2.png', name:'Streamline teardrop', tag:'streamline', why:'The pure aerodynamic droplet, the essence of Loewy\'s styling, with speed lines and a red core. Elegant but reads a touch like a comet.'},
+      {file:'icon-dial.png', name:'Novel↔familiar dial', tag:'MAYA concept', why:'A gauge tuned to the sweet spot (red tick) between novel and familiar. On-concept, but the needle detail is fragile at tiny sizes.'},
+    ];
+    const g = document.getElementById('grid');
+    g.innerHTML = marks.map(m => `
+      <div class="card">
+        <span class="tag">${m.tag}</span>
+        <div class="big"><img src="maya/explore/${m.file}" alt="${m.name}"></div>
+        <div class="lock"><img src="maya/explore/${m.file}" alt=""><span class="wm">studio maya<span class="red">.</span></span></div>
+        <div class="fav">
+          <div class="chip s24"><img src="maya/explore/${m.file}" alt=""></div>
+          <div class="chip s16"><img src="maya/explore/${m.file}" alt=""></div>
+          <span class="lbl">favicon · 24 / 16px</span>
+        </div>
+        <div class="meta"><p class="name">${m.name}</p><p class="why">${m.why}</p></div>
+      </div>`).join('');
+  </script>
+</body>
+</html>
