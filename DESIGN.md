@@ -8,39 +8,15 @@ Studio Maya is a one-person product studio: an embedded builder who takes founde
 
 The brand expresses **curiosity + play + art + science**, via one device: **sharpie × blueprint**. A confident, hand-drawn marker line (the play, the human) annotated with crisp blueprint precision — dimension lines, figure numbers, leader callouts (the rigor, the science). Everything sits on graph paper, like a working engineering notebook.
 
-## Logo — "Maya"
+## Logo
 
-A minimal hand-drawn robot (the curious AI builder). **Level-2 marker weight** is the locked version.
+**Wordmark only, no icon mark.** The logotype stands alone; there is no separate symbol in the nav or footer.
 
-- **Primary mark:** rounded head, two dot eyes, red antenna light, side ports, straight "neutral" mouth.
-- **Favicon / app icon:** `brand/maya/favicon.svg`.
-- **Wordmark:** lowercase **`studio maya.`** — Space Grotesk 700, the period in signal-red.
-- **Lockup:** mark + wordmark, horizontal (see nav). Stacked version for avatars/square.
+- **Wordmark:** lowercase **`studio maya.`** — Space Grotesk 700, the period in signal-red (`#E63329`). This period is the sole recurring brand device, the "dot."
+- **Favicon / app icon:** a single **signal-red dot** on a white rounded ground, `brand/maya/favicon.svg` (echoes the period). White ground keeps it visible on dark browser tabs.
+- **Lockup:** just the wordmark. `<a class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>`.
 
-**Expressions (Maya's moods)** — the mouth swaps by context. Keep this system:
-| mouth | context |
-|---|---|
-| straight line | neutral · nav / default |
-| smile | wins · testimonials |
-| speaker grille | building · "on the bench" / WIP |
-| open "o" | idea · curiosity / 404 |
-| dotted line | thinking · loading / process |
-| red check | shipped · outcomes / done |
-
-**Inline mark** (paste into `<defs>`, reference with `<use href="#maya"/>`):
-```html
-<g id="maya">
-  <g fill="none" stroke="#14110f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M50 32 L50 23"/>
-    <path d="M30 34 Q26 34 26 41 L26 71 Q26 79 34 79 L66 79 Q74 79 74 71 L74 41 Q74 34 70 34 Z"/>
-    <path d="M26 52 L20 52"/><path d="M74 52 L80 52"/>
-    <path d="M42 67 L58 67"/>
-  </g>
-  <circle cx="50" cy="18" r="4.5" fill="#E63329"/>
-  <circle cx="41" cy="55" r="4.8" fill="#14110f"/><circle cx="59" cy="55" r="4.8" fill="#14110f"/>
-</g>
-```
-Note: the live SVGs use a fixed-seed roughen filter for marker character in exploration pages; the production mark is clean geometry (above). To redraw expressions, swap only the mouth path.
+History: earlier versions used a hand-drawn "Maya" robot mark. It was retired in favour of the wordmark-only direction (2026-07). The robot + Loewy/MAYA icon explorations live in `brand/logo-*.html` and `brand/maya/explore/` for reference; the robot inline `<defs>` mark and `favicon-m`/`logo-target` assets are no longer used in production.
 
 ## Palette (tokens in `maya.css :root`)
 
