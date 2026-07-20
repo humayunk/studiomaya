@@ -94,13 +94,13 @@ nav.bar .container{display:flex;align-items:center;justify-content:space-between
 
 /* ---------- logo / proof band ---------- */
 .proof{padding:clamp(40px,6vh,64px) 0}
-.logos{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));margin-top:26px}
-.logo-cell{padding:18px 4px}
-.logo-name{font-family:var(--disp);font-weight:600;font-size:20px;color:rgba(20,17,15,0.5);transition:color .25s}
-.logo-cell:hover .logo-name,.logo-cell:focus-within .logo-name{color:var(--ink)}
-.logo-out{font-size:12.5px;line-height:1.5;color:var(--muted);margin-top:8px;max-width:34ch;opacity:0;transition:opacity .35s}
-.logo-cell:hover .logo-out,.logo-cell:focus-within .logo-out{opacity:1}
-@media(hover:none){.logo-out{opacity:1}}
+.marquee{position:relative;overflow:hidden;margin-top:26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;align-items:center;width:max-content;animation:mq-scroll 52s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.mq{font-family:var(--disp);font-weight:600;font-size:clamp(21px,2.5vw,30px);letter-spacing:-.01em;color:var(--ink);white-space:nowrap;padding:0 clamp(20px,2.6vw,38px)}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:var(--faint);flex:none}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;row-gap:6px}.marquee{-webkit-mask-image:none;mask-image:none}}
 
 /* ---------- pullquote ---------- */
 .pullquote-wrap{margin:clamp(40px,7vh,72px) 0 0 auto;max-width:52rem;padding:clamp(26px,4vh,38px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
