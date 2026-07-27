@@ -257,3 +257,11 @@ section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
 /* nav button text (beat .navlinks a specificity) */
 .navlinks a.btn-primary,.navlinks a.btn-primary:hover{color:#fff}
 .navlinks a.btn-secondary{color:var(--ink)}
+
+/* homepage project gallery: one large media row per project, media/info alternating sides. Videos use .vhero's placeholder frame; playback is lazy (see index.html observer) so the loops only load in view. */
+.gallery{display:flex;flex-direction:column;gap:clamp(44px,6vw,80px)}
+.g-item{display:grid;gap:clamp(22px,3.4vw,52px);align-items:center;grid-template-columns:1fr}
+@media(min-width:880px){.g-item{grid-template-columns:7fr 5fr}.g-item:nth-child(even){grid-template-columns:5fr 7fr}.g-item:nth-child(even) .g-media{order:2}}
+.g-media .vhero{border:1px solid var(--line);background:var(--surface)}
+.g-cap{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:10px}
+.g-outcome{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:12px}
