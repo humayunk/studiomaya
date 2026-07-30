@@ -64,7 +64,7 @@
       <div class="gallery">
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, all my parts"><video src="work/media/all-my-parts-hero.mp4" muted loop playsinline preload="none" aria-label="All My Parts app recording"></video></div>
+            <div class="vhero" data-label="loop, all my parts"><video src="work/media/all-my-parts-hero.mp4" poster="work/media/all-my-parts-hero-poster.jpg" width="1406" height="1080" muted loop playsinline preload="metadata" aria-label="All My Parts app recording"></video></div>
             <p class="g-cap">Fig. 01 · recorded product loop</p>
           </div>
           <div class="g-info">
@@ -77,7 +77,7 @@
         </article>
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, lightswitch"><video src="work/media/lightswitch-hero.mp4" muted loop playsinline preload="none" aria-label="Lightswitch product recording"></video></div>
+            <div class="vhero" data-label="loop, lightswitch"><video src="work/media/lightswitch-hero.mp4" poster="work/media/lightswitch-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Lightswitch product recording"></video></div>
             <p class="g-cap">Fig. 02 · recorded product loop</p>
           </div>
           <div class="g-info">
@@ -90,7 +90,7 @@
         </article>
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, practice with joy"><video src="work/media/practice-with-joy-hero.mp4" muted loop playsinline preload="none" aria-label="Practice with Joy platform recording"></video></div>
+            <div class="vhero" data-label="loop, practice with joy"><video src="work/media/practice-with-joy-hero.mp4" poster="work/media/practice-with-joy-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Practice with Joy platform recording"></video></div>
             <p class="g-cap">Fig. 03 · recorded product loop</p>
           </div>
           <div class="g-info">
@@ -252,7 +252,7 @@
     (function(){
       var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.12});
       document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
-      var vobs=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.preload==='none'){v.preload='auto';v.load()}v.play().catch(function(){})}else{v.pause()}})},{threshold:0.25});
+      var vobs=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.play().catch(function(){})}else{v.pause()}})},{threshold:0.2,rootMargin:'400px 0px'});
       document.querySelectorAll('.g-media video').forEach(function(v){vobs.observe(v)});
     })();
   </script>
