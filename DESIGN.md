@@ -4,11 +4,13 @@ The visual identity for studiomaya.io. Source of truth for the look, the logo, a
 
 ## Concept
 
-Studio Maya is a one-person studio: a fractional design partner who embeds with healthcare and AI founders two days a week, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
+Studio Maya is a one-person studio: a fractional design partner who embeds with healthcare and AI founders, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
 
 **Positioning note (2026-08):** the studio moved from productized fixed-price offers to a fractional partnership as the headline. The partner rate is deliberately *not* published; the page anchors against what the buyer is otherwise choosing between (in-house hire, agency, subscription) and cites the category range instead. The $5k Prototype stays priced and visible as the entry point, since a cheap buyable offer is what converts from a website while partnerships convert on conversation. Rationale in issue #9.
 
-The brand expresses **curiosity + play + art + science**, via one device: **sharpie × blueprint**. A confident, hand-drawn marker line (the play, the human) annotated with crisp blueprint precision — dimension lines, figure numbers, leader callouts (the rigor, the science). Everything sits on graph paper, like a working engineering notebook.
+**Never state a day count** (no "two days a week", no "N days a month"). A published time unit sitting next to the published category range lets a buyer divide out a day rate and negotiate from there, which defeats the point of not publishing a price. Sell cadence instead: in your Slack daily, shipping every week. Scarcity comes from **one founder at a time**, not from counting hours.
+
+The brand expresses **curiosity + play + art + science**, via one device: **sharpie × blueprint**. A confident, hand-drawn marker line (the play, the human) annotated with crisp blueprint precision — dimension lines, figure numbers, leader callouts (the rigor, the science). The work sits on graph paper, like a working engineering notebook. Page mastheads (`.subhero`) are the exception: they sit on flat `--surface` so the grid begins where the working content does, and type never competes with it.
 
 ## Logo
 
