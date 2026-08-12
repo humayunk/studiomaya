@@ -170,8 +170,10 @@ footer .container{display:flex;flex-wrap:wrap;align-items:center;justify-content
    =================================================================== */
 .glow{position:absolute;pointer-events:none;z-index:0;width:min(800px,90vw);height:min(800px,90vw);border-radius:50%;top:-26%;left:-12%;
   background:radial-gradient(circle at center,rgba(11,61,145,0.06),rgba(11,61,145,0) 68%)}
-.subhero{position:relative;overflow:hidden;border-top:none;padding-top:clamp(34px,6vh,60px);padding-bottom:clamp(40px,6vh,72px)}
+/* subpage masthead sits on a flat surface, not the graph paper: the grid is the working surface for the work itself, and a page header on top of it reads as noise behind the type. */
+.subhero{position:relative;overflow:hidden;border-top:none;border-bottom:1px solid var(--line);background:var(--surface);padding-top:clamp(34px,6vh,60px);padding-bottom:clamp(40px,6vh,72px)}
 .subhero .container{position:relative;z-index:1}
+.subhero .glow{display:none}
 .crumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:clamp(26px,4vh,44px)}
 .crumb a{color:var(--faint);text-decoration:none}.crumb a:hover{color:var(--muted)}
 .crumb .sep{color:var(--line)}.crumb .here{color:var(--blue)}
