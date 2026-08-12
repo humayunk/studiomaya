@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DRAFT · Hero direction · Studio Maya</title>
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=20" />
+  <style>
+    .draftbar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 0;text-align:center}
+    .optlabel{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .optlabel .container{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;padding-top:15px;padding-bottom:15px}
+    .optlabel .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    .optlabel .ang{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink)}
+    .optlabel .why{font-size:13px;color:var(--muted);line-height:1.55;flex:1 1 420px}
+    .opt .hero{padding-top:clamp(30px,4.5vh,56px);padding-bottom:clamp(30px,4.5vh,56px)}
+    /* no-art hero: single column, type carries it, proof sits under the CTA */
+    .hero.solo .container{grid-template-columns:1fr}
+    .hero.solo .hero-text{max-width:none}
+    .hero.solo .h1{font-size:clamp(44px,7.2vw,94px);max-width:15ch}
+    .hero.solo .lede{max-width:46ch}
+    .proofline{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);max-width:56ch;line-height:2}
+    .proofline b{color:var(--muted);font-weight:500}
+  </style>
+</head>
+<body>
+
+  <div class="draftbar">Hero direction &middot; the real decision &middot; not live</div>
+
+  <nav class="bar">
+    <div class="container">
+      <a href="#" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="../index.html" class="hide-sm">Live homepage</a>
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- A: no art -->
+  <div class="opt">
+    <div class="optlabel"><div class="container">
+      <span class="k">A</span><span class="ang">No illustration. Type + proof.</span>
+      <span class="why">What 14 of 15 expertise-selling sites actually do (gev, mazur, Anton Sten, Rauno, commonideas). The headline gets the whole width, and the second element is evidence rather than art. gev.design leaves a third of its hero deliberately blank and reads as the most confident site in the set.</span>
+    </div></div>
+    <header class="hero solo"><div class="container">
+      <div class="hero-text">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1">The build got cheap. <em>Taste</em> didn't.</h1>
+        <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="#" class="btn btn-secondary">How it works</a>
+        </div>
+        <p class="proofline">Previously with <b>Shopify</b> &middot; <b>ClassDojo</b> &middot; <b>Ruth Health</b> (YC S21) &middot; <b>Reputable Health</b> &middot; <b>Ambry Genetics</b></p>
+      </div>
+    </div></header>
+  </div>
+
+  <!-- B: same side -->
+  <div class="opt">
+    <div class="optlabel"><div class="container">
+      <span class="k">B</span><span class="ang">Same side of the table</span>
+      <span class="why">Two stools pulled up to the same edge, far side empty, one seat red. The usual partnership image seats two people opposite each other, which is a transaction. Same-side seating is what embedded actually looks like. No handshake, no faces.</span>
+    </div></div>
+    <header class="hero"><div class="container">
+      <div class="hero-text">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1">The build got cheap. <em>Taste</em> didn't.</h1>
+        <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
+      </div>
+      <div class="hero-art"><img src="../brand/maya/explore/hero2/same-side-1.png" alt="" style="width:100%;height:auto;display:block" /></div>
+    </div></header>
+  </div>
+
+  <!-- C: the missing part -->
+  <div class="opt">
+    <div class="optlabel"><div class="container">
+      <span class="k">C</span><span class="ang">The part that was left out</span>
+      <span class="why">An exploded view with one component deliberately absent, the blue leader pointing at the gap. Keeps the exploded-view device already in the identity but inverts its meaning: the old one showed everything it takes to build, this one shows the judgment of what to leave out.</span>
+    </div></div>
+    <header class="hero"><div class="container">
+      <div class="hero-text">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1">The build got cheap. <em>Taste</em> didn't.</h1>
+        <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
+      </div>
+      <div class="hero-art"><img src="../brand/maya/explore/hero2/missing-part-2.png" alt="" style="width:100%;height:auto;display:block" /></div>
+    </div></header>
+  </div>
+
+</body>
+</html>
