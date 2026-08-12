@@ -3,16 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Maya, fractional design partner for healthcare and AI founders</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DRAFT · Studio Maya, fractional design partner for healthcare and AI founders</title>
   <meta name="description" content="Fractional design partner for healthcare and AI founders. Embedded two days a week: design direction, core flows, and the judgment calls, delivered as work you can ship." />
-  <link rel="icon" href="brand/maya/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="maya.css?v=19" />
+  <link rel="stylesheet" href="../maya.css?v=18" />
+  <style>
+    /* draft-only styles, folded into maya.css if this direction is chosen */
+    .draftbar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 0;text-align:center}
+    .draftbar b{color:#fff}
+    .pact{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));margin-top:34px}
+    .pact .item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px}
+    .pact .n{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+    .pact .t{font-family:var(--disp);font-weight:600;font-size:17.5px;color:var(--ink);margin-top:12px;line-height:1.25}
+    .pact .d{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:9px}
+    .anchor-tbl{margin-top:34px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+    .anchor-row{display:grid;grid-template-columns:1fr;gap:4px;padding:20px clamp(18px,2.4vw,28px);border-bottom:1px solid var(--line)}
+    @media(min-width:760px){.anchor-row{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.6fr);gap:24px;align-items:baseline}}
+    .anchor-row:last-child{border-bottom:none}
+    .anchor-row.me{background:var(--surface-2)}
+    .anchor-row .opt{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink)}
+    .anchor-row.me .opt{color:var(--blue)}
+    .anchor-row .fig{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink)}
+    .anchor-row .note{font-size:13px;line-height:1.55;color:var(--muted)}
+    .anchor-foot{font-size:13px;line-height:1.6;color:var(--faint);margin-top:16px}
+    .entry{margin-top:40px;border:1px solid rgba(11,61,145,.4);border-radius:8px;background:var(--surface);padding:clamp(24px,3vw,34px);display:grid;gap:20px;grid-template-columns:1fr}
+    @media(min-width:760px){.entry{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
+    .entry .price{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:-.02em;margin:12px 0 2px;color:var(--ink)}
+    .entry .price .per{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+  </style>
 </head>
 <body>
 
+  <div class="draftbar">Draft &middot; fractional partner positioning &middot; <b>not live</b> &middot; compare against studiomaya.io</div>
 
   <!-- NAV -->
   <nav class="bar">
@@ -33,15 +59,15 @@
     <div class="container">
       <div class="hero-text reveal">
         <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
-        <h1 class="h1">The build got cheap. <em>Taste</em> didn't.</h1>
-        <p class="lede">A fractional design partner for healthcare and AI founders. I embed with your team two days a week, and because I build too, the work arrives ready to ship.</p>
+        <h1 class="h1">The build got cheap. Knowing what to <em>build</em> didn't.</h1>
+        <p class="lede">Studio Maya is a fractional design partner for healthcare and AI founders. I embed with your team two days a week: design direction, the core flows, the judgment calls. And because I build too, it arrives as work you can ship, not a Figma file over the wall.</p>
         <div class="hero-cta">
           <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
           <a href="#partnership" class="btn btn-secondary">How it works</a>
         </div>
         <p class="hero-note">Month to month after a three month start. One founder at a time, and you work directly with me.</p>
       </div>
-      <div class="hero-art reveal"><img src="brand/maya/hero-explode.png" alt="A product, drawn on the bench" style="width:100%;height:auto;display:block" /></div>
+      <div class="hero-art reveal"><img src="../brand/maya/hero-explode.png" alt="A product, drawn on the bench" style="width:100%;height:auto;display:block" /></div>
     </div>
   </header>
 
@@ -65,7 +91,7 @@
       <div class="gallery">
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, all my parts"><video src="work/media/all-my-parts-hero.mp4" poster="work/media/all-my-parts-hero-poster.jpg" width="1406" height="1080" muted loop playsinline preload="metadata" aria-label="All My Parts app recording"></video></div>
+            <div class="vhero" data-label="loop, all my parts"><video src="../work/media/all-my-parts-hero.mp4" poster="../work/media/all-my-parts-hero-poster.jpg" width="1406" height="1080" muted loop playsinline preload="metadata" aria-label="All My Parts app recording"></video></div>
             <p class="g-cap">Fig. 01 &middot; recorded product loop</p>
           </div>
           <div class="g-info">
@@ -73,12 +99,12 @@
             <h3 class="h3" style="margin-top:12px">An AI journaling app for IFS therapy.</h3>
             <p class="g-outcome">idea &rarr; paid beta &middot; solo, end to end</p>
             <p class="body" style="font-size:14.5px;margin-top:14px">Designed, built and shipped alone: product, brand, AI pipeline, billing. Live at allmyparts.me.</p>
-            <p style="margin-top:16px"><a href="work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
+            <p style="margin-top:16px"><a href="../work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
           </div>
         </article>
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, lightswitch"><video src="work/media/lightswitch-hero.mp4" poster="work/media/lightswitch-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Lightswitch product recording"></video></div>
+            <div class="vhero" data-label="loop, lightswitch"><video src="../work/media/lightswitch-hero.mp4" poster="../work/media/lightswitch-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Lightswitch product recording"></video></div>
             <p class="g-cap">Fig. 02 &middot; recorded product loop</p>
           </div>
           <div class="g-info">
@@ -86,12 +112,12 @@
             <h3 class="h3" style="margin-top:12px">Onboarding and checkout for a monetization platform.</h3>
             <p class="g-outcome">idea &rarr; soft launch &middot; 6 weeks</p>
             <p class="body" style="font-size:14.5px;margin-top:14px">Onboarding, design system and checkout, taken from first sketch to a soft-launched product.</p>
-            <p style="margin-top:16px"><a href="work/lightswitch.html" class="tlink">See the full story &rarr;</a></p>
+            <p style="margin-top:16px"><a href="../work/lightswitch.html" class="tlink">See the full story &rarr;</a></p>
           </div>
         </article>
         <article class="g-item reveal">
           <div class="g-media">
-            <div class="vhero" data-label="loop, practice with joy"><video src="work/media/practice-with-joy-hero.mp4" poster="work/media/practice-with-joy-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Practice with Joy platform recording"></video></div>
+            <div class="vhero" data-label="loop, practice with joy"><video src="../work/media/practice-with-joy-hero.mp4" poster="../work/media/practice-with-joy-hero-poster.jpg" width="1656" height="1080" muted loop playsinline preload="metadata" aria-label="Practice with Joy platform recording"></video></div>
             <p class="g-cap">Fig. 03 &middot; recorded product loop</p>
           </div>
           <div class="g-info">
@@ -99,7 +125,7 @@
             <h3 class="h3" style="margin-top:12px">An AI marketing engine for a network of clinics.</h3>
             <p class="g-outcome">brand &middot; sites &middot; content &middot; 8&ndash;10 clinics</p>
             <p class="body" style="font-size:14.5px;margin-top:14px">Brand, sites and an AI content engine that runs the marketing for a growing clinic network.</p>
-            <p style="margin-top:16px"><a href="work/practice-with-joy.html" class="tlink">See the full story &rarr;</a></p>
+            <p style="margin-top:16px"><a href="../work/practice-with-joy.html" class="tlink">See the full story &rarr;</a></p>
           </div>
         </article>
       </div>
@@ -141,7 +167,6 @@
           <div class="d">Three months to start, because month one is learning your product. After that, month to month. No lock-in.</div>
         </div>
       </div>
-      <p class="reveal" style="margin-top:30px"><a href="offers.html" class="tlink">How the partnership works, in detail &rarr;</a></p>
     </div>
   </section>
 
@@ -184,7 +209,7 @@
           <p class="od" style="margin-top:12px;max-width:52ch">One core flow, clickable and live, in a week. Enough to show a board, test with users, or find out what working together is actually like before anyone commits to a quarter.</p>
         </div>
         <div>
-          <a href="offers/prototype.html" class="btn btn-secondary">See the Prototype</a>
+          <a href="../offers/prototype.html" class="btn btn-secondary">See the Prototype</a>
         </div>
       </div>
     </div>
@@ -218,9 +243,9 @@
         <h2 class="h2">What founders say.</h2>
       </div>
       <div class="cards">
-        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is the rare designer who can take a fuzzy, high-stakes problem and turn it into something clean and shippable. He led the design of our COVID-19 assessment platform under real deadline pressure and made it look easy. Any team would be lucky to have him.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-kenny.png)" role="img" aria-label="Kenny Wong"></div><div class="qname"><b>Kenny Wong</b>Ex-VP Product, Genome Smart</div></div></article>
-        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of, while keeping the mothers we work with firmly in mind. He'd be a valuable addition to any early-stage start-up.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-alison.png)" role="img" aria-label="Alison Greenberg"></div><div class="qname"><b>Alison Greenberg</b>Former Co-CEO, Ruth Health (YC S21)</div></div></article>
-        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is one of those rare people who can design and build the whole thing.</p><div class="qfoot"><div class="qface" style="background-image:url(brand/maya/avatar-robleh.png)" role="img" aria-label="Robleh Jama"></div><div class="qname"><b>Robleh Jama</b>Founder, Boom</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is the rare designer who can take a fuzzy, high-stakes problem and turn it into something clean and shippable. He led the design of our COVID-19 assessment platform under real deadline pressure and made it look easy. Any team would be lucky to have him.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-kenny.png)" role="img" aria-label="Kenny Wong"></div><div class="qname"><b>Kenny Wong</b>Ex-VP Product, Genome Smart</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of, while keeping the mothers we work with firmly in mind. He'd be a valuable addition to any early-stage start-up.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-alison.png)" role="img" aria-label="Alison Greenberg"></div><div class="qname"><b>Alison Greenberg</b>Former Co-CEO, Ruth Health (YC S21)</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is one of those rare people who can design and build the whole thing.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-robleh.png)" role="img" aria-label="Robleh Jama"></div><div class="qname"><b>Robleh Jama</b>Founder, Boom</div></div></article>
       </div>
     </div>
   </section>
@@ -239,7 +264,7 @@
             <article class="card">
               <h3 class="h3">All My Parts</h3>
               <p class="body" style="font-size:14px;margin-top:10px">An AI journaling app inspired by Internal Family Systems therapy.</p>
-              <p style="margin-top:14px"><a href="work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
+              <p style="margin-top:14px"><a href="../work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
             </article>
           </div>
         </div>
@@ -253,7 +278,7 @@
     <div class="container">
       <div class="sec-head reveal"><span class="eyebrow"><span class="num">08</span> &middot; About</span></div>
       <div class="about-grid">
-        <div class="about-portrait reveal" style="overflow:hidden"><img src="brand/maya/portrait-min-2.png" alt="Illustrated portrait of Humayun" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div class="about-portrait reveal" style="overflow:hidden"><img src="../brand/maya/portrait-min-2.png" alt="Illustrated portrait of Humayun" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
         <div class="reveal">
           <p class="lede" style="color:var(--ink)">I'm Humayun, a product designer and builder based in Montreal, working remotely since 2020. Shopify, ClassDojo, and a string of healthcare and AI startups before going independent.</p>
           <p class="body" style="margin-top:18px">Now I run Studio Maya: I embed with founders as their design partner, and I build my own products. The name is from Raymond Loewy's principle, <em>Most Advanced Yet Acceptable</em>, the line between novel and familiar, which is exactly where good products live.</p>
