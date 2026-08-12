@@ -4,7 +4,9 @@ The visual identity for studiomaya.io. Source of truth for the look, the logo, a
 
 ## Concept
 
-Studio Maya is a one-person product studio: an embedded builder who takes founders from idea to a shipped product, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
+Studio Maya is a one-person studio: a fractional design partner who embeds with healthcare and AI founders two days a week, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
+
+**Positioning note (2026-08):** the studio moved from productized fixed-price offers to a fractional partnership as the headline. The partner rate is deliberately *not* published; the page anchors against what the buyer is otherwise choosing between (in-house hire, agency, subscription) and cites the category range instead. The $5k Prototype stays priced and visible as the entry point, since a cheap buyable offer is what converts from a website while partnerships convert on conversation. Rationale in issue #9.
 
 The brand expresses **curiosity + play + art + science**, via one device: **sharpie × blueprint**. A confident, hand-drawn marker line (the play, the human) annotated with crisp blueprint precision — dimension lines, figure numbers, leader callouts (the rigor, the science). Everything sits on graph paper, like a working engineering notebook.
 
@@ -67,7 +69,7 @@ Avoid: warm-near-black + gold (the old generic look), AI purple/violet, healthte
 maya.css                  # the design system (this doc's implementation)
 brand/maya/favicon.svg    # Maya mark, favicon/app-icon
 index.html                # homepage (reference implementation)
-offers.html               # offers hub: three offers + how I work + Build Partner
+offers.html               # the partnership: what you get, how it starts, cost anchors, fixed-scope fallback
 offers/*.html             # offer pillar pages (prototype, workflow-automation, full-build)
 work/*.html               # case studies (all-my-parts, reputable-health, practice-with-joy)
 brand/*.html              # exploration archive (moodboards, concept boards, logo studies)
