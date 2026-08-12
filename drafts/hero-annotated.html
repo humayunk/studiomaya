@@ -30,13 +30,16 @@
     .anno .sharpie{stroke:var(--red);stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
     .anno .fig{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;fill:var(--muted)}
 
-    /* draw-on, once, never loops */
-    .anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .5s cubic-bezier(.2,.8,.3,1)}
+    /* Entrance easing: ease-out-expo, the curve Stripe, Anthropic, Paper and Family
+       all converge on for entrances. Never ease-in-out, never linear. Draw-on runs
+       once in the 400-800ms entrance band, never loops. */
+    :root{--enter:cubic-bezier(.16,1,.3,1)}
+    .anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .6s var(--enter)}
     .anno.in [data-draw]{stroke-dashoffset:0}
-    .anno .fig,.anno .dot{opacity:0;transition:opacity .3s ease}
+    .anno .fig,.anno .dot{opacity:0;transition:opacity .3s var(--enter)}
     .anno.in .fig,.anno.in .dot{opacity:1}
-    .anno.in .fig{transition-delay:.45s}
-    .anno.in [data-draw].sharpie{transition-delay:.75s;transition-duration:.45s}
+    .anno.in .fig{transition-delay:.5s}
+    .anno.in [data-draw].sharpie{transition-delay:.8s;transition-duration:.45s}
 
     @media (prefers-reduced-motion:reduce){
       .anno [data-draw]{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
