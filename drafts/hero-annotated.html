@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DRAFT · Annotated hero · Studio Maya</title>
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=20" />
+  <style>
+    .draftbar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 0;text-align:center}
+
+    /* the hero is a drawing sheet */
+    .hero.sheet{position:relative;overflow:visible}
+    .hero.sheet .container{grid-template-columns:1fr;position:relative}
+    .hero.sheet .hero-text{max-width:none}
+    .hero.sheet .h1{font-size:clamp(44px,7.2vw,94px);max-width:15ch}
+    .hero.sheet .lede{max-width:46ch}
+    /* annotation carries the emphasis now, so the word itself goes back to ink */
+    .hero.sheet .h1 em{color:inherit}
+    /* red is spent on the judgment mark, so the status dot steps back to blue */
+    .hero.sheet .avail .dot{background:var(--blue)}
+
+    .anno{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+    .anno .bp{stroke:var(--blue);stroke-width:1.2;fill:none;stroke-linecap:round}
+    .anno .dot{fill:var(--blue)}
+    .anno .sharpie{stroke:var(--red);stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .anno .fig{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;fill:var(--muted)}
+
+    /* draw-on, once, never loops */
+    .anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .5s cubic-bezier(.2,.8,.3,1)}
+    .anno.in [data-draw]{stroke-dashoffset:0}
+    .anno .fig,.anno .dot{opacity:0;transition:opacity .3s ease}
+    .anno.in .fig,.anno.in .dot{opacity:1}
+    .anno.in .fig{transition-delay:.45s}
+    .anno.in [data-draw].sharpie{transition-delay:.75s;transition-duration:.45s}
+
+    @media (prefers-reduced-motion:reduce){
+      .anno [data-draw]{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
+      .anno .fig,.anno .dot{opacity:1!important;transition:none!important}
+    }
+
+    /* ISO-style title block, bottom right of the sheet */
+    .titleblock{position:absolute;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,auto);border:1px solid var(--line);background:var(--surface);font-family:var(--mono)}
+    .titleblock div{padding:9px 14px;border-left:1px solid var(--line)}
+    .titleblock div:first-child{border-left:none}
+    .titleblock .k{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+    .titleblock .v{font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
+    @media(max-width:900px){.titleblock,.anno{display:none}}
+
+    .proofline{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);max-width:56ch;line-height:2}
+    .proofline b{color:var(--muted);font-weight:500}
+  </style>
+</head>
+<body>
+
+  <div class="draftbar">Annotated hero &middot; the page as a working drawing of itself &middot; not live</div>
+
+  <nav class="bar">
+    <div class="container">
+      <a href="#" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="../index.html" class="hide-sm">Live homepage</a>
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero sheet" id="top">
+    <div class="container">
+      <div class="hero-text">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1" id="heroline">The build got cheap. <em id="w-taste">Taste</em> <span id="w-didnt">didn't.</span></h1>
+        <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="#" class="btn btn-secondary">How it works</a>
+        </div>
+        <p class="proofline">Previously with <b>Shopify</b> &middot; <b>ClassDojo</b> &middot; <b>Ruth Health</b> (YC S21) &middot; <b>Reputable Health</b> &middot; <b>Ambry Genetics</b></p>
+      </div>
+
+      <div class="titleblock" aria-hidden="true">
+        <div><span class="k">Drawn by</span><span class="v">Humayun Khan</span></div>
+        <div><span class="k">Sheet</span><span class="v">01 of 04</span></div>
+        <div><span class="k">Scale</span><span class="v">1:1</span></div>
+        <div><span class="k">Rev</span><span class="v">2026.08</span></div>
+      </div>
+    </div>
+    <svg class="anno" id="anno" aria-hidden="true" focusable="false"></svg>
+  </header>
+
+  <script>
+  (function(){
+    var svg = document.getElementById('anno');
+    var line = document.getElementById('heroline');
+    var taste = document.getElementById('w-taste');
+    var didnt = document.getElementById('w-didnt');
+    var NS = 'http://www.w3.org/2000/svg';
+
+    function box(el){
+      var r = el.getBoundingClientRect(), h = svg.getBoundingClientRect();
+      return {x:r.left-h.left, y:r.top-h.top, w:r.width, h:r.height, r:r.right-h.left, b:r.bottom-h.top};
+    }
+    function el(name, attrs){
+      var n = document.createElementNS(NS, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    }
+    // deterministic hand-drawn underline: one confident stroke, overshooting both ends.
+    // Fixed sine terms, so the wobble is identical on every render (a considered hand, not a random one).
+    function markerUnderline(b){
+      var x0 = b.x - 10, x1 = b.r + 12, y = b.b - 4;
+      var pts = [], steps = 40;
+      for (var i=0;i<=steps;i++){
+        var f = i/steps, x = x0 + (x1-x0)*f;
+        var dip = Math.sin(f*Math.PI)*3.5;               // slight belly, like a drawn stroke
+        var wob = Math.sin(f*7.3)*0.9 + Math.sin(f*3.1)*0.7;
+        pts.push([x, y + dip + wob]);
+      }
+      return 'M' + pts.map(function(p){ return p[0].toFixed(1)+','+p[1].toFixed(1); }).join(' L');
+    }
+
+    function draw(){
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.classList.remove('in');
+      if (window.innerWidth < 900) return;
+
+      var t = box(taste), lineBox = box(line);
+
+      // 01 leader-dot callout on "Taste", patent reference-numeral convention.
+      // Routed DOWN out of the text block then right into clear margin, so it never
+      // crosses a glyph. Annotation lives in the leading and the margins, never in the measure.
+      var ax = t.x + t.w - 18, ay = t.b - 2;              // anchor under the word's tail
+      var ky = lineBox.b + 34;                             // clear of the headline's last baseline
+      // out past the text column, but never so far the label runs off the sheet
+      var ex = Math.min(Math.max(lineBox.r + 40, t.r + 60), svg.clientWidth - 330);
+      if (ex < t.r + 40) return;                           // not enough margin: draw nothing
+      var dot = el('circle', {cx:ax, cy:ay, r:3.2, class:'dot'});
+      var lead = el('path', {d:'M'+ax.toFixed(1)+','+ay.toFixed(1)+' L'+ax.toFixed(1)+','+ky.toFixed(1)+' L'+ex.toFixed(1)+','+ky.toFixed(1), class:'bp', 'data-draw':''});
+      var label = el('text', {x:ex+9, y:ky+3.5, class:'fig'});
+      label.textContent = 'FIG. 1 · THE PART THAT DIDN’T GET CHEAPER';
+
+      // 02 the judgment: one red stroke under the word the whole page is about
+      var mark = el('path', {d:markerUnderline(t), class:'sharpie', 'data-draw':''});
+
+      [lead, mark].forEach(function(p){
+        var L = p.getTotalLength ? p.getTotalLength() : 800;
+        p.style.setProperty('--len', L);
+      });
+
+      svg.appendChild(lead); svg.appendChild(dot); svg.appendChild(label); svg.appendChild(mark);
+      // Force a synchronous style/layout flush so the dasharray is committed, then reveal.
+      // (Deliberately not requestAnimationFrame: rAF is paused in background tabs, which
+      // would leave the annotation permanently invisible for anyone who opens in a new tab.)
+      void svg.getBoundingClientRect();
+      svg.classList.add('in');
+    }
+
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); else window.addEventListener('load', draw);
+    var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(draw, 150); });
+  })();
+  </script>
+</body>
+</html>
