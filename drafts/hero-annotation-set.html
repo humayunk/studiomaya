@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DRAFT · Annotation set · Studio Maya</title>
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=20" />
+  <style>
+    :root{--enter:cubic-bezier(.16,1,.3,1)}
+    .draftbar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 0;text-align:center}
+
+    .optlabel{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .optlabel .container{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:baseline;padding-top:14px;padding-bottom:14px}
+    .optlabel .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    .optlabel .ang{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink)}
+    .optlabel .why{font-size:13px;color:var(--muted);line-height:1.55;flex:1 1 420px}
+
+    .hero.sheet{position:relative;overflow:visible;padding-top:clamp(30px,4.5vh,52px);padding-bottom:clamp(46px,7vh,80px)}
+    .hero.sheet .container{grid-template-columns:1fr;position:relative}
+    .hero.sheet .hero-text{max-width:none}
+    .hero.sheet .h1{font-size:clamp(40px,5.6vw,74px);max-width:15ch}
+    .hero.sheet .h1 em{color:inherit}
+    .hero.sheet .lede{max-width:46ch}
+    .hero.sheet .avail .dot{background:var(--blue)}
+
+    .anno{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+    .anno .bp{stroke:var(--blue);stroke-width:1.2;fill:none;stroke-linecap:round}
+    .anno .bpd{stroke:var(--blue);stroke-width:1.2;fill:none;stroke-dasharray:4 4}
+    .anno .dot{fill:var(--blue)}
+    .anno .sharpie{stroke:var(--red);stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .anno .fig{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;fill:var(--muted)}
+    .anno .figv{font-family:var(--mono);font-size:10px;letter-spacing:.1em;fill:var(--blue)}
+
+    .anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .6s var(--enter)}
+    .anno.in [data-draw]{stroke-dashoffset:0}
+    .anno .fig,.anno .figv,.anno .dot{opacity:0;transition:opacity .3s var(--enter)}
+    .anno.in .fig,.anno.in .figv,.anno.in .dot{opacity:1;transition-delay:.45s}
+    .anno.in [data-draw].sharpie{transition-delay:.8s;transition-duration:.45s}
+    @media (prefers-reduced-motion:reduce){
+      .anno [data-draw]{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
+      .anno .fig,.anno .figv,.anno .dot{opacity:1!important;transition:none!important}
+    }
+
+    /* hover-to-measure variant: hidden until the headline is hovered */
+    .anno.hoveronly{opacity:0;transition:opacity .15s cubic-bezier(.25,.46,.45,.94)}
+    .hero.sheet:hover .anno.hoveronly{opacity:1}
+    .anno.hoveronly .red{stroke:var(--red);stroke-width:1;fill:none;opacity:.7}
+    .anno.hoveronly .redtxt{font-family:var(--mono);font-size:10px;fill:var(--red);opacity:.85}
+
+    .titleblock{position:absolute;right:0;bottom:-8px;display:grid;grid-template-columns:repeat(4,auto);border:1px solid var(--line);background:var(--surface);font-family:var(--mono)}
+    .titleblock div{padding:8px 13px;border-left:1px solid var(--line)}
+    .titleblock div:first-child{border-left:none}
+    .titleblock .k{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+    .titleblock .v{font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
+
+    .keyed{margin-top:26px;display:grid;gap:5px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .keyed span{color:var(--faint);margin-right:12px}
+
+    @media(max-width:900px){.titleblock,.anno{display:none}}
+  </style>
+</head>
+<body>
+
+  <div class="draftbar">Annotation set &middot; six treatments, same headline &middot; not live</div>
+
+  <nav class="bar">
+    <div class="container">
+      <a href="#" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="../index.html" class="hide-sm">Live homepage</a>
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">01</span><span class="ang">Nothing</span>
+    <span class="why">The control. Type and proof only. If none of the five below beat this, the answer is that the headline should carry the hero alone.</span>
+  </div></div>
+  <header class="hero sheet" data-v="none"></header>
+
+  <!-- 2 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">02</span><span class="ang">Sheet furniture only</span>
+    <span class="why">Two registration marks and a drawing title block. No marks touch the type. Quietest option: it says "this is a working drawing" and nothing else. Entirely static, nothing to maintain.</span>
+  </div></div>
+  <header class="hero sheet" data-v="sheet"></header>
+
+  <!-- 3 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">03</span><span class="ang">Leader callout</span>
+    <span class="why">Patent reference-numeral convention: a dot on the word, a leader routed into the margin, a figure label. Plus one red stroke under the word the page is about. The version I showed you before.</span>
+  </div></div>
+  <header class="hero sheet" data-v="callout"></header>
+
+  <!-- 4 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">04</span><span class="ang">True dimensions</span>
+    <span class="why">Dimension lines measuring the headline's actual cap-height and width, labelled with real computed pixels. Drag the window and the numbers change. The only treatment where the annotation is literally true rather than decorative.</span>
+  </div></div>
+  <header class="hero sheet" data-v="dims"></header>
+
+  <!-- 5 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">05</span><span class="ang">Keyed to a spec list</span>
+    <span class="why">Extension lines drop from three words into a numbered key below. Most information, most risk: nine annotation elements on one headline is right at the noise ceiling.</span>
+  </div></div>
+  <header class="hero sheet" data-v="keyed"></header>
+
+  <!-- 6 -->
+  <div class="optlabel"><div class="container">
+    <span class="k">06</span><span class="ang">Hover to measure</span>
+    <span class="why">Invisible at rest. Hover the hero and a Figma-style redline overlay appears with real px values. Costs nothing until someone is curious, and every designer or founder who has used Figma decodes it instantly. <b>Hover this one.</b></span>
+  </div></div>
+  <header class="hero sheet" data-v="hover"></header>
+
+  <template id="herotpl">
+    <div class="container">
+      <div class="hero-text">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1">The build got cheap. <em class="w-taste">Taste</em> <span class="w-didnt">didn't.</span></h1>
+        <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="#" class="btn btn-secondary">How it works</a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+  (function(){
+    var NS='http://www.w3.org/2000/svg';
+    function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+    function mk(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e;}
+
+    // build every hero from one template so only the annotation differs
+    document.querySelectorAll('.hero.sheet').forEach(function(hero){
+      hero.appendChild(document.getElementById('herotpl').content.cloneNode(true));
+      var v = hero.dataset.v;
+      if (v!=='none'){
+        var svg = el('svg',{class:'anno'+(v==='hover'?' hoveronly':''),'aria-hidden':'true',focusable:'false'});
+        hero.appendChild(svg);
+      }
+      if (v==='sheet'||v==='callout'||v==='dims'){
+        var tb = mk('div','titleblock');
+        tb.setAttribute('aria-hidden','true');
+        [['Drawn by','Humayun Khan'],['Sheet','01 of 04'],['Scale','1:1'],['Rev','2026.08']].forEach(function(p){
+          var d=mk('div'); d.appendChild(mk('span','k',p[0])); d.appendChild(mk('span','v',p[1])); tb.appendChild(d);
+        });
+        hero.querySelector('.container').appendChild(tb);
+      }
+      if (v==='keyed'){
+        var k = mk('div','keyed');
+        [['01','Build','commodity'],['02','Taste','scarce'],['03','Didn’t','the margin']].forEach(function(r){
+          var line=mk('div'); line.appendChild(mk('span',null,r[0])); line.appendChild(document.createTextNode(r[1]+'  →  '+r[2])); k.appendChild(line);
+        });
+        hero.querySelector('.hero-text').appendChild(k);
+      }
+    });
+
+    function capHeight(node){
+      var cs=getComputedStyle(node), c=document.createElement('canvas').getContext('2d');
+      c.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+      var m=c.measureText('H');
+      return m.actualBoundingBoxAscent||parseFloat(cs.fontSize)*0.72;
+    }
+    // deterministic hand stroke, identical every render
+    function underline(b){
+      var x0=b.x-10, x1=b.r+12, y=b.b-4, pts=[], N=40;
+      for(var i=0;i<=N;i++){var f=i/N,x=x0+(x1-x0)*f;
+        pts.push([x, y+Math.sin(f*Math.PI)*3.5+Math.sin(f*7.3)*0.9+Math.sin(f*3.1)*0.7]);}
+      return 'M'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' L');
+    }
+
+    function drawAll(){
+      document.querySelectorAll('.hero.sheet').forEach(function(hero){
+        var v=hero.dataset.v, svg=hero.querySelector('.anno');
+        if(!svg) return;
+        while(svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.classList.remove('in');
+        if(window.innerWidth<900) return;
+
+        var h=svg.getBoundingClientRect();
+        var box=function(n){var r=n.getBoundingClientRect();
+          return {x:r.left-h.left,y:r.top-h.top,w:r.width,h:r.height,r:r.right-h.left,b:r.bottom-h.top};};
+        var line=hero.querySelector('.h1'), taste=hero.querySelector('.w-taste'), didnt=hero.querySelector('.w-didnt');
+        var L=box(line), T=box(taste), D=box(didnt);
+        var paths=[];
+
+        if(v==='sheet'){
+          // two registration marks only, opposing corners, one grid cell in
+          [[28,28],[h.width-28,h.height-28]].forEach(function(p){
+            paths.push(svg.appendChild(el('path',{d:'M'+(p[0]-9)+','+p[1]+' H'+(p[0]+9)+' M'+p[0]+','+(p[1]-9)+' V'+(p[1]+9),class:'bp','data-draw':''})));
+          });
+        }
+
+        if(v==='callout'){
+          var ax=T.r-18, ay=T.b-2, ky=L.b+30, ex=Math.min(Math.max(L.r+40,T.r+60), h.width-330);
+          paths.push(svg.appendChild(el('path',{d:'M'+ax.toFixed(1)+','+ay.toFixed(1)+' L'+ax.toFixed(1)+','+ky.toFixed(1)+' L'+ex.toFixed(1)+','+ky.toFixed(1),class:'bp','data-draw':''})));
+          svg.appendChild(el('circle',{cx:ax,cy:ay,r:3.2,class:'dot'}));
+          var lb=el('text',{x:ex+9,y:ky+3.5,class:'fig'}); lb.textContent='FIG. 1 · THE PART THAT DIDN’T GET CHEAPER'; svg.appendChild(lb);
+          paths.push(svg.appendChild(el('path',{d:underline(T),class:'sharpie','data-draw':''})));
+        }
+
+        if(v==='dims'){
+          var cap=Math.round(capHeight(line)), gx=L.x-40, top=L.y+ (L.h/ (line.getClientRects().length||1)) - cap - 2;
+          var first=line.getClientRects()[0];
+          var fy=first.top-h.top, fb=fy+cap;
+          // cap-height dimension in the left gutter, with the true px value
+          paths.push(svg.appendChild(el('path',{d:'M'+gx+','+fy+' H'+(L.x-8)+' M'+gx+','+fb+' H'+(L.x-8)+' M'+gx+','+fy+' V'+fb,class:'bp','data-draw':''})));
+          var t1=el('text',{x:gx-6,y:(fy+fb)/2,class:'figv','text-anchor':'end'}); t1.textContent=cap+' PX'; svg.appendChild(t1);
+          // width dimension, tucked close under the last baseline so it reads as attached
+          // to the type. Label sits past the right terminator, clear of the lede's measure.
+          var wy=L.b+13, wpx=Math.round(L.w);
+          paths.push(svg.appendChild(el('path',{d:'M'+L.x+','+(wy-5)+' V'+(wy+5)+' M'+L.r+','+(wy-5)+' V'+(wy+5)+' M'+L.x+','+wy+' H'+L.r,class:'bp','data-draw':''})));
+          var t2=el('text',{x:L.r+10,y:wy+3.5,class:'figv'}); t2.textContent=wpx+' PX'; svg.appendChild(t2);
+        }
+
+        if(v==='keyed'){
+          var keyed=box(hero.querySelector('.keyed'));
+          [taste,didnt,hero.querySelector('.h1')].forEach(function(){});
+          var anchors=[{n:line,x:L.x+40},{n:taste,x:T.x+T.w/2},{n:didnt,x:D.x+D.w/2}];
+          anchors.forEach(function(a,i){
+            var sx=a.x, sy=(i===0? L.y+L.h*0.5 : a.n===taste? T.b : D.b);
+            paths.push(svg.appendChild(el('path',{d:'M'+sx.toFixed(1)+','+sy.toFixed(1)+' V'+(keyed.y+8+i*20).toFixed(1)+' H'+(keyed.x-10).toFixed(1),class:'bpd','data-draw':''})));
+          });
+        }
+
+        if(v==='hover'){
+          var pad=8;
+          svg.appendChild(el('rect',{x:L.x-pad,y:L.y-pad,width:L.w+pad*2,height:L.h+pad*2,class:'red'}));
+          svg.appendChild(el('path',{d:'M'+(L.x-pad)+','+(L.y-pad-14)+' H'+(L.r+pad)+' M'+(L.x-pad)+','+(L.y-pad-19)+' V'+(L.y-pad-9)+' M'+(L.r+pad)+','+(L.y-pad-19)+' V'+(L.y-pad-9),class:'red'}));
+          var w=el('text',{x:L.x+L.w/2,y:L.y-pad-20,class:'redtxt','text-anchor':'middle'}); w.textContent=Math.round(L.w)+' × '+Math.round(L.h); svg.appendChild(w);
+          svg.appendChild(el('path',{d:'M'+(L.r+pad+14)+','+(L.y-pad)+' V'+(L.b+pad)+' M'+(L.r+pad+9)+','+(L.y-pad)+' H'+(L.r+pad+19)+' M'+(L.r+pad+9)+','+(L.b+pad)+' H'+(L.r+pad+19),class:'red'}));
+        }
+
+        paths.forEach(function(p){ p.style.setProperty('--len', p.getTotalLength?p.getTotalLength():600); });
+        void svg.getBoundingClientRect();
+        svg.classList.add('in');
+      });
+    }
+
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(drawAll); else window.addEventListener('load',drawAll);
+    var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(drawAll,150);});
+  })();
+  </script>
+</body>
+</html>
