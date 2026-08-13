@@ -72,7 +72,7 @@ nav.bar .container{display:flex;align-items:center;justify-content:space-between
 .tlink:hover{border-bottom-color:var(--blue)}
 
 /* ---------- hero ---------- */
-.hero{border-top:none;padding-top:clamp(48px,8vh,92px);padding-bottom:clamp(64px,10vh,120px)}
+.hero{position:relative;border-top:none;padding-top:clamp(48px,8vh,92px);padding-bottom:clamp(64px,10vh,120px)}
 .hero .container{display:grid;gap:clamp(30px,5vw,56px);grid-template-columns:1fr;align-items:center}
 @media(min-width:900px){.hero .container{grid-template-columns:1.05fr 0.95fr}}
 .avail{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px}
@@ -292,3 +292,44 @@ section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
 @media(min-width:760px){.entry{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
 .entry .price{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:-.02em;margin:12px 0 2px;color:var(--ink)}
 .entry .price .per{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+
+
+/* ===================================================================
+   Hero annotation — the page measures its own type
+   Dimension values are read from the live DOM at runtime (see index.html),
+   so they stay true at every breakpoint instead of being drawn-on decoration.
+   Rule: annotation must be TRUE. Never hand-write a dimension value.
+   =================================================================== */
+.hero.sheet .container{grid-template-columns:1fr}
+.hero.sheet .hero-text{max-width:none}
+/* extra space under the headline so the width dimension has its own band and never crosses the lede */
+.hero.sheet .h1{font-size:clamp(44px,7.2vw,94px);max-width:15ch;margin-bottom:38px}
+.hero.sheet .lede{max-width:46ch}
+/* ink is the statement, blue is annotation about it. The headline stops
+   borrowing the annotation's colour so the two voices stay distinct. */
+.hero.sheet .h1 em{color:inherit}
+
+.anno{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+.anno .bp{stroke:var(--blue);stroke-width:1.2;fill:none;stroke-linecap:round}
+.anno .figv{font-family:var(--mono);font-size:10px;letter-spacing:.1em;fill:var(--blue)}
+/* entrance easing: ease-out-expo, drawn once, never looped */
+.anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .6s cubic-bezier(.16,1,.3,1)}
+.anno.in [data-draw]{stroke-dashoffset:0}
+.anno .figv{opacity:0;transition:opacity .3s cubic-bezier(.16,1,.3,1)}
+.anno.in .figv{opacity:1;transition-delay:.45s}
+@media (prefers-reduced-motion:reduce){
+  .anno [data-draw]{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
+  .anno .figv{opacity:1!important;transition:none!important}
+}
+
+/* ISO 7200 style drawing title block */
+.titleblock{position:absolute;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,auto);border:1px solid var(--line);background:var(--surface);font-family:var(--mono)}
+.titleblock div{padding:8px 13px;border-left:1px solid var(--line)}
+.titleblock div:first-child{border-left:none}
+.titleblock .k{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+.titleblock .v{font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
+
+.proofline{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);max-width:56ch;line-height:2}
+.proofline b{color:var(--muted);font-weight:500}
+
+@media(max-width:900px){.titleblock,.anno{display:none}}
