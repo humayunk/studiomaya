@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="maya.css?v=20" />
+  <link rel="stylesheet" href="maya.css?v=21" />
 </head>
 <body>
 
@@ -29,20 +29,27 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero" id="top">
+  <header class="hero sheet" id="top">
     <div class="container">
       <div class="hero-text reveal">
         <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
-        <h1 class="h1">The build got cheap. <em>Taste</em> didn't.</h1>
+        <h1 class="h1" id="heroline">The build got cheap. <em>Taste</em> didn't.</h1>
         <p class="lede">A fractional design partner for healthcare and AI founders. I'm in your Slack daily and shipping every week, and because I build too, the work arrives ready to ship.</p>
         <div class="hero-cta">
           <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
           <a href="#partnership" class="btn btn-secondary">How it works</a>
         </div>
         <p class="hero-note">Month to month after a three month start. One founder at a time, and you work directly with me.</p>
+        <p class="proofline">Previously with <b>Shopify</b> &middot; <b>ClassDojo</b> &middot; <b>Ruth Health</b> (YC S21) &middot; <b>Reputable Health</b> &middot; <b>Ambry Genetics</b></p>
       </div>
-      <div class="hero-art reveal"><img src="brand/maya/hero-explode.png" alt="A product, drawn on the bench" style="width:100%;height:auto;display:block" /></div>
+      <div class="titleblock" aria-hidden="true">
+        <div><span class="k">Drawn by</span><span class="v">Humayun Khan</span></div>
+        <div><span class="k">Sheet</span><span class="v">01 of 04</span></div>
+        <div><span class="k">Scale</span><span class="v">1:1</span></div>
+        <div><span class="k">Rev</span><span class="v">2026.08</span></div>
+      </div>
     </div>
+    <svg class="anno" id="anno" aria-hidden="true" focusable="false"></svg>
   </header>
 
   <!-- 01 PROOF -->
@@ -60,7 +67,7 @@
     <div class="container">
       <div class="sec-head reveal">
         <span class="eyebrow"><span class="num">02</span> &middot; Selected work</span>
-        <h2 class="h2">Work that earned a <em>yes.</em></h2>
+        <h2 class="h2">Work that had to be <em>right.</em></h2>
       </div>
       <div class="gallery">
         <article class="g-item reveal">
@@ -205,7 +212,7 @@
         </div>
       </div>
       <div class="pullquote-wrap reveal">
-        <p class="pullquote">Engineers come at it from the backend. PMs from the spec. I come at it from the experience, the part that gets people to say yes.</p>
+        <p class="pullquote">Engineers come at it from the backend. PMs from the spec. I come at it from the experience, the part that didn't get cheaper.</p>
       </div>
     </div>
   </section>
@@ -295,6 +302,48 @@
       document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
       var vobs=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.play().catch(function(){})}else{v.pause()}})},{threshold:0.2,rootMargin:'400px 0px'});
       document.querySelectorAll('.g-media video').forEach(function(v){vobs.observe(v)});
+    })();
+
+    /* Hero annotation: dimension lines that measure the headline for real.
+       Values come from getBoundingClientRect and a canvas cap-height read, so they
+       stay true at every viewport instead of being decorative. Never hand-write one. */
+    (function(){
+      var NS='http://www.w3.org/2000/svg';
+      var svg=document.getElementById('anno'), line=document.getElementById('heroline');
+      if(!svg||!line) return;
+      function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+      function capHeight(node){
+        var cs=getComputedStyle(node), c=document.createElement('canvas').getContext('2d');
+        c.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+        var m=c.measureText('H');
+        return m.actualBoundingBoxAscent||parseFloat(cs.fontSize)*0.72;
+      }
+      function draw(){
+        while(svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.classList.remove('in');
+        if(window.innerWidth<900) return;
+        var h=svg.getBoundingClientRect(), r=line.getBoundingClientRect();
+        var L={x:r.left-h.left,y:r.top-h.top,w:r.width,r:r.right-h.left,b:r.bottom-h.top};
+        var rects=line.getClientRects(); if(!rects.length) return;
+        var cap=Math.round(capHeight(line)), gx=L.x-40;
+        var fy=rects[0].top-h.top, fb=fy+cap;
+        if(gx<8) return;                                  // no gutter to draw in
+        var paths=[];
+        // cap-height, measured in the left gutter of the first line
+        paths.push(svg.appendChild(el('path',{d:'M'+gx+','+fy+' H'+(L.x-8)+' M'+gx+','+fb+' H'+(L.x-8)+' M'+gx+','+fy+' V'+fb,class:'bp','data-draw':''})));
+        var t1=el('text',{x:gx-6,y:(fy+fb)/2,class:'figv','text-anchor':'end'}); t1.textContent=cap+' PX'; svg.appendChild(t1);
+        // width, tucked under the last baseline, label clear of the lede's measure
+        var wy=L.b+13;
+        paths.push(svg.appendChild(el('path',{d:'M'+L.x+','+(wy-5)+' V'+(wy+5)+' M'+L.r+','+(wy-5)+' V'+(wy+5)+' M'+L.x+','+wy+' H'+L.r,class:'bp','data-draw':''})));
+        var t2=el('text',{x:L.r+10,y:wy+3.5,class:'figv'}); t2.textContent=Math.round(L.w)+' PX'; svg.appendChild(t2);
+        paths.forEach(function(p){ p.style.setProperty('--len', p.getTotalLength?p.getTotalLength():600); });
+        /* synchronous flush, not rAF: rAF is paused in background tabs, which would
+           leave the annotation permanently invisible for anyone opening in a new tab */
+        void svg.getBoundingClientRect();
+        svg.classList.add('in');
+      }
+      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw); else window.addEventListener('load',draw);
+      var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150);});
     })();
   </script>
 
