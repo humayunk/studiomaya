@@ -95,7 +95,7 @@ function lockPage(slug, failed) {
 </head>
 <body class="lock">
   <main class="lock-card">
-    <a href="/" class="logo"><span class="wm">humayun<span class="red">.</span></span></a>
+    <a href="/" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
     <p class="eyebrow">Private proposal</p>
     <h1 class="h3">This page is for its recipient.</h1>
     <p class="body">Enter the password from your email to read it.</p>
