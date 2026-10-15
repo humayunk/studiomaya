@@ -1,0 +1,63 @@
+/* ===================================================================
+   Client proposals (/p/<slug>) and their lock screen.
+   Sits on top of maya.css; reading-first, one column.
+   =================================================================== */
+
+/* ---------- lock screen ---------- */
+body.lock{min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.lock-card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(28px,5vw,40px)}
+.lock-card .logo{margin-bottom:28px}
+.lock-card .eyebrow{display:block;margin-bottom:10px}
+.lock-card .h3{margin-bottom:8px}
+.lock-card form{margin-top:26px;display:grid;gap:10px}
+.lock-card input{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.lock-card input:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:transparent}
+.lock-card .btn{justify-content:center;margin-top:6px}
+.lock-error{font-size:14px;color:var(--red)}
+
+/* ---------- proposal page ---------- */
+.prop-hero .h1{font-size:clamp(36px,5.6vw,68px);max-width:18ch;margin-bottom:22px}
+.prop-hero .lede{max-width:60ch}
+.prop-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:clamp(28px,5vh,44px)}
+.prop-meta div{background:var(--surface);padding:14px 16px}
+.prop-meta .meta-label{display:block;margin-bottom:6px}
+.prop-meta .v{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
+
+.prop{max-width:760px}
+.prop-sec{border-top:1px solid var(--line);padding:clamp(48px,8vh,80px) 0}
+.prop-sec .eyebrow{display:block;margin-bottom:12px}
+.prop-sec .h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:18px}
+.prop-sec .h3{margin:34px 0 12px}
+.prop p,.prop li{font-size:16.5px;line-height:1.7;color:var(--ink-soft);text-wrap:pretty}
+.prop p+p{margin-top:14px}
+.prop strong{color:var(--ink);font-weight:600}
+.prop ul,.prop ol{margin:16px 0 0 0;padding-left:22px;display:grid;gap:10px}
+.prop ol li::marker{font-family:var(--mono);font-size:13px;color:var(--blue)}
+.prop ul li::marker{color:var(--red)}
+.prop .lead{font-size:18px;color:var(--ink)}
+.prop .note{margin-top:18px;padding:14px 16px;border-left:3px solid var(--blue);background:var(--surface);font-size:15.5px}
+
+.prop .tbl{margin-top:20px;overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.prop table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.prop th{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.prop td{padding:12px 14px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);vertical-align:top;line-height:1.5}
+.prop tr:last-child td{border-bottom:none}
+.prop tr.pick td{background:rgba(11,61,145,0.05)}
+.prop tr.total td{font-weight:600;color:var(--ink);background:var(--surface-2)}
+.prop td.num,.prop th.num{text-align:right;white-space:nowrap}
+.prop td .strike{text-decoration:line-through;color:var(--faint)}
+
+.prop .checks{list-style:none;padding-left:0}
+.prop .checks li{padding-left:30px;position:relative}
+.prop .checks li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border:1.5px solid var(--blue);border-radius:3px}
+
+.prop-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.sig{margin-top:30px;font-family:var(--disp);font-weight:600;color:var(--ink)}
+.sig span{display:block;font-family:var(--sans);font-weight:400;font-size:15px;color:var(--muted)}
+
+@media print{
+  nav.bar,.prop-cta,footer{display:none}
+  body{background:#fff}
+  .prop-sec{padding:28px 0;break-inside:auto}
+  .subhero{background:#fff}
+}
