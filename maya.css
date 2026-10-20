@@ -224,6 +224,7 @@ footer .container{display:flex;flex-wrap:wrap;align-items:center;justify-content
 .vhero{position:relative;border-radius:12px;overflow:hidden;min-height:clamp(220px,30vw,400px)}
 .vhero::before{content:attr(data-label);position:absolute;inset:0;z-index:0;display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:12px}
 .vhero video{position:relative;z-index:1;width:100%;height:auto;display:block}
+.vhero img{position:relative;z-index:1;width:100%;height:auto;display:block}
 
 /* offers page */
 .offer-lg{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;position:relative}

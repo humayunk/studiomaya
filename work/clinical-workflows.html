@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maya, clinical workflows case study</title>
+  <meta name="description" content="Designing the automation layer on a programmable EHR (Canvas Medical) so solo nurse practitioners spend their time on patients, not paperwork." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=21" />
+</head>
+<body style="--tint-a:rgba(11,61,145,0.10); --tint-b:rgba(46,111,232,0.05);">
+
+  <nav class="bar">
+    <div class="container">
+      <a href="../index.html#top" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="subhero">
+    <div class="glow"></div>
+    <div class="container">
+      <nav class="crumb">
+        <a href="../offers/workflow-automation.html">Workflow Automation</a>
+        <span class="sep">/</span>
+        <span class="here">Clinical workflows on Canvas</span>
+      </nav>
+      <h1 class="h1-sub">Clinical workflows on a <span class="accent-i">programmable EHR.</span></h1>
+      <p class="standfirst lede">Practice with Joy runs its clinics on Canvas Medical, an API-first EHR you build on top of rather than around. I designed the automation layer: intake that creates its own chart, an ambient scribe that writes the note, and one inbox for everything, so a solo nurse practitioner spends their time on patients, not paperwork.</p>
+
+      <div class="meta-strip">
+        <div class="item"><span class="meta-label">Role</span><span class="v">Product &amp; workflow design, solo; with eng on Canvas integrations</span></div>
+        <div class="item"><span class="meta-label">Skills</span><span class="v">Product design, clinical UX, systems &amp; automation, prototyping</span></div>
+        <div class="item"><span class="meta-label">Timeline</span><span class="v">2025–present</span></div>
+        <div class="item"><span class="meta-label">Context</span><span class="v">Practice with Joy, healthtech MSO, built on Canvas Medical</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top:clamp(36px,5vh,56px); padding-bottom:clamp(14px,2vh,22px);">
+    <figure class="artifact">
+      <div class="shot reveal"><img src="media/canvas-intake.png" alt="A patient chart in the Canvas-based EHR, auto-created from an online booking, with an automation trail showing eligibility checked, chart created, and intake synced." /></div>
+      <figcaption>Booking to a visit-ready chart, with no staff touch. Mock patient data throughout.</figcaption>
+    </figure>
+  </div>
+
+  <div class="metric-band">
+    <div class="container">
+      <div class="metric-grid">
+        <div class="metric-item reveal"><div class="big">0</div><div class="lbl">Staff touches, booking &rarr; ready chart</div></div>
+        <div class="metric-item reveal"><div class="big">4<span class="mk">&rarr;</span>1</div><div class="lbl">Tools collapsed into one inbox</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">01</span> · The problem</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">The clinic is one person.</h2>
+          <p class="body">Practice with Joy helps independent nurse practitioners launch their own clinics. For a solo NP, the practitioner <em>is</em> the clinic, and every minute spent on admin is a minute not spent with a patient, or not spent at home.</p>
+          <p class="body">The admin adds up fast: re-typing intake forms into the chart, chasing consents, writing notes after hours, and tracking messages, labs and refills across a handful of disconnected tools. We run the clinics on Canvas Medical, a programmable, API-first EHR. That gave us a solid clinical core and an interface to build against. The design job was to put a layer on top of it so the repetitive work quietly disappears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">02</span> · The approach</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Design what the system does on its own.</h2>
+          <p class="body"><em>Intake that builds its own chart.</em> A patient self-schedules online. Before anyone on staff touches it, the booking verifies insurance eligibility, creates the patient's chart in Canvas, and maps their intake answers into the right clinical fields (above). The rule was "no staff touch for the happy path," and the automation trail is shown so the clinician can trust exactly what was assembled.</p>
+          <figure class="artifact" style="margin:clamp(28px,4vh,42px) 0 0">
+            <div class="shot reveal"><img src="media/canvas-scribe.png" alt="A split view with a live visit transcript on the left and AI-generated, structured Canvas commands on the right, each reviewable before being inserted into the note." /></div>
+            <figcaption>The visit writes the note: transcript to structured Canvas commands, reviewed before insert.</figcaption>
+          </figure>
+          <p class="body" style="margin-top:clamp(22px,3vh,32px)"><em>The visit writes the note.</em> During the appointment an ambient scribe turns the conversation into structured <em>Canvas commands</em>, the EHR's native building blocks, rather than a wall of free text. A diagnosis becomes a coded assessment; a plan becomes a prescription and a referral. The clinician reviews and approves each one, and allergy and interaction checks surface right where the decision is made. The scribe proposes; the human stays in control.</p>
+          <figure class="artifact" style="margin:clamp(28px,4vh,42px) 0 0">
+            <div class="shot reveal"><img src="media/canvas-note.png" alt="A completed, signed progress note with structured subjective, objective, assessment and plan sections, plus a rail of vitals, orders and suggested billing codes." /></div>
+            <figcaption>A note that is done when the visit is: signed, orders sent, billing codes suggested.</figcaption>
+          </figure>
+          <p class="body" style="margin-top:clamp(22px,3vh,32px)"><em>A note that is finished in the room.</em> By the time the patient leaves, the note is a signed SOAP note with orders sent to the pharmacy and billing codes already suggested. Charting stops being after-hours homework, and the suggested codes close a quiet revenue leak: solo practices routinely under-code because coding at the end of a long day is the first thing that slips.</p>
+          <figure class="artifact" style="margin:clamp(28px,4vh,42px) 0 0">
+            <div class="shot reveal"><img src="media/canvas-inbox.png" alt="A unified inbox showing patient messages, lab results, intake forms and refill requests in one queue, with a message preview and quick actions." /></div>
+            <figcaption>One inbox instead of five: messages, labs, forms and refills in a single triage queue.</figcaption>
+          </figure>
+          <p class="body" style="margin-top:clamp(22px,3vh,32px)"><em>One inbox instead of five.</em> Everything that used to live in separate tools, patient messages, lab results, intake forms, refill requests, no-shows, lands in a single triage queue. Each item carries its clinical context and a set of one-click actions, and the routine pieces, filing a signed consent, sending a rebooking link, handle themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">On a programmable EHR you aren't drawing screens, you're designing what the system does on its own, and how much a clinician has to trust before they'll let a step disappear.</p>
+        <p class="meta-label" style="margin-top:18px;">Humayun Khan · Studio Maya</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">03</span> · The outcome</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Less software between the clinician and the patient.</h2>
+          <p class="body">Put together, a new patient can go from booking to a visit-ready chart with no staff touch, the note is drafted during the visit instead of after hours, and the day's loose ends live in one queue instead of five. Multiple clinics now run on this setup on Canvas.</p>
+          <p class="body">The best of the work here is mostly the work that became invisible. Clinicians don't want more software. They want fewer steps between them and their patients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="nextcase reveal">
+        <div>
+          <span class="meta-label">Next case</span>
+          <a href="all-my-parts.html" class="nc-title">All My Parts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta-compact">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2-sub">Got something that needs to get a <span class="accent-i">yes?</span></h2>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html#top" class="logo"><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">© 2026 Studio Maya, MAYA</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
