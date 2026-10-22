@@ -4,9 +4,9 @@ The visual identity for studiomaya.io. Source of truth for the look, the logo, a
 
 ## Concept
 
-Studio Maya is a one-person studio: a fractional design partner who embeds with healthcare and AI founders, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
+Studio Maya is a one-person studio: a fractional design partner who embeds with healthtech founders, and ships its own products. The name is Raymond Loewy's **MAYA** principle — *Most Advanced Yet Acceptable* — the line between novel and familiar.
 
-**Positioning note (2026-08):** the studio moved from productized fixed-price offers to a fractional partnership as the headline. The partner rate is deliberately *not* published; the page anchors against what the buyer is otherwise choosing between (in-house hire, agency, subscription) and cites the category range instead. The $5k Prototype stays priced and visible as the entry point, since a cheap buyable offer is what converts from a website while partnerships convert on conversation. Rationale in issue #9.
+**Positioning note (2026-08):** the studio moved from productized fixed-price offers to a fractional partnership as the headline. The partner rate is deliberately *not* published; the page anchors against what the buyer is otherwise choosing between (in-house hire, agency, subscription) and cites the category range instead. The $5k Prototype stays priced and visible as the entry point, since a cheap buyable offer is what converts from a website while partnerships convert on conversation. Rationale in issue #9. **Audience (2026-10):** narrowed from "healthcare and AI founders" to **healthtech founders**; AI is how the work gets done, not who it is for. Selected work leads with healthtech proof. Issue #21.
 
 **Never state a day count** (no "two days a week", no "N days a month"). A published time unit sitting next to the published category range lets a buyer divide out a day rate and negotiate from there, which defeats the point of not publishing a price. Sell cadence instead: in your Slack daily, shipping every week. Scarcity comes from **one founder at a time**, not from counting hours.
 
@@ -73,7 +73,7 @@ brand/maya/favicon.svg    # Maya mark, favicon/app-icon
 index.html                # homepage (reference implementation)
 offers.html               # the partnership: what you get, how it starts, cost anchors, fixed-scope fallback
 offers/*.html             # offer pillar pages (prototype, workflow-automation, full-build)
-work/*.html               # case studies (all-my-parts, reputable-health, practice-with-joy)
+work/*.html               # case studies (clinical-workflows, all-my-parts, lightswitch)
 brand/*.html              # exploration archive (moodboards, concept boards, logo studies)
 ```
 

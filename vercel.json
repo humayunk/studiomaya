@@ -2,5 +2,17 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": null,
-  "installCommand": null
+  "installCommand": null,
+  "redirects": [
+    {
+      "source": "/work/practice-with-joy",
+      "destination": "/work/clinical-workflows.html",
+      "permanent": true
+    },
+    {
+      "source": "/work/practice-with-joy.html",
+      "destination": "/work/clinical-workflows.html",
+      "permanent": true
+    }
+  ]
 }
