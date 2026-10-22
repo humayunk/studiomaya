@@ -73,7 +73,7 @@ brand/maya/favicon.svg    # Maya mark, favicon/app-icon
 index.html                # homepage (reference implementation)
 offers.html               # the partnership: what you get, how it starts, cost anchors, fixed-scope fallback
 offers/*.html             # offer pillar pages (prototype, workflow-automation, full-build)
-work/*.html               # case studies (clinical-workflows, all-my-parts, lightswitch)
+work/*.html               # case studies (clinical-workflows, all-my-parts, reputable-health; lightswitch is off the homepage, linked from offers/prototype)
 brand/*.html              # exploration archive (moodboards, concept boards, logo studies)
 ```
 
