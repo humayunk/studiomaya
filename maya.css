@@ -340,8 +340,8 @@ section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
 .lab-list{display:grid;gap:clamp(20px,2.4vw,30px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
 .lab-item{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
 .lab-item:hover{border-color:rgba(11,61,145,.45);transform:translateY(-2px)}
-.lab-thumb{aspect-ratio:4/3;background:#F1EFE7;border-bottom:1px solid var(--line)}
-.lab-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.lab-thumb{background:#F1EFE7;border-bottom:1px solid var(--line);overflow:hidden}
+.lab-thumb img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .lab-body{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:10px;flex:1}
 .lab-tags{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 .lab-body .body{font-size:15px}
