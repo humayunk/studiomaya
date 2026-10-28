@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maya, One Minute French</title>
+  <meta name="description" content="One Minute French: beginner French lessons by text message. How it was designed, from the writing to the per-message cost." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="../brand/maya/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../maya.css?v=23" />
+</head>
+<body style="--tint-a:rgba(30,58,95,0.10); --tint-b:rgba(46,111,232,0.05);">
+
+  <nav class="bar">
+    <div class="container">
+      <a href="../index.html#top" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="subhero">
+    <div class="container">
+      <nav class="crumb">
+        <a href="../lab.html">Lab</a>
+        <span class="sep">/</span>
+        <span class="here">One Minute French</span>
+      </nav>
+      <h1 class="h1-sub">French lessons that <span class="accent-i">arrive by text.</span></h1>
+      <p class="standfirst lede">One Minute French teaches beginner French over SMS. Every morning a short lesson lands in your messages: a quick explanation, then three or four questions, each answer checked as you send it. Twelve weeks from nothing to A1. No app, no login, no streak to protect.</p>
+
+      <div class="meta-strip">
+        <div class="item"><span class="meta-label">Type</span><span class="v">Product, live for Canadian numbers</span></div>
+        <div class="item"><span class="meta-label">Role</span><span class="v">Design, build, lesson writing</span></div>
+        <div class="item"><span class="meta-label">Built with</span><span class="v">Twilio SMS, Stripe, Postgres, TypeScript</span></div>
+        <div class="item"><span class="meta-label">Year</span><span class="v">2026</span></div>
+      </div>
+      <div class="lab-live">
+        <a href="https://oneminutefrench.com" target="_blank" rel="noopener" class="btn btn-primary">Try it at oneminutefrench.com</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top:clamp(36px,5vh,56px); padding-bottom:clamp(14px,2vh,22px);">
+    <figure class="artifact">
+      <div class="vhero reveal" data-label="lesson 1, day 1 by text"><video src="media/one-minute-french-hero.mp4" poster="media/one-minute-french-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A lesson arrives as a text at 9 a.m. The learner replies YES, answers two multiple choice questions, types Bonjur with a typo, and the course accepts it and sends the day's recap."></video></div>
+      <figcaption>Lesson 1, Day 1, as it arrives. Rebuilt from the real lesson messages, word for word.</figcaption>
+    </figure>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">01</span> · Why text</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Every other option asks you to show up.</h2>
+          <p class="body">Duolingo, Babbel and Pimsleur all need you to open an app. Classes and tutors need you somewhere at a set time. Even Quebec's free government French courses have schedules and waiting lists. People in Montreal who keep meaning to learn French aren't short on options. They're short on the moment where they actually start.</p>
+          <p class="body">A text needs none of that. It shows up in the app you already check all day, and answering it takes less effort than ignoring it. So the whole product is built around one promise: the lesson comes to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">02</span> · Decisions</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">When the interface is a text, the writing is the design.</h2>
+          <p class="body"><em>One minute is a real limit.</em> Each day is an explanation and three or four questions, written to fit on a phone screen without scrolling back. There are no screens to design, so the design work went into the writing: what to explain, what to leave out, and which question tests whether it landed.</p>
+          <p class="body"><em>Typos count as right.</em> A beginner typing on a phone will get accents and spellings wrong. The answer check forgives a slip or two on longer words, so "Bonjur" passes for "Bonjour" (in the video above). Short answers like "oui" have to be exact, since one wrong letter there is a different word.</p>
+          <p class="body"><em>Every character costs money.</em> Texts are billed per segment of about 160 characters, in both directions. I counted the segments in every lesson file to price the course: the full 84 days costs about $16 CAD to deliver if a learner answers everything. That set the price at $29 once, with the first week free. It also means a shorter lesson is a cheaper one, so the writing has a budget.</p>
+          <p class="body"><em>Built for Quebec, properly.</em> The site has a full French version, signup asks for explicit consent before the first text, and STOP works from day one. Those are legal requirements here, and a French course that ignored them would be a strange look.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="case-sec">
+        <div class="reveal"><span class="eyebrow"><span class="num">03</span> · Where it is</span></div>
+        <div class="reveal">
+          <h2 class="h2-sub">Live in Canada.</h2>
+          <p class="body">One Minute French is live for Canadian phone numbers. Week one is free, and the full twelve-lesson course is $29 CAD, paid once. To try it, text BONJOUR to 438-533-1402 or sign up at <a href="https://oneminutefrench.com" target="_blank" rel="noopener" class="tlink">oneminutefrench.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="nextcase reveal">
+        <div>
+          <span class="meta-label">Next in the lab</span>
+          <a href="cortex.html" class="nc-title">Cortex &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta-compact">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2-sub">Got something that needs to get a <span class="accent-i">yes?</span></h2>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html#top" class="logo"><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">© 2026 Studio Maya, MAYA</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
