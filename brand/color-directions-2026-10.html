@@ -1,0 +1,800 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Studio Maya, colour directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ---- maya.css (verbatim copy) ---- */
+/* ===================================================================
+   Studio Maya — design system v2 ("The Bench")
+   Light paper + graph grid · Space Grotesk · sharpie × blueprint.
+   Palette: paper / ink / blueprint-blue / signal-red.
+   =================================================================== */
+:root{
+  --paper:#F4F1E8; --surface:#FBF9F2; --surface-2:#F0EBDD;
+  --ink:#14110f; --ink-soft:#4a443d; --muted:#6a6258; --faint:#9a9388;
+  --blue:#0B3D91; --cyan:#2E6FE8; --red:#E63329;
+  --line:rgba(20,17,15,0.14); --line-soft:rgba(20,17,15,0.08);
+  --grid:rgba(11,61,145,0.07);
+  --disp:'Space Grotesk',system-ui,sans-serif;
+  --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --mono:ui-monospace,'JetBrains Mono',Menlo,monospace;
+  --measure:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink); font-family:var(--sans);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+::selection{background:var(--blue);color:var(--paper)}
+a{color:inherit}
+
+/* ---------- type ---------- */
+.h1{font-family:var(--disp);font-weight:700;font-size:clamp(40px,6.4vw,82px);line-height:0.98;letter-spacing:-0.035em;text-wrap:balance}
+.h1 em{font-style:normal;color:var(--blue)}
+.h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4vw,52px);line-height:1.02;letter-spacing:-0.03em;text-wrap:balance}
+.h2 em{font-style:normal;color:var(--blue)}
+.h3{font-family:var(--disp);font-weight:600;font-size:clamp(20px,2vw,26px);letter-spacing:-0.02em}
+.lede{font-family:var(--sans);font-size:clamp(16.5px,1.4vw,19px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
+.body{font-size:16px;line-height:1.7;color:var(--ink-soft);text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+.eyebrow .num{color:var(--ink);opacity:.5}
+.accent{color:var(--blue)}
+.red{color:var(--red)}
+
+/* ---------- layout ---------- */
+.container{max-width:var(--measure);margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+section{border-top:1px solid var(--line);padding:clamp(72px,11vh,128px) 0}
+.band{background:var(--surface)}
+.sec-head{margin-bottom:clamp(36px,6vh,60px)}
+.sec-head .eyebrow{display:block;margin-bottom:16px}
+.two-col{display:grid;gap:clamp(28px,5vw,72px);grid-template-columns:1fr}
+@media(min-width:880px){.two-col{grid-template-columns:0.8fr 1.2fr}}
+
+/* ---------- nav ---------- */
+nav.bar{position:sticky;top:0;z-index:100;height:66px;background:rgba(244,241,232,0.82);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center}
+nav.bar .container{display:flex;align-items:center;justify-content:space-between;width:100%}
+.logo{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{width:34px;height:34px;display:block}
+.logo .wm{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-0.02em;color:var(--ink)}
+.logo .wm .red{color:var(--red)}
+.navlinks{display:flex;align-items:center;gap:clamp(16px,2vw,30px)}
+.navlinks a{font-family:var(--sans);font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--ink)}
+.navlinks a[aria-current]{font-weight:600}
+.navlinks a.hide-sm{display:none}
+@media(min-width:760px){.navlinks a.hide-sm{display:inline}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:600;font-size:14.5px;text-decoration:none;border-radius:6px;transition:all .2s;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--blue);color:#fff;padding:13px 22px}
+.btn-primary:hover{background:#0a347d;transform:translateY(-1px)}
+.btn-primary.sm{padding:9px 15px;font-size:13.5px}
+.btn-secondary{border-color:var(--line);color:var(--ink);padding:12px 21px}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+.tlink{font-family:var(--sans);color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,61,145,0.35);transition:border-color .2s}
+.tlink:hover{border-bottom-color:var(--blue)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;border-top:none;padding-top:clamp(48px,8vh,92px);padding-bottom:clamp(64px,10vh,120px)}
+.hero .container{display:grid;gap:clamp(30px,5vw,56px);grid-template-columns:1fr;align-items:center}
+@media(min-width:900px){.hero .container{grid-template-columns:1.05fr 0.95fr}}
+.avail{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px}
+.avail .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(230,51,41,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(230,51,41,0)}}
+.hero h1{margin:0 0 22px}
+.hero .lede{max-width:40ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-note{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--faint);margin-top:16px}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;display:block}
+.hero-art img{height:clamp(360px,52vh,620px);width:auto;max-width:100%;display:block;margin-inline:auto}
+
+/* ---------- blueprint / sharpie helpers ---------- */
+.sk{stroke:var(--ink);fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+.bp{stroke:var(--blue);fill:none;stroke-width:1.2}
+.bpd{stroke:var(--blue);fill:none;stroke-width:1.2;stroke-dasharray:4 4}
+.fig{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;fill:var(--blue);text-transform:uppercase}
+
+/* ---------- logo / proof band ---------- */
+.proof{padding:clamp(40px,6vh,64px) 0}
+.marquee{position:relative;overflow:hidden;margin-top:26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;align-items:center;width:max-content;animation:mq-scroll 52s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.mq{font-family:var(--disp);font-weight:600;font-size:clamp(21px,2.5vw,30px);letter-spacing:-.01em;color:var(--ink);white-space:nowrap;padding:0 clamp(20px,2.6vw,38px)}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:var(--faint);flex:none}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;row-gap:6px}.marquee{-webkit-mask-image:none;mask-image:none}}
+
+/* ---------- pullquote ---------- */
+.pullquote-wrap{margin:clamp(40px,7vh,72px) 0 0 auto;max-width:52rem;padding:clamp(26px,4vh,38px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pullquote{font-family:var(--disp);font-weight:500;font-size:clamp(22px,2.8vw,34px);line-height:1.18;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance}
+
+/* ---------- offers ---------- */
+.offers{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:780px){.offers{grid-template-columns:repeat(3,1fr)}}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;position:relative}
+.offer.feature{border-color:rgba(11,61,145,0.4)}
+.offer .flag{position:absolute;top:-10px;right:18px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;background:var(--blue);color:#fff;padding:4px 9px;border-radius:3px}
+.offer .onum{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:0.08em}
+.offer h3{font-family:var(--disp);font-weight:600;font-size:22px;margin:8px 0 0}
+.offer .price{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:-0.02em;margin:14px 0 2px}
+.offer .price .per{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:0.06em;text-transform:uppercase}
+.offer .tl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue)}
+.offer .od{font-size:13.5px;line-height:1.55;color:var(--muted);margin:16px 0 0}
+.offer .bf{margin-top:auto;padding-top:18px;border-top:1px solid var(--line-soft);font-family:var(--disp);font-style:italic;font-weight:500;font-size:15px;color:var(--ink-soft)}
+
+/* ---------- cards (products / quotes) ---------- */
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column}
+/* full-bleed illustration header: spans the whole card width (cancels card padding), paper field with the art centred */
+.card-ill{display:block;width:auto;height:150px;margin:calc(-1 * clamp(24px,2.6vw,32px)) calc(-1 * clamp(24px,2.6vw,32px)) 24px;background:#F4EEE0;border-radius:8px 8px 0 0;border-bottom:1px solid var(--line-soft,rgba(20,17,15,.07))}
+img.card-ill{object-fit:contain;object-position:center}
+div.card-ill{display:grid;place-items:center}
+div.card-ill::before{content:attr(data-label);font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.prod-foot{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(18px,1.8vw,23px);color:var(--ink-soft);margin-top:clamp(28px,4vh,44px)}
+.quote-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column}
+.qmark{font-family:var(--disp);font-weight:700;font-size:46px;line-height:.5;color:rgba(11,61,145,.5)}
+.skel{display:flex;flex-direction:column;gap:11px;margin:22px 0}
+.skel span{height:11px;border-radius:3px;background:rgba(20,17,15,0.07);display:block}
+.todo{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:3px;padding:3px 8px}
+.qfoot{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:11px}
+.qface{width:84px;height:84px;border-radius:50%;background-color:var(--paper);background-size:112%;background-position:center 12%;background-repeat:no-repeat;border:1px solid var(--line);flex:none}
+.qname{font-size:13px;color:var(--faint);line-height:1.4}
+.qname b{display:block;color:var(--muted)}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;gap:clamp(28px,5vw,56px);grid-template-columns:1fr;align-items:start}
+@media(min-width:760px){.about-grid{grid-template-columns:300px 1fr}}
+.about-portrait{aspect-ratio:4/5;border-radius:8px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center}
+
+/* ---------- final cta ---------- */
+.final{text-align:center}
+.final-inner{max-width:40rem;margin:0 auto}
+.final .body{margin:18px auto 30px;max-width:30em}
+.final-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;align-items:center}
+.final-mail{font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none}
+.final-mail:hover{color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:clamp(36px,6vh,60px) 0}
+footer .container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--muted)}
+.foot-cap{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--faint)}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===================================================================
+   Subpage components — case studies + offers (light identity)
+   =================================================================== */
+.glow{position:absolute;pointer-events:none;z-index:0;width:min(800px,90vw);height:min(800px,90vw);border-radius:50%;top:-26%;left:-12%;
+  background:radial-gradient(circle at center,rgba(11,61,145,0.06),rgba(11,61,145,0) 68%)}
+/* subpage masthead sits on a flat surface, not the graph paper: the grid is the working surface for the work itself, and a page header on top of it reads as noise behind the type. */
+.subhero{position:relative;overflow:hidden;border-top:none;border-bottom:1px solid var(--line);background:var(--surface);padding-top:clamp(34px,6vh,60px);padding-bottom:clamp(40px,6vh,72px)}
+.subhero .container{position:relative;z-index:1}
+.subhero .glow{display:none}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:clamp(26px,4vh,44px)}
+.crumb a{color:var(--faint);text-decoration:none}.crumb a:hover{color:var(--muted)}
+.crumb .sep{color:var(--line)}.crumb .here{color:var(--blue)}
+.h1-sub{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,66px);line-height:1.0;letter-spacing:-0.03em;text-wrap:balance}
+.h1-sub em,.accent-i{font-style:normal;color:var(--blue)}
+.standfirst{max-width:42rem;margin-top:22px}
+.meta-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint)}
+.meta-strip{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,168px),1fr));margin-top:clamp(32px,5vh,48px);padding-top:26px;border-top:1px solid var(--line)}
+.meta-strip .item .meta-label{display:block;margin-bottom:8px}
+.meta-strip .item .v{font-size:14px;line-height:1.5;color:var(--muted)}
+.case-visual{width:100%;min-height:clamp(280px,40vw,520px);border-radius:10px}
+.metric-band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(44px,7vh,76px) 0}
+.metric-grid{display:grid;gap:clamp(26px,4vw,46px);grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.metric-item .big{font-family:var(--disp);font-weight:700;font-size:clamp(36px,3.6vw,58px);line-height:1.04;letter-spacing:-0.03em;color:var(--ink)}
+.metric-item .big.ph{color:var(--faint)}
+.metric-item .big .mk{color:var(--blue)}
+.metric-item .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.case-sec{display:grid;gap:clamp(22px,4vw,52px);grid-template-columns:1fr}
+@media(min-width:820px){.case-sec{grid-template-columns:0.8fr 1.2fr}}
+.case-sec .body + .body{margin-top:16px}
+.h2-sub{font-family:var(--disp);font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-0.025em}
+.artifacts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin-top:clamp(26px,4vh,40px)}
+.artifact figcaption{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--muted);margin-top:12px;line-height:1.5}
+.cq-band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(52px,8vh,90px) 0}
+.cq-inner{max-width:52rem}.cq-inner .quote-mark{margin-bottom:10px}
+.quote-mark{font-family:var(--disp);font-weight:700;font-size:58px;line-height:0.5;color:rgba(11,61,145,0.5)}
+.cq-foot{display:flex;align-items:center;gap:12px;margin-top:24px}
+.nextcase{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.nextcase .meta-label{display:block;margin-bottom:10px}
+.nextcase .nc-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4vw,48px);letter-spacing:-0.025em;color:var(--ink);text-decoration:none;transition:color .2s}
+.nextcase a.nc-title:hover{color:var(--blue)}
+.cta-compact{text-align:center}.cta-compact .h2-sub{margin-bottom:22px}
+.todo.gray{color:var(--faint);border-color:var(--line)}
+.wedge-body{display:flex;flex-direction:column;gap:18px}
+
+/* framed screenshot — light */
+.shot{position:relative;background:radial-gradient(120% 120% at 26% 16%,var(--tint-a,rgba(11,61,145,0.08)),transparent 62%),var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,4.5vw,64px);display:grid;place-items:center;overflow:hidden}
+.band .shot{background:radial-gradient(120% 120% at 26% 16%,var(--tint-a,rgba(11,61,145,0.08)),transparent 62%),var(--paper)}
+.shot img{width:100%;height:auto;display:block;border-radius:7px;box-shadow:0 24px 52px -26px rgba(20,17,15,0.4)}
+.shot.tall img{max-width:min(300px,72%);border-radius:22px}
+/* phone screenshots in the artifacts row: tighter frame + fill the column so the app UI is legible */
+.artifacts .shot{padding:clamp(10px,1.4vw,16px)}
+.artifacts .shot.tall img{max-width:100%;border-radius:16px}
+.shot.empty{min-height:clamp(240px,34vw,420px)}
+.shot.empty::before{content:attr(data-label);font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:4px;padding:8px 12px}
+.shot.r-wide{aspect-ratio:16/9}.shot.r-photo{aspect-ratio:16/10}
+/* video hero: the video (a Screen Studio export) brings its own frame + shadow, so no cream .shot padding and no forced aspect-ratio crop. Natural aspect, just rounded to match the site. Shows the labelled placeholder until the file is dropped in; the loaded video covers it. */
+.vhero{position:relative;border-radius:12px;overflow:hidden;min-height:clamp(220px,30vw,400px)}
+.vhero::before{content:attr(data-label);position:absolute;inset:0;z-index:0;display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint);border:1px dashed var(--line);border-radius:12px}
+.vhero video{position:relative;z-index:1;width:100%;height:auto;display:block}
+.vhero img{position:relative;z-index:1;width:100%;height:auto;display:block}
+
+/* offers page */
+.offer-lg{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;position:relative}
+.offer-lg.feature{border-color:rgba(11,61,145,0.4)}
+.offer-lg .flag{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:3px;padding:4px 9px}
+.offer-lg .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue)}
+.offer-lg .name{font-family:var(--disp);font-weight:600;font-size:clamp(22px,2.2vw,28px);color:var(--ink);margin-top:8px;line-height:1.1}
+.offer-lg .desc{margin-top:16px}
+.offer-grid{display:grid;gap:20px;grid-template-columns:1fr}@media(min-width:820px){.offer-grid{grid-template-columns:1fr 1fr}}
+.offer-price{font-family:var(--disp);font-weight:700;font-size:clamp(30px,3vw,42px);line-height:1;color:var(--ink);margin:16px 0 6px}
+.offer-price .per{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint)}
+.offer-timeline{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue)}
+.spec{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:13px}
+.spec .row{display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:start}
+.spec .row .k{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);padding-top:3px}
+.spec .row .v{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.offer-lg .cta-row{margin-top:auto;padding-top:24px}
+.steps{display:grid;gap:18px;grid-template-columns:1fr}@media(min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+.stepcard{border:1px solid var(--line);border-radius:8px;padding:26px;background:var(--surface)}
+.stepcard .n{font-family:var(--disp);font-weight:700;font-size:34px;color:var(--blue);line-height:1}
+.stepcard .t{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--ink);margin-top:12px}
+.stepcard .d{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:8px}
+
+/* aliases for migrated pages */
+.h2-sec{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-0.03em;text-wrap:balance}
+.h2-sec em,.h2-sec .accent-i{font-style:normal;color:var(--blue)}
+section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
+
+/* footer wordmark safety alias */
+.wordmark{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none}
+.wordmark span{color:var(--red)}
+
+/* nav button text (beat .navlinks a specificity) */
+.navlinks a.btn-primary,.navlinks a.btn-primary:hover{color:#fff}
+.navlinks a.btn-secondary{color:var(--ink)}
+
+/* homepage project gallery: one large media row per project, media/info alternating sides. Videos use .vhero's placeholder frame; playback is lazy (see index.html observer) so the loops only load in view. */
+.gallery{display:flex;flex-direction:column;gap:clamp(44px,6vw,80px)}
+.g-item{display:grid;gap:clamp(22px,3.4vw,52px);align-items:center;grid-template-columns:1fr}
+@media(min-width:880px){.g-item{grid-template-columns:7fr 5fr}.g-item:nth-child(even){grid-template-columns:5fr 7fr}.g-item:nth-child(even) .g-media{order:2}}
+.g-media .vhero{border:1px solid var(--line);background:var(--surface)}
+.g-cap{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:10px}
+.g-outcome{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:12px}
+
+/* partnership: the four commitments of an embedded engagement (homepage 03) */
+.pact{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));margin-top:34px}
+.pact .item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px}
+.pact .n{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.pact .t{font-family:var(--disp);font-weight:600;font-size:17.5px;color:var(--ink);margin-top:12px;line-height:1.25}
+.pact .d{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:9px}
+
+/* cost anchors: what the buyer is otherwise choosing between. Our own row says "let's talk" by design, the category range goes in .anchor-foot so the page anchors without publishing a quote. */
+.anchor-tbl{margin-top:34px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.anchor-row{display:grid;grid-template-columns:1fr;gap:4px;padding:20px clamp(18px,2.4vw,28px);border-bottom:1px solid var(--line)}
+@media(min-width:760px){.anchor-row{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.6fr);gap:24px;align-items:baseline}}
+.anchor-row:last-child{border-bottom:none}
+.anchor-row.me{background:var(--surface-2)}
+.anchor-row .opt{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink)}
+.anchor-row.me .opt{color:var(--blue)}
+.anchor-row .fig{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink)}
+.anchor-row .note{font-size:13px;line-height:1.55;color:var(--muted)}
+.anchor-foot{font-size:13px;line-height:1.6;color:var(--faint);margin-top:16px}
+
+/* the priced entry point that feeds the partnership */
+.entry{margin-top:40px;border:1px solid rgba(11,61,145,.4);border-radius:8px;background:var(--surface);padding:clamp(24px,3vw,34px);display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:760px){.entry{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
+.entry .price{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:-.02em;margin:12px 0 2px;color:var(--ink)}
+.entry .price .per{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+
+
+/* ===================================================================
+   Hero annotation — the page measures its own type
+   Dimension values are read from the live DOM at runtime (see index.html),
+   so they stay true at every breakpoint instead of being drawn-on decoration.
+   Rule: annotation must be TRUE. Never hand-write a dimension value.
+   =================================================================== */
+.hero.sheet .container{grid-template-columns:1fr}
+.hero.sheet .hero-text{max-width:none}
+/* extra space under the headline so the width dimension has its own band and never crosses the lede */
+.hero.sheet .h1{font-size:clamp(44px,7.2vw,94px);max-width:15ch;margin-bottom:38px}
+.hero.sheet .lede{max-width:46ch}
+/* ink is the statement, blue is annotation about it. The headline stops
+   borrowing the annotation's colour so the two voices stay distinct. */
+.hero.sheet .h1 em{color:inherit}
+
+.anno{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+.anno .bp{stroke:var(--blue);stroke-width:1.2;fill:none;stroke-linecap:round}
+.anno .figv{font-family:var(--mono);font-size:10px;letter-spacing:.1em;fill:var(--blue)}
+/* entrance easing: ease-out-expo, drawn once, never looped */
+.anno [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .6s cubic-bezier(.16,1,.3,1)}
+.anno.in [data-draw]{stroke-dashoffset:0}
+.anno .figv{opacity:0;transition:opacity .3s cubic-bezier(.16,1,.3,1)}
+.anno.in .figv{opacity:1;transition-delay:.45s}
+@media (prefers-reduced-motion:reduce){
+  .anno [data-draw]{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
+  .anno .figv{opacity:1!important;transition:none!important}
+}
+
+/* ISO 7200 style drawing title block */
+.titleblock{position:absolute;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,auto);border:1px solid var(--line);background:var(--surface);font-family:var(--mono)}
+.titleblock div{padding:8px 13px;border-left:1px solid var(--line)}
+.titleblock div:first-child{border-left:none}
+.titleblock .k{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+.titleblock .v{font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
+
+.proofline{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);max-width:56ch;line-height:2}
+.proofline b{color:var(--muted);font-weight:500}
+
+@media(max-width:900px){.titleblock,.anno{display:none}}
+
+/* lab: writing and things built between client work. Index is a grid of entries (thumb + tags + title); each entry page reuses the case study components. */
+.lab-list{display:grid;gap:clamp(20px,2.4vw,30px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.lab-item{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.lab-item:hover{border-color:rgba(11,61,145,.45);transform:translateY(-2px)}
+.lab-thumb{background:#F1EFE7;border-bottom:1px solid var(--line);overflow:hidden}
+.lab-thumb img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+.lab-body{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:10px;flex:1}
+.lab-tags{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.lab-body .body{font-size:15px}
+.lab-body .tlink{align-self:flex-start;margin-top:auto;padding-top:6px}
+.lab-live{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,4vh,34px)}
+
+/* ---- direction overrides ---- */
+/* ================= mockup chrome ================= */
+.switcher{position:sticky;top:0;z-index:200;background:#14110f;color:#F4F1E8;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:9px clamp(12px,3vw,24px);min-height:46px}
+.switcher .lbl{text-transform:uppercase;opacity:.6}
+.switcher button{font:inherit;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:#F4F1E8;border:1px solid rgba(244,241,232,.3);border-radius:4px;padding:6px 10px;cursor:pointer}
+.switcher button[aria-pressed="true"]{background:#F4F1E8;color:#14110f;border-color:#F4F1E8}
+.switcher .desc{flex:1 1 320px;opacity:.75;letter-spacing:.02em;font-size:11px;line-height:1.4}
+nav.bar{top:46px}
+@media(max-width:700px){nav.bar{top:0;position:relative}.switcher .desc{display:none}}
+.reveal{opacity:1!important;transform:none!important}
+.spec-sheet{border-top:1px solid var(--line);padding:56px 0;background:#fff}
+.spec-sheet h2{font-family:var(--disp);font-size:26px;letter-spacing:-.02em}
+.spec-sheet .dsec{display:none}
+body[data-dir="base"] .spec-sheet .d-base,body[data-dir="a"] .spec-sheet .d-a,body[data-dir="b"] .spec-sheet .d-b,body[data-dir="c"] .spec-sheet .d-c{display:block}
+.sw-row{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 26px}
+.sw{width:150px;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-family:var(--mono);font-size:10.5px}
+.sw i{display:block;height:54px}
+.sw div{padding:8px 10px;line-height:1.5;color:#14110f}
+.rules{font-size:14.5px;line-height:1.65;color:#4a443d;max-width:70ch;margin:0 0 22px 18px}
+.ctab{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px;max-width:860px}
+.ctab td,.ctab th{border-bottom:1px solid var(--line-soft);padding:7px 8px;text-align:left}
+.ctab .chip{display:inline-block;padding:3px 8px;border-radius:3px}
+.ctab .ok{color:#1d5e2c}.ctab .no{color:#a3231b;font-weight:600}
+
+/* ================= shared fix (all directions) ================= */
+body:not([data-dir="base"]){--faint:#6f675c}
+
+/* ================= A · SPEC MODE (blueprint stock) ================= */
+body[data-dir="a"]{--bp-stock:#0E2F66;--bp-text:#F4F1E8;--bp-body:#C9D4E8;--bp-label:#9FB8E6;--bp-rule:rgba(244,241,232,.22);--bp-grid:rgba(244,241,232,.07);--vellum:#E4EBF5}
+body[data-dir="a"] .bp-ground-a{background-color:var(--bp-stock);color:var(--bp-text);border-top:none;
+  background-image:linear-gradient(var(--bp-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bp-grid) 1px,transparent 1px);background-size:28px 28px}
+body[data-dir="a"] .bp-ground-a .h2{color:var(--bp-text)}
+body[data-dir="a"] .bp-ground-a .h2 em{color:var(--bp-label)}
+body[data-dir="a"] .bp-ground-a .eyebrow{color:var(--bp-label)}
+body[data-dir="a"] .bp-ground-a .eyebrow .num{color:var(--bp-text)}
+body[data-dir="a"] .bp-ground-a .body{color:var(--bp-body)}
+body[data-dir="a"] .bp-ground-a .tlink{color:var(--bp-text);border-bottom-color:rgba(244,241,232,.5)}
+body[data-dir="a"] #partnership .pact .item{background:transparent;border:1px solid var(--bp-rule);border-radius:4px}
+body[data-dir="a"] #partnership .pact .n{font-family:var(--disp);font-weight:700;font-size:40px;letter-spacing:-.02em;color:var(--bp-label);line-height:1}
+body[data-dir="a"] #partnership .pact .t{color:var(--bp-text)}
+body[data-dir="a"] #partnership .pact .d{color:var(--bp-body)}
+body[data-dir="a"] .bp-ground-a .btn-primary{background:var(--bp-text);color:var(--blue)}
+body[data-dir="a"] .bp-ground-a .btn-primary:hover{background:#fff}
+body[data-dir="a"] .final.bp-ground-a .final-mail{color:var(--bp-body)}
+body[data-dir="a"] .anchor-row.me{background:var(--vellum);box-shadow:inset 4px 0 0 var(--blue)}
+body[data-dir="a"] .anchor-row.me .fig{color:var(--blue);font-weight:600}
+body[data-dir="a"] .entry{background:var(--vellum);border:1.5px solid var(--blue)}
+body[data-dir="a"] .entry .btn-secondary{border-color:var(--blue);color:var(--blue)}
+body[data-dir="a"] .quote-card .qmark{color:var(--blue)}
+body[data-dir="a"] #shift,body[data-dir="a"] #lab,body[data-dir="a"] #proof{background:transparent}
+
+/* ================= B · PAPER STOCKS (engineer's pad) ================= */
+body[data-dir="b"]{--pad-green:#DCE6D2;--pad-grid:rgba(44,85,53,.13);--pad-ink:#2C5535;--pad-card:#F6F9F1;--legal:#F7EDBE;--legal-rule:rgba(11,61,145,.11);--legal-margin:rgba(230,51,41,.55);--vellum:#E4EBF5;--index:#FFFEFA}
+body[data-dir="b"] #partnership{background-color:var(--pad-green);border-top:none;
+  background-image:linear-gradient(var(--pad-grid) 1px,transparent 1px),linear-gradient(90deg,var(--pad-grid) 1px,transparent 1px);background-size:28px 28px}
+body[data-dir="b"] #partnership .eyebrow{color:var(--pad-ink)}
+body[data-dir="b"] #partnership .pact .item{background:var(--pad-card);border-color:rgba(44,85,53,.28)}
+body[data-dir="b"] #partnership .pact .n{color:var(--pad-ink);font-family:var(--disp);font-weight:700;font-size:30px;line-height:1}
+body[data-dir="b"] .anchor-row.me{background:var(--vellum)}
+body[data-dir="b"] .entry{background-color:var(--legal);border:1px solid rgba(20,17,15,.18);box-shadow:0 18px 30px -24px rgba(20,17,15,.5);
+  background-image:linear-gradient(90deg,transparent 46px,var(--legal-margin) 46px,var(--legal-margin) 47.5px,transparent 47.5px),repeating-linear-gradient(transparent 0 27px,var(--legal-rule) 27px 28px);
+  padding-left:clamp(64px,7vw,82px)}
+body[data-dir="b"] .entry .price .per{color:var(--muted)}
+body[data-dir="b"] #shift,body[data-dir="b"] .final{background:var(--vellum);border-top:none}
+body[data-dir="b"] .final{border-top:1px solid rgba(11,61,145,.15)}
+body[data-dir="b"] #shift .pullquote-wrap{border-color:rgba(11,61,145,.25)}
+body[data-dir="b"] .quote-card{background:var(--index);border:1px solid rgba(20,17,15,.12);border-radius:3px;box-shadow:0 14px 26px -22px rgba(20,17,15,.55);
+  background-image:linear-gradient(transparent 58px,rgba(46,111,232,.45) 58px,rgba(46,111,232,.45) 59.5px,transparent 59.5px)}
+body[data-dir="b"] .quote-card .qmark{color:var(--blue)}
+body[data-dir="b"] #lab,body[data-dir="b"] #proof{background:transparent}
+
+/* ================= C · GRAPHITE + HIGHLIGHTER ================= */
+body[data-dir="c"]{--graphite:#1C2024;--graphite-rule:rgba(244,241,232,.14);--on-g:#F4F1E8;--on-g-body:#BFC4C8;--on-g-muted:#959CA3;--on-g-label:#9FB8E6;--hl:#F2DE4E}
+/* blue leaves the headlines: it is the action colour only. Emphasis becomes a marker swipe. */
+body[data-dir="c"] .h1 em,body[data-dir="c"] .h2 em{color:var(--ink);background:linear-gradient(transparent 52%,var(--hl) 52%,var(--hl) 92%,transparent 92%);padding:0 .08em;margin:0 -.04em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+body[data-dir="c"] .g-ground-c{background-color:var(--graphite);color:var(--on-g);border-top:none;
+  background-image:linear-gradient(rgba(244,241,232,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,232,.04) 1px,transparent 1px);background-size:28px 28px}
+body[data-dir="c"] .g-ground-c .h2,body[data-dir="c"] .g-ground-c .h3{color:var(--on-g)}
+body[data-dir="c"] .g-ground-c .eyebrow,body[data-dir="c"] .g-ground-c .g-outcome{color:var(--on-g-label)}
+body[data-dir="c"] .g-ground-c .eyebrow .num{color:var(--on-g)}
+body[data-dir="c"] .g-ground-c .body{color:var(--on-g-body)}
+body[data-dir="c"] .g-ground-c .g-cap,body[data-dir="c"] .g-ground-c .final-mail{color:var(--on-g-muted)}
+body[data-dir="c"] .g-ground-c .tlink{color:var(--on-g-label);border-bottom-color:rgba(159,184,230,.5)}
+body[data-dir="c"] .g-ground-c .g-media .vhero{border-color:var(--graphite-rule);background:#262B30}
+body[data-dir="c"] .g-ground-c .btn-primary{background:var(--on-g);color:var(--blue)}
+body[data-dir="c"] .anchor-row.me{background:var(--graphite)}
+body[data-dir="c"] .anchor-row.me .opt{color:var(--on-g)}
+body[data-dir="c"] .anchor-row.me .fig{color:var(--ink);background:var(--hl);justify-self:start;padding:3px 8px;border-radius:2px;font-weight:600}
+body[data-dir="c"] .anchor-row.me .note{color:var(--on-g-body)}
+body[data-dir="c"] .pact .n{font-family:var(--disp);font-weight:700;font-size:34px;color:var(--ink);line-height:1}
+body[data-dir="c"] .entry{border:1.5px solid var(--ink)}
+body[data-dir="c"] #proof,body[data-dir="c"] #lab{background:transparent}
+/* C fix: on graphite the swipe must sit behind the whole glyph, or the top of ink letters vanishes into the ground */
+body[data-dir="c"] .g-ground-c .h2 em{background:var(--hl);padding:0 .1em;border-radius:2px}
+
+</style></head>
+<body data-dir="a">
+<div class="switcher" role="toolbar" aria-label="Colour direction"><span class="lbl">Direction</span>
+<button data-d="base">Current</button><button data-d="a">A Spec mode</button><button data-d="b">B Paper stocks</button><button data-d="c">C Graphite + highlighter</button>
+<span class="desc" id="desc"></span></div>
+<!-- NAV -->
+  <nav class="bar">
+    <div class="container">
+      <a href="#top" class="logo"><span class="wm">studio maya<span class="red">.</span></span></a>
+      <div class="navlinks">
+        <a href="#work" class="hide-sm">Work</a>
+        <a href="#partnership" class="hide-sm">Partnership</a>
+        <a href="#lab" class="hide-sm">Lab</a>
+        <a href="#about" class="hide-sm">About</a>
+        <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary sm">Book a fit call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero sheet" id="top">
+    <div class="container">
+      <div class="hero-text reveal">
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <h1 class="h1" id="heroline">The build got cheap. <em>Taste</em> didn't.</h1>
+        <p class="lede">A fractional design partner for healthtech founders. I'm in your Slack daily and shipping every week, and because I build with AI too, the work arrives ready to ship.</p>
+        <div class="hero-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="#partnership" class="btn btn-secondary">How it works</a>
+        </div>
+        <p class="hero-note">Month to month after a three month start. One founder at a time, and you work directly with me.</p>
+        <p class="proofline">Previously with <b>Shopify</b> &middot; <b>ClassDojo</b> &middot; <b>Ruth Health</b> (YC S21) &middot; <b>Reputable Health</b> &middot; <b>Ambry Genetics</b></p>
+      </div>
+      <div class="titleblock" aria-hidden="true">
+        <div><span class="k">Drawn by</span><span class="v">Humayun Khan</span></div>
+        <div><span class="k">Sheet</span><span class="v">01 of 04</span></div>
+        <div><span class="k">Scale</span><span class="v">1:1</span></div>
+        <div><span class="k">Rev</span><span class="v">2026.08</span></div>
+      </div>
+    </div>
+    <svg class="anno" id="anno" aria-hidden="true" focusable="false"></svg>
+  </header>
+
+  <!-- 01 PROOF -->
+  <section id="proof" class="proof band">
+    <div class="container">
+      <p class="eyebrow reveal"><span class="num">01</span> &middot; Worked with teams at</p>
+    </div>
+    <div class="marquee reveal" aria-label="Companies I have worked with">
+      <div class="marquee-track"><span class="mq">Ruth Health</span><span class="mq-dot"></span><span class="mq">Reputable Health</span><span class="mq-dot"></span><span class="mq">Ambry Genetics</span><span class="mq-dot"></span><span class="mq">Practice with Joy</span><span class="mq-dot"></span><span class="mq">NIA Health</span><span class="mq-dot"></span><span class="mq">RxFood</span><span class="mq-dot"></span><span class="mq">Shopify</span><span class="mq-dot"></span><span class="mq">ClassDojo</span><span class="mq-dot"></span><span class="mq">Applied Materials</span><span class="mq-dot"></span><span class="mq">Agoro Carbon Alliance</span><span class="mq-dot"></span><span class="mq">Roadmunk</span><span class="mq-dot"></span><span class="mq">Tiny Hearts</span><span class="mq-dot"></span><span class="mq">Xello</span><span class="mq-dot"></span><span class="mq">Jet Cooper</span><span class="mq-dot"></span><span class="mq" aria-hidden="true">Ruth Health</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Reputable Health</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Ambry Genetics</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Practice with Joy</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">NIA Health</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">RxFood</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Shopify</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">ClassDojo</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Applied Materials</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Agoro Carbon Alliance</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Roadmunk</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Tiny Hearts</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Xello</span><span class="mq-dot" aria-hidden="true"></span><span class="mq" aria-hidden="true">Jet Cooper</span><span class="mq-dot" aria-hidden="true"></span></div>
+    </div>
+  </section>
+
+  <!-- 02 SELECTED WORK -->
+  <section id="work" class="g-ground-c">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">02</span> &middot; Selected work</span>
+        <h2 class="h2">Work that had to be <em>right.</em></h2>
+      </div>
+      <div class="gallery">
+        <article class="g-item reveal">
+          <div class="g-media">
+            <div class="vhero" data-label="clinical workflows, canvas medical"><img src="../work/media/canvas-intake.png" width="2640" height="1816" loading="lazy" alt="A patient chart in a Canvas Medical EHR, created automatically from an online booking, with an automation trail showing eligibility checked, chart created and intake synced." /></div>
+            <p class="g-cap">Fig. 01 &middot; designed screen, mock patient data</p>
+          </div>
+          <div class="g-info">
+            <span class="eyebrow">Practice with Joy &middot; client</span>
+            <h3 class="h3" style="margin-top:12px">Clinical workflows on a programmable EHR.</h3>
+            <p class="g-outcome">canvas medical &middot; intake &middot; ambient scribe &middot; one inbox</p>
+            <p class="body" style="font-size:14.5px;margin-top:14px">The automation layer for a network of nurse practitioner clinics: booking to a visit-ready chart with no staff touch, and a note that's finished before the patient leaves.</p>
+            <p style="margin-top:16px"><a href="work/clinical-workflows.html" class="tlink">See the full story &rarr;</a></p>
+          </div>
+        </article>
+        <article class="g-item reveal">
+          <div class="g-media">
+            <div class="vhero" data-label="loop, all my parts"><img src="../work/media/all-my-parts-hero-poster.jpg" alt="All My Parts iPhone app recording" /></div>
+            <p class="g-cap">Fig. 02 &middot; recorded on iPhone, demo account</p>
+          </div>
+          <div class="g-info">
+            <span class="eyebrow">All My Parts &middot; my product</span>
+            <h3 class="h3" style="margin-top:12px">An AI journaling app for IFS therapy.</h3>
+            <p class="g-outcome">idea &rarr; paid beta &middot; solo, end to end</p>
+            <p class="body" style="font-size:14.5px;margin-top:14px">Designed, built and shipped alone: product, brand, AI pipeline, billing. Live at allmyparts.me.</p>
+            <p style="margin-top:16px"><a href="work/all-my-parts.html" class="tlink">See the full story &rarr;</a></p>
+          </div>
+        </article>
+        <article class="g-item reveal">
+          <div class="g-media">
+            <div class="vhero" data-label="loop, reputable ai study designer"><img src="../work/media/reputable-health-hero-poster.jpg" alt="Reputable Health AI study designer walkthrough, from product claim to IRB-ready protocol" /></div>
+            <p class="g-cap">Fig. 03 &middot; flow rebuilt from the shipped designs, sample data</p>
+          </div>
+          <div class="g-info">
+            <span class="eyebrow">Reputable Health &middot; client</span>
+            <h3 class="h3" style="margin-top:12px">A clinical study platform, from claim to results.</h3>
+            <p class="g-outcome">ai study designer &middot; recruitment &middot; participant app &middot; results</p>
+            <p class="body" style="font-size:14.5px;margin-top:14px">An AI study designer that turns a one-line product claim into an IRB-ready protocol, plus the recruitment, participant and researcher tools a wearable study runs on.</p>
+            <p style="margin-top:16px"><a href="work/reputable-health.html" class="tlink">See the full story &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE PARTNERSHIP -->
+  <section id="partnership" class="band bp-ground-a">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="eyebrow"><span class="num">03</span> &middot; The partnership</span>
+          <h2 class="h2" style="margin-top:16px">Embedded, <em>not outsourced.</em></h2>
+        </div>
+        <div class="reveal">
+          <p class="body">I work inside your product, not alongside it: in your Slack and your standups, on whatever is most in the way that week. Some weeks that's the onboarding flow. Some weeks it's telling you the feature you're excited about isn't the one to build.</p>
+          <p class="body" style="margin-top:18px">You get direction and the actual work: core flows, the design system, the front end when writing it is faster than explaining it. Nothing waits on a handoff, because there isn't one.</p>
+        </div>
+      </div>
+      <div class="pact">
+        <div class="item reveal">
+          <div class="n">01</div>
+          <div class="t">Senior, and that's all there is</div>
+          <div class="d">No account manager, no junior doing the real work. The person you talk to is the person designing it.</div>
+        </div>
+        <div class="item reveal">
+          <div class="n">02</div>
+          <div class="t">In the room, weekly</div>
+          <div class="d">Your Slack, your standup, your roadmap. Shipping every week, not presenting every month.</div>
+        </div>
+        <div class="item reveal">
+          <div class="n">03</div>
+          <div class="t">Design that arrives shippable</div>
+          <div class="d">I build too, so direction comes as working front end and design tokens your AI tools can follow.</div>
+        </div>
+        <div class="item reveal">
+          <div class="n">04</div>
+          <div class="t">Month to month</div>
+          <div class="d">Three months to start, because month one is learning your product. After that, month to month. No lock-in.</div>
+        </div>
+      </div>
+      <p class="reveal" style="margin-top:30px"><a href="offers.html" class="tlink">How the partnership works, in detail &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- 04 WHAT IT COSTS -->
+  <section id="cost">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">04</span> &middot; What it costs</span>
+        <h2 class="h2">What you'd otherwise be <em>choosing between.</em></h2>
+      </div>
+      <div class="anchor-tbl reveal">
+        <div class="anchor-row">
+          <div class="opt">Senior product designer, in house</div>
+          <div class="fig">$140k&ndash;$210k / year</div>
+          <div class="note">Loaded cost in year one, plus two to three months to hire, and you still need someone to lead them.</div>
+        </div>
+        <div class="anchor-row">
+          <div class="opt">Design agency</div>
+          <div class="fig">$100k+ / engagement</div>
+          <div class="note">Senior partner pitches, then hands the work down. You brief through an account manager.</div>
+        </div>
+        <div class="anchor-row">
+          <div class="opt">Design subscription</div>
+          <div class="fig">$4k&ndash;$6k / month</div>
+          <div class="note">A task queue. Good for volume, no judgment about what should be on the queue in the first place.</div>
+        </div>
+        <div class="anchor-row me">
+          <div class="opt">Fractional design partner</div>
+          <div class="fig">let's talk</div>
+          <div class="note">Senior, embedded in the team, month to month. Priced against what the work is worth to you, which is a conversation, not a number on a page.</div>
+        </div>
+      </div>
+      <p class="anchor-foot reveal">Market rate for a senior fractional design partner in 2026 runs $10k&ndash;$15k a month. I'll tell you where I land on our first call, before you send a brief.</p>
+
+      <div class="entry reveal">
+        <div>
+          <span class="eyebrow">Not ready for a partner? Start here</span>
+          <h3 class="h3" style="margin-top:10px">The Prototype</h3>
+          <div class="price">$5,000 <span class="per">USD</span></div>
+          <p class="od" style="margin-top:12px;max-width:52ch">One core flow, clickable and live, in a week. Enough to show a board, test with users, or find out what working together is actually like before anyone commits to a quarter.</p>
+        </div>
+        <div>
+          <a href="offers/prototype.html" class="btn btn-secondary">See the Prototype</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 THE SHIFT -->
+  <section id="shift" class="band">
+    <div class="container">
+      <div class="two-col">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="eyebrow"><span class="num">05</span> &middot; Why this, now</span>
+          <h2 class="h2" style="margin-top:16px">Production is solved. <em>Judgment isn't.</em></h2>
+        </div>
+        <div class="reveal">
+          <p class="body">You can ship a working product in a weekend now. That used to be the hard part, and it isn't anymore. What's left is the part the tools can't do: deciding what deserves to exist, what to cut, and why the thing you just shipped feels almost right but not quite.</p>
+          <p class="body" style="margin-top:18px">Most people you'd hire for this are career designers. I'm a designer who has also shipped and run my own products, priced them, watched the signup graph stay flat, killed the features nobody used, felt every consequence of getting the experience wrong.</p>
+          <p class="body" style="margin-top:18px">That's why I don't hand you a Figma file and walk away. I sit inside the work until the product earns the outcome you need: board sign-off, the raise, a user who comes back. I've had to earn those exact yeses with my own money on the line.</p>
+        </div>
+      </div>
+      <div class="pullquote-wrap reveal">
+        <p class="pullquote">Engineers come at it from the backend. PMs from the spec. I come at it from the experience, the part that didn't get cheaper.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">06</span> &middot; What founders say</span>
+        <h2 class="h2">What founders say.</h2>
+      </div>
+      <div class="cards">
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is the rare designer who can take a fuzzy, high-stakes problem and turn it into something clean and shippable. He led the design of our COVID-19 assessment platform under real deadline pressure and made it look easy. Any team would be lucky to have him.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-kenny.png)" role="img" aria-label="Kenny Wong"></div><div class="qname"><b>Kenny Wong</b>Ex-VP Product, Genome Smart</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of, while keeping the mothers we work with firmly in mind. He'd be a valuable addition to any early-stage start-up.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-alison.png)" role="img" aria-label="Alison Greenberg"></div><div class="qname"><b>Alison Greenberg</b>Former Co-CEO, Ruth Health (YC S21)</div></div></article>
+        <article class="quote-card reveal"><div class="qmark">&ldquo;</div><p class="body" style="font-size:15.5px;color:var(--ink);margin:14px 0 4px">Humayun is one of those rare people who can design and build the whole thing.</p><div class="qfoot"><div class="qface" style="background-image:url(../brand/maya/avatar-robleh.png)" role="img" aria-label="Robleh Jama"></div><div class="qname"><b>Robleh Jama</b>Founder, Boom</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 LAB -->
+  <section id="lab" class="band">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="eyebrow"><span class="num">07</span> &middot; Lab</span>
+          <h2 class="h2" style="margin-top:16px">What I'm tinkering on.</h2>
+          <p class="body" style="margin-top:22px">Between client work I build things for myself: apps, prototypes, small experiments. Some grow into real products with paying users, some stay tests. Either way, this is where I try a new tool or idea on my own time before it goes anywhere near yours.</p>
+          <p style="margin-top:18px"><a href="lab.html" class="tlink">Everything in the Lab &rarr;</a></p>
+        </div>
+        <div class="reveal">
+          <div class="cards" style="grid-template-columns:1fr;gap:14px">
+            <article class="card">
+              <h3 class="h3">One Minute French</h3>
+              <p class="body" style="font-size:14px;margin-top:8px">Beginner French lessons by text message. No app, one minute a day.</p>
+              <p style="margin-top:12px"><a href="lab/one-minute-french.html" class="tlink">Read the entry &rarr;</a></p>
+            </article>
+            <article class="card">
+              <h3 class="h3">Cortex</h3>
+              <p class="body" style="font-size:14px;margin-top:8px">Design vocabulary, illustrated. 29 decks drilled a few minutes a day.</p>
+              <p style="margin-top:12px"><a href="lab/cortex.html" class="tlink">Read the entry &rarr;</a></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head reveal"><span class="eyebrow"><span class="num">08</span> &middot; About</span></div>
+      <div class="about-grid">
+        <div class="about-portrait reveal" style="overflow:hidden"><img src="../brand/maya/portrait-min-2.png" alt="Illustrated portrait of Humayun" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div class="reveal">
+          <p class="lede" style="color:var(--ink)">I'm Humayun, a product designer and builder based in Montreal, working remotely since 2020. Shopify, ClassDojo, and healthtech teams including Ruth Health, Reputable Health and Ambry Genetics before going independent.</p>
+          <p class="body" style="margin-top:18px">Now I run Studio Maya: I embed with founders as their design partner, and I build my own products. The name is from Raymond Loewy's principle, <em>Most Advanced Yet Acceptable</em>, the line between novel and familiar, which is exactly where good products live.</p>
+          <p class="body" style="margin-top:18px">The studio is one person on purpose. One founder at a time, so the person you meet on the first call is the person in your product every week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final bp-ground-a g-ground-c">
+    <div class="container">
+      <div class="final-inner reveal">
+        <h2 class="h2">Building something that has to be <em>right?</em></h2>
+        <p class="body">I take one founder at a time. If the timing's right, let's talk.</p>
+        <div class="final-cta">
+          <a href="https://cal.com/humayunkhan" target="_blank" rel="noopener" class="btn btn-primary">Book a fit call</a>
+          <a href="mailto:humayun@studiomaya.io" class="final-mail">humayun@studiomaya.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="#top" class="logo"><span class="wm" style="font-size:19px">studio maya<span class="red">.</span></span></a>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/khanhumayun">LinkedIn</a>
+        <a href="https://x.com/humayunkhan">X</a>
+        <a href="https://github.com/humayunk">GitHub</a>
+      </div>
+      <p class="foot-cap">&copy; 2026 Studio Maya, Most Advanced Yet Acceptable</p>
+    </div>
+  </footer>
+<section class="spec-sheet"><div class="container">
+<div class="dsec d-base"><h2>Current site, measured</h2><div class="sw-row"><div class="sw"><i style="background:#F4F1E8"></i><div><b>--paper</b><br>#F4F1E8</div></div><div class="sw"><i style="background:#FBF9F2"></i><div><b>--surface</b><br>#FBF9F2</div></div><div class="sw"><i style="background:#F0EBDD"></i><div><b>--surface-2</b><br>#F0EBDD</div></div><div class="sw"><i style="background:#14110f"></i><div><b>--ink</b><br>#14110f</div></div><div class="sw"><i style="background:#0B3D91"></i><div><b>--blue</b><br>#0B3D91</div></div><div class="sw"><i style="background:#E63329"></i><div><b>--red</b><br>#E63329</div></div><div class="sw"><i style="background:#9a9388"></i><div><b>--faint</b><br>#9a9388</div></div></div>
+<ol class="rules"><li>Every section is either paper (#F4F1E8) or surface (#FBF9F2). Those two are 1.07:1 apart, so the page reads as one long beige sheet.</li><li>Blue does three jobs: buttons, links, and the emphasised word in every headline. Nothing is left to mark a section as special.</li><li>--faint (captions, the market-rate line, testimonial titles) fails AA at 2.69:1. All three directions fix it to #6f675c.</li></ol><table class="ctab"><tr><th></th><th>text</th><th>on</th><th>ratio</th><th>needs</th><th></th></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#14110f;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink #14110f</td><td>paper #F4F1E8</td><td>16.65:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#4a443d;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink-soft #4a443d</td><td>paper #F4F1E8</td><td>8.51:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#FBF9F2;color:#6a6258;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>muted #6a6258</td><td>surface #FBF9F2</td><td>5.69:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#9a9388;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>faint #9a9388</td><td>paper #F4F1E8</td><td>2.69:1</td><td>body 4.5</td><td class="no">FAIL</td></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>paper #F4F1E8</td><td>8.89:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#FBF9F2;color:#F4F1E8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>paper vs surface (bg vs bg) #F4F1E8</td><td>surface #FBF9F2</td><td>1.07:1</td><td>non-text 3.0</td><td class="no">FAIL</td></tr></table></div>
+<div class="dsec d-a"><h2>A · Spec mode</h2><div class="sw-row"><div class="sw"><i style="background:#0E2F66"></i><div><b>--bp-stock</b><br>#0E2F66</div></div><div class="sw"><i style="background:#F4F1E8"></i><div><b>--bp-text</b><br>#F4F1E8</div></div><div class="sw"><i style="background:#C9D4E8"></i><div><b>--bp-body</b><br>#C9D4E8</div></div><div class="sw"><i style="background:#9FB8E6"></i><div><b>--bp-label</b><br>#9FB8E6</div></div><div class="sw"><i style="background:#E4EBF5"></i><div><b>--vellum</b><br>#E4EBF5</div></div><div class="sw"><i style="background:#6f675c"></i><div><b>--faint (fixed)</b><br>#6f675c</div></div></div>
+<ol class="rules"><li><b>bp-stock</b>, a blueprint print ground with a paper grid: the Partnership section and the final CTA only. It is darker than the button blue so it never reads as a giant button.</li><li><b>bp-label</b> takes over eyebrows, numerals and the headline emphasis on the blue ground. bp-body for paragraphs.</li><li><b>vellum</b>, a pale drafting-film blue: your row in the cost table and the $5k Prototype card, the two things a buyer should land on.</li><li>On bp-stock the primary button inverts to paper with blue text. Still blue, still the only button style.</li><li>Red unchanged.</li></ol><table class="ctab"><tr><th></th><th>text</th><th>on</th><th>ratio</th><th>needs</th><th></th></tr><tr><td><span class="chip" style="background:#0E2F66;color:#F4F1E8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>paper #F4F1E8</td><td>bp-stock #0E2F66</td><td>11.5:1</td><td>large 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#0E2F66;color:#C9D4E8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>bp-body #C9D4E8</td><td>bp-stock #0E2F66</td><td>8.7:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#0E2F66;color:#9FB8E6;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>bp-label #9FB8E6</td><td>bp-stock #0E2F66</td><td>6.48:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue (button text) #0B3D91</td><td>paper (button) #F4F1E8</td><td>8.89:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#0E2F66;color:#F4F1E8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>paper button vs bp-stock (edge) #F4F1E8</td><td>bp-stock #0E2F66</td><td>11.5:1</td><td>non-text 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>vellum #E4EBF5</td><td>8.37:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#14110f;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink #14110f</td><td>vellum #E4EBF5</td><td>15.67:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#6a6258;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>muted #6a6258</td><td>vellum #E4EBF5</td><td>5.0:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#4a443d;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink-soft #4a443d</td><td>vellum #E4EBF5</td><td>8.01:1</td><td>body 4.5</td><td class="ok">pass</td></tr></table></div>
+<div class="dsec d-b"><h2>B · Paper stocks</h2><div class="sw-row"><div class="sw"><i style="background:#DCE6D2"></i><div><b>--pad-green</b><br>#DCE6D2</div></div><div class="sw"><i style="background:#2C5535"></i><div><b>--pad-ink</b><br>#2C5535</div></div><div class="sw"><i style="background:#F6F9F1"></i><div><b>--pad-card</b><br>#F6F9F1</div></div><div class="sw"><i style="background:#F7EDBE"></i><div><b>--legal</b><br>#F7EDBE</div></div><div class="sw"><i style="background:#E4EBF5"></i><div><b>--vellum</b><br>#E4EBF5</div></div><div class="sw"><i style="background:#FFFEFA"></i><div><b>--index</b><br>#FFFEFA</div></div></div>
+<ol class="rules"><li>Each key section is printed on a different stock from the same notebook. <b>pad-green</b>, an engineering pad with its own green grid: Partnership. <b>pad-ink</b> for its labels and numerals.</li><li><b>legal</b>, a yellow legal-pad sheet with blue rules and a faint red margin line: the $5k Prototype card only.</li><li><b>index</b>, white index cards with a blue header rule: testimonials.</li><li><b>vellum</b>: the Why-now section, the final CTA and your row in the cost table.</li><li>No dark grounds. Blue and red roles unchanged.</li></ol><table class="ctab"><tr><th></th><th>text</th><th>on</th><th>ratio</th><th>needs</th><th></th></tr><tr><td><span class="chip" style="background:#DCE6D2;color:#14110f;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink #14110f</td><td>pad-green #DCE6D2</td><td>14.59:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#DCE6D2;color:#4a443d;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink-soft #4a443d</td><td>pad-green #DCE6D2</td><td>7.46:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#DCE6D2;color:#2C5535;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>pad-ink #2C5535</td><td>pad-green #DCE6D2</td><td>6.63:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#DCE6D2;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>pad-green #DCE6D2</td><td>7.79:1</td><td>large 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F6F9F1;color:#6a6258;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>muted #6a6258</td><td>pad-card #F6F9F1</td><td>5.64:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F6F9F1;color:#2C5535;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>pad-ink #2C5535</td><td>pad-card #F6F9F1</td><td>8.03:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F7EDBE;color:#14110f;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink #14110f</td><td>legal #F7EDBE</td><td>15.95:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F7EDBE;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>legal #F7EDBE</td><td>8.52:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F7EDBE;color:#6a6258;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>faint-&gt;muted (USD) #6a6258</td><td>legal #F7EDBE</td><td>5.09:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#4a443d;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink-soft #4a443d</td><td>vellum #E4EBF5</td><td>8.01:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#E4EBF5;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>vellum #E4EBF5</td><td>8.37:1</td><td>large 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#FFFEFA;color:#6a6258;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>muted #6a6258</td><td>index #FFFEFA</td><td>5.94:1</td><td>body 4.5</td><td class="ok">pass</td></tr></table></div>
+<div class="dsec d-c"><h2>C · Graphite + highlighter</h2><div class="sw-row"><div class="sw"><i style="background:#1C2024"></i><div><b>--graphite</b><br>#1C2024</div></div><div class="sw"><i style="background:#F4F1E8"></i><div><b>--on-g</b><br>#F4F1E8</div></div><div class="sw"><i style="background:#BFC4C8"></i><div><b>--on-g-body</b><br>#BFC4C8</div></div><div class="sw"><i style="background:#959CA3"></i><div><b>--on-g-muted</b><br>#959CA3</div></div><div class="sw"><i style="background:#9FB8E6"></i><div><b>--on-g-label</b><br>#9FB8E6</div></div><div class="sw"><i style="background:#F2DE4E"></i><div><b>--hl</b><br>#F2DE4E</div></div></div>
+<ol class="rules"><li><b>graphite</b>, a cool drafting-lead grey (not warm black): the Selected Work section, so the screenshots sit on a lightbox, and the final CTA.</li><li><b>hl</b>, a lemon highlighter swipe, replaces blue on every headline emphasis, including "Taste". Highlighter always sits under ink text, never used as a text colour.</li><li>This frees blue to mean one thing: click here.</li><li>Your row in the cost table inverts to graphite with "let's talk" highlighted.</li><li>Red unchanged.</li></ol><table class="ctab"><tr><th></th><th>text</th><th>on</th><th>ratio</th><th>needs</th><th></th></tr><tr><td><span class="chip" style="background:#1C2024;color:#F4F1E8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>paper #F4F1E8</td><td>graphite #1C2024</td><td>14.51:1</td><td>large 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#1C2024;color:#BFC4C8;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>on-graphite-body #BFC4C8</td><td>graphite #1C2024</td><td>9.32:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#1C2024;color:#959CA3;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>on-graphite-muted #959CA3</td><td>graphite #1C2024</td><td>5.9:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#1C2024;color:#9FB8E6;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>bp-label #9FB8E6</td><td>graphite #1C2024</td><td>8.17:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F2DE4E;color:#14110f;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>ink #14110f</td><td>highlighter #F2DE4E</td><td>13.73:1</td><td>large 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#1C2024;color:#F2DE4E;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>highlighter vs graphite (swipe edge) #F2DE4E</td><td>graphite #1C2024</td><td>11.97:1</td><td>non-text 3.0</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#F4F1E8;color:#0B3D91;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>blue #0B3D91</td><td>paper button #F4F1E8</td><td>8.89:1</td><td>body 4.5</td><td class="ok">pass</td></tr><tr><td><span class="chip" style="background:#0B3D91;color:#FFFFFF;border:1px solid rgba(0,0,0,.1)">Aa</span></td><td>white #FFFFFF</td><td>blue button #0B3D91</td><td>10.04:1</td><td>body 4.5</td><td class="ok">pass</td></tr></table></div>
+</div></section>
+<script>
+var DESC={"base": "Current site. Two creams 1.07:1 apart, blue on every headline.", "a": "A \u00b7 Spec mode. Blueprint-stock grounds on Partnership + final CTA, vellum on the two buy points.", "b": "B \u00b7 Paper stocks. Engineering-pad green, legal-pad yellow, index cards, vellum. No dark grounds.", "c": "C \u00b7 Graphite + highlighter. Graphite lightbox for Work + CTA, marker swipe replaces blue in headlines."};
+window.setDir=function(d){document.body.setAttribute('data-dir',d);document.querySelectorAll('.switcher button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.d===d?'true':'false')});document.getElementById('desc').textContent=DESC[d];if(history.replaceState)history.replaceState(null,'','#'+d);window.dispatchEvent(new Event('resize'));};
+document.querySelectorAll('.switcher button').forEach(function(b){b.addEventListener('click',function(){setDir(b.dataset.d)})});
+document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});
+setDir((location.hash||'#a').slice(1) in DESC?(location.hash||'#a').slice(1):'a');
+/* Hero annotation: dimension lines that measure the headline for real.
+       Values come from getBoundingClientRect and a canvas cap-height read, so they
+       stay true at every viewport instead of being decorative. Never hand-write one. */
+    (function(){
+      var NS='http://www.w3.org/2000/svg';
+      var svg=document.getElementById('anno'), line=document.getElementById('heroline');
+      if(!svg||!line) return;
+      function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+      function capHeight(node){
+        var cs=getComputedStyle(node), c=document.createElement('canvas').getContext('2d');
+        c.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+        var m=c.measureText('H');
+        return m.actualBoundingBoxAscent||parseFloat(cs.fontSize)*0.72;
+      }
+      function draw(){
+        while(svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.classList.remove('in');
+        if(window.innerWidth<900) return;
+        var h=svg.getBoundingClientRect(), r=line.getBoundingClientRect();
+        var L={x:r.left-h.left,y:r.top-h.top,w:r.width,r:r.right-h.left,b:r.bottom-h.top};
+        var rects=line.getClientRects(); if(!rects.length) return;
+        var cap=Math.round(capHeight(line)), gx=L.x-40;
+        var fy=rects[0].top-h.top, fb=fy+cap;
+        if(gx<8) return;                                  // no gutter to draw in
+        var paths=[];
+        // cap-height, measured in the left gutter of the first line
+        paths.push(svg.appendChild(el('path',{d:'M'+gx+','+fy+' H'+(L.x-8)+' M'+gx+','+fb+' H'+(L.x-8)+' M'+gx+','+fy+' V'+fb,class:'bp','data-draw':''})));
+        var t1=el('text',{x:gx-6,y:(fy+fb)/2,class:'figv','text-anchor':'end'}); t1.textContent=cap+' PX'; svg.appendChild(t1);
+        // width, tucked under the last baseline, label clear of the lede's measure
+        var wy=L.b+13;
+        paths.push(svg.appendChild(el('path',{d:'M'+L.x+','+(wy-5)+' V'+(wy+5)+' M'+L.r+','+(wy-5)+' V'+(wy+5)+' M'+L.x+','+wy+' H'+L.r,class:'bp','data-draw':''})));
+        var t2=el('text',{x:L.r+10,y:wy+3.5,class:'figv'}); t2.textContent=Math.round(L.w)+' PX'; svg.appendChild(t2);
+        paths.forEach(function(p){ p.style.setProperty('--len', p.getTotalLength?p.getTotalLength():600); });
+        /* synchronous flush, not rAF: rAF is paused in background tabs, which would
+           leave the annotation permanently invisible for anyone opening in a new tab */
+        void svg.getBoundingClientRect();
+        svg.classList.add('in');
+      }
+      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw); else window.addEventListener('load',draw);
+      var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150);});
+    })();
+</script></body></html>
