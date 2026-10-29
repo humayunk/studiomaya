@@ -32,11 +32,16 @@ History: earlier versions used a hand-drawn "Maya" robot mark. It was retired in
 | `--ink` | `#14110f` | text, marker strokes |
 | `--ink-soft` | `#4a443d` | body text |
 | `--muted` | `#6a6258` | secondary text |
-| `--faint` | `#9a9388` | captions, placeholders |
+| `--faint` | `#6f675c` | captions, placeholders (was `#9a9388`, which failed WCAG AA) |
 | `--blue` | `#0B3D91` | blueprint blue — primary accent, links, buttons |
 | `--cyan` | `#2E6FE8` | blueprint line accent |
 | `--red` | `#E63329` | signal red — sparingly (antenna, the period, key markers) |
 | `--grid` | `rgba(11,61,145,0.07)` | the graph-paper lines (28px) |
+| `--graphite` | `#1C2024` | dark ground for Selected Work and the closing CTA (`.graphite`) |
+| `--on-g` / `--on-g-body` / `--on-g-muted` / `--on-g-label` | `#F4F1E8` / `#BFC4C8` / `#959CA3` / `#9FB8E6` | text on graphite: headings, body, captions, labels and links |
+| `--hl` | `#F2DE4E` | highlighter: emphasised headline words, our row's price in the cost table |
+
+**Colour rules (direction C, 2026-10, issue #31).** Blue is the action colour only: buttons and links. Emphasised headline words (`em`, `.accent-i`) get a yellow marker swipe, not blue. Graphite bookends the homepage (Selected Work, closing CTA) and is the ground for every subpage's closing CTA (`.graphite.cta-compact`). Minor homepage sections sit on plain graph paper so the coloured sections read as deliberate. Two other explored directions (A "spec mode" blueprint blue, B "paper stocks") and the full audit with contrast tables are saved in `brand/color-directions-2026-10.html`.
 
 Avoid: warm-near-black + gold (the old generic look), AI purple/violet, healthtech sky-blue.
 

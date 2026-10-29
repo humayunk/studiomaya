@@ -5,7 +5,7 @@
    =================================================================== */
 :root{
   --paper:#F4F1E8; --surface:#FBF9F2; --surface-2:#F0EBDD;
-  --ink:#14110f; --ink-soft:#4a443d; --muted:#6a6258; --faint:#9a9388;
+  --ink:#14110f; --ink-soft:#4a443d; --muted:#6a6258; --faint:#6f675c;
   --blue:#0B3D91; --cyan:#2E6FE8; --red:#E63329;
   --line:rgba(20,17,15,0.14); --line-soft:rgba(20,17,15,0.08);
   --grid:rgba(11,61,145,0.07);
@@ -347,3 +347,39 @@ section.light{padding:clamp(56px,8vh,96px) 0;border-top:none}
 .lab-body .body{font-size:15px}
 .lab-body .tlink{align-self:flex-start;margin-top:auto;padding-top:6px}
 .lab-live{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,4vh,34px)}
+
+/* ===================================================================
+   Colour direction C, "graphite + highlighter" (2026-10, issue #31)
+   The page was one beige sheet and blue did three jobs. Now:
+   - blue is the action colour only (buttons, links)
+   - emphasised headline words get a yellow marker swipe instead of blue
+   - Selected Work and the closing CTA sit on graphite, bookending the page
+   The other explored directions are saved in brand/color-directions-2026-10.html.
+   =================================================================== */
+:root{--graphite:#1C2024;--graphite-2:#262B30;--graphite-rule:rgba(244,241,232,.14);
+  --on-g:#F4F1E8;--on-g-body:#BFC4C8;--on-g-muted:#959CA3;--on-g-label:#9FB8E6;--hl:#F2DE4E}
+.h1 em,.h2 em,.h1-sub em,.h2-sub em,.accent-i{color:var(--ink);background:linear-gradient(transparent 52%,var(--hl) 52%,var(--hl) 92%,transparent 92%);padding:0 .08em;margin:0 -.04em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.graphite{background-color:var(--graphite);color:var(--on-g);border-top:none;
+  background-image:linear-gradient(rgba(244,241,232,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,232,.04) 1px,transparent 1px);background-size:28px 28px}
+.graphite .h1,.graphite .h2,.graphite .h3,.graphite .h2-sub{color:var(--on-g)}
+.graphite .eyebrow,.graphite .g-outcome{color:var(--on-g-label)}
+.graphite .eyebrow .num{color:var(--on-g)}
+.graphite .body,.graphite .lede{color:var(--on-g-body)}
+.graphite .g-cap,.graphite .final-mail,.graphite figcaption{color:var(--on-g-muted)}
+.graphite .final-mail:hover{color:var(--on-g)}
+.graphite .tlink{color:var(--on-g-label);border-bottom-color:rgba(159,184,230,.5)}
+.graphite .tlink:hover{border-bottom-color:var(--on-g-label)}
+.graphite .g-media .vhero{border-color:var(--graphite-rule);background:var(--graphite-2)}
+.graphite .btn-primary{background:var(--on-g);color:var(--blue)}
+.graphite .btn-primary:hover{background:#fff}
+/* on graphite the swipe sits behind the whole word, or the tops of ink letters vanish into the ground */
+.graphite .h2 em,.graphite .h2-sub em,.graphite .accent-i{background:var(--hl);padding:0 .1em;border-radius:2px;margin:0}
+
+/* where buyers decide: our row in the cost table and the priced Prototype get real weight */
+.anchor-row.me{background:var(--graphite)}
+.anchor-row.me .opt{color:var(--on-g)}
+.anchor-row.me .fig{color:var(--ink);background:var(--hl);justify-self:start;padding:3px 8px;border-radius:2px;font-weight:600}
+.anchor-row.me .note{color:var(--on-g-body)}
+.entry{border:1.5px solid var(--ink)}
+.pact .n{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:0;text-transform:none;color:var(--ink);line-height:1}
