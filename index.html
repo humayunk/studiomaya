@@ -32,7 +32,7 @@
   <header class="hero sheet" id="top">
     <div class="container">
       <div class="hero-text reveal">
-        <span class="avail eyebrow"><span class="dot"></span>One partner seat open, September 2026</span>
+        <span class="avail eyebrow"><span class="dot"></span>One partner seat open<span data-this-month></span></span>
         <h1 class="h1" id="heroline">The build got cheap. <em>Taste</em> didn't.</h1>
         <p class="lede">A fractional design partner for healthtech founders. I'm in your Slack daily and shipping every week, and because I build with AI too, the work arrives ready to ship.</p>
         <div class="hero-cta">
@@ -303,6 +303,9 @@
 
   <script>
     (function(){
+      // availability line: fill in the current month so it never goes stale (without JS it reads "One partner seat open")
+      var month=new Date().toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'America/Toronto'});
+      document.querySelectorAll('[data-this-month]').forEach(function(el){el.textContent=', '+month});
       var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.12});
       document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
       var vobs=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.play().catch(function(){})}else{v.pause()}})},{threshold:0.2,rootMargin:'400px 0px'});
