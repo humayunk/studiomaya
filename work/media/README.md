@@ -7,6 +7,7 @@ hero on that case study swaps from the placeholder to the video, no code change 
 |---|---|---|
 | All My Parts | `all-my-parts-hero.mp4` | `all-my-parts-hero-poster.jpg` |
 | Reputable Health | `reputable-health-hero.mp4` | `reputable-health-hero-poster.jpg` |
+| Ruth Health | `ruth-health-hero.mp4` | `ruth-health-hero-poster.jpg` |
 
 ## Specs
 
